@@ -1,6 +1,12 @@
 :root {
-  --main-black: #111115;
-  --main-yellow: #ffe81f;
+  --black-main: #111115;
+  --red-main: #ad151b;
+  --white-main: #fffff7;
+  --yellow-main: #ffe81f;
+  --yellow-secundary: #e6d64a;
+  --font-dates: "Roboto Slab Variable", var(--font-main);
+  --font-main: "Roboto Variable", Arial, Helvetica, sans-serif;
+  --font-title: "MuseoModerno Variable", var(--font-main);
 }
 
 *,
@@ -11,12 +17,16 @@
 
 body {
   margin: 0;
-  background-color: var(--main-black);
-  color: var(--main-yellow);
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: var(--black-main);
+  color: var(--black-main);
+  font-family: var(--font-main);
 }
 
-.container {
-  max-width: 500px;
-  margin: 0 auto;
+h1 {
+  margin: 0;
+}
+
+image {
+  max-width: 100%;
+  height: auto;
 }

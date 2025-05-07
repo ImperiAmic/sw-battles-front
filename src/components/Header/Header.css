@@ -1,0 +1,22 @@
+.header-container {
+  min-height: 9.375rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--yellow-main);
+}
+
+.header-title {
+  color: var(--yellow-main);
+  font-family: var(--font-title);
+  font-size: 2.188rem;
+  text-align: center;
+}
+
+.header-background {
+  position: absolute;
+  object-fit: cover;
+  z-index: -1;
+  width: 100%;
+}
