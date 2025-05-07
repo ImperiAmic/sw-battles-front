@@ -11,15 +11,15 @@ export default defineConfig({
     setupFiles: ["src/setupTest.ts"],
     coverage: {
       provider: "v8",
-      include: ["**/*test.tsx", "**/*test.ts"],
+      include: ["**/*.tsx", "**/*.ts"],
       exclude: [
         "src/main.tsx",
         "src/vite-env.d.ts",
         "**/types.ts",
         "./vite.config.ts",
-        "src/components/App/App.tsx",
       ],
       reportsDirectory: "./coverage",
+      reporter: ["lcov", "text", "html", "clover", "json"],
     },
   },
 });
