@@ -12,6 +12,9 @@
 
 .page-info__title {
   font-family: var(--font-title);
+  font-weight: 900;
+  font-size: 1.875rem;
+  text-align: center;
 }
 
 .page-info__details {
