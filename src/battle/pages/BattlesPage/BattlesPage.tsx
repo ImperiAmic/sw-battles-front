@@ -5,7 +5,7 @@ const BattlesPage: React.FC = () => {
     <div className="battles-container">
       <header className="page-info">
         <h2 className="page-info__title">Your battles collection!</h2>
-        <span className="page-info__details">Showing: 6 of 15 battles</span>
+        <span className="page-info__details">Showing: 0 of 0 battles</span>
       </header>
     </div>
   );

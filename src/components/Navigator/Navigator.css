@@ -16,6 +16,6 @@
   font-size: 1.25rem;
 }
 
-.navigator__link--active {
+.active {
   font-weight: 700;
 }

@@ -18,8 +18,7 @@
 }
 
 .header-background {
+  z-index: -1;
   position: absolute;
   object-fit: cover;
-  z-index: -1;
-  width: 100%;
 }
