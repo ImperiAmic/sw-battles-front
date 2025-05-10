@@ -1,0 +1,21 @@
+.navigator__list {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.navigator__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--yellow-main);
+  border-radius: 12px;
+  font-weight: 300;
+  height: 1.875rem;
+  width: 8.125rem;
+  font-size: 1.25rem;
+}
+
+.navigator__link--active {
+  font-weight: 700;
+}

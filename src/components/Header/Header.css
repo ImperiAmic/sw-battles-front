@@ -1,10 +1,12 @@
 .header-container {
   min-height: 9.375rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
   border-bottom: 1px solid var(--yellow-main);
+  gap: 24px;
 }
 
 .header-title {
@@ -12,6 +14,7 @@
   font-family: var(--font-title);
   font-size: 2.188rem;
   text-align: center;
+  line-height: 2rem;
 }
 
 .header-background {
