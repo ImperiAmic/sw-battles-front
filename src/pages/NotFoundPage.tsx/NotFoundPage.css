@@ -1,0 +1,31 @@
+.notfound-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  color: var(--color-main);
+  gap: 24px;
+}
+
+.not-found__title,
+.quote__pharagraph {
+  text-align: center;
+}
+
+.not-found__title {
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-size: 1.875rem;
+}
+
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 1.25rem;
+}
+
+.quote__author {
+  font-style: italic;
+  align-self: flex-end;
+}
