@@ -9,7 +9,7 @@ const Header: React.FC = () => {
         className="header-background"
         srcSet="/images/hyperspace-small.webp 320w, /images/hyperspace-big.webp 600w"
         sizes="(max-width: 400px) 320px, 600px"
-        src="/images/hyperspace-small.webp"
+        src="/images/hyperspace-big.webp"
         alt="Representation of when stars seem to elongate just as a ship begins to enter hyperspace"
         height={150}
         width={600}

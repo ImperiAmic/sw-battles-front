@@ -6,10 +6,7 @@ const Navigator: React.FC = () => {
     <nav>
       <ul className="navigator__list">
         <li>
-          <NavLink
-            className="navigator__link navigator__link--active"
-            to="/battles"
-          >
+          <NavLink className="navigator__link" to="/battles">
             Battles List
           </NavLink>
         </li>
