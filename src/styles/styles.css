@@ -4,9 +4,9 @@
   --color-main: #ffe81f;
   --color-secundary: #e6d64a;
   --color-terciary: #ad151b;
-  --font-dates: "Roboto Slab Variable", var(--font-main);
   --font-main: "Roboto Variable", Arial, Helvetica, sans-serif;
   --font-title: "MuseoModerno Variable", var(--font-main);
+  --font-details: "Roboto Slab Variable", var(--font-main);
 }
 
 *,
@@ -22,7 +22,8 @@ body {
   font-family: var(--font-main);
 }
 
-h1 {
+h1,
+h2 {
   margin: 0;
 }
 
