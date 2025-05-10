@@ -1,9 +1,9 @@
 :root {
-  --black-main: #111115;
-  --red-main: #ad151b;
-  --white-main: #fffff7;
-  --yellow-main: #ffe81f;
-  --yellow-secundary: #e6d64a;
+  --dark-main: #111115;
+  --light-main: #fffff7;
+  --color-main: #ffe81f;
+  --color-secundary: #e6d64a;
+  --color-terciary: #ad151b;
   --font-dates: "Roboto Slab Variable", var(--font-main);
   --font-main: "Roboto Variable", Arial, Helvetica, sans-serif;
   --font-title: "MuseoModerno Variable", var(--font-main);
@@ -17,8 +17,8 @@
 
 body {
   margin: 0;
-  background-color: var(--black-main);
-  color: var(--black-main);
+  background-color: var(--dark-main);
+  color: var(--dark-main);
   font-family: var(--font-main);
 }
 

@@ -5,12 +5,12 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
-  border-bottom: 1px solid var(--yellow-main);
+  border-bottom: 1px solid var(--color-main);
   gap: 24px;
 }
 
 .header-title {
-  color: var(--yellow-main);
+  color: var(--color-main);
   font-family: var(--font-title);
   font-size: 2.188rem;
   text-align: center;
