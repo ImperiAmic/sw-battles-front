@@ -1,6 +1,8 @@
 import { MemoryRouter } from "react-router";
 import { render, screen } from "@testing-library/react";
 import AppRouter from "./AppRouter";
+import { Provider } from "react-redux";
+import { store } from "../store/store";
 
 describe("Given the AppRouter component", () => {
   describe("When it renders in path '/'", () => {
@@ -8,9 +10,11 @@ describe("Given the AppRouter component", () => {
       const expectedText = /your battles collection/i;
 
       render(
-        <MemoryRouter initialEntries={["/battles"]}>
-          <AppRouter />
-        </MemoryRouter>,
+        <Provider store={store}>
+          <MemoryRouter initialEntries={["/battles"]}>
+            <AppRouter />
+          </MemoryRouter>
+        </Provider>,
       );
 
       const battlesPageTitle = screen.getByRole("heading", {
@@ -26,9 +30,11 @@ describe("Given the AppRouter component", () => {
       const expectedNotFoundText = /r2-d2 noises/i;
 
       render(
-        <MemoryRouter initialEntries={["/palpatine"]}>
-          <AppRouter />
-        </MemoryRouter>,
+        <Provider store={store}>
+          <MemoryRouter initialEntries={["/palpatine"]}>
+            <AppRouter />
+          </MemoryRouter>
+        </Provider>,
       );
 
       const notFoundPageText = screen.getByText(expectedNotFoundText);

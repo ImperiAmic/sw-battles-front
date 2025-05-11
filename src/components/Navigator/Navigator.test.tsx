@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import Navigator from "./Navigator";
 import { MemoryRouter } from "react-router";
+import { Provider } from "react-redux";
+import { store } from "../../store/store";
 
 describe("Given the Navigator component", () => {
   describe("When it renders", () => {
@@ -8,16 +10,18 @@ describe("Given the Navigator component", () => {
       const expectedLinkText = /battles list/i;
 
       render(
-        <MemoryRouter>
-          <Navigator />
-        </MemoryRouter>,
+        <Provider store={store}>
+          <MemoryRouter>
+            <Navigator />
+          </MemoryRouter>
+        </Provider>,
       );
 
-      const postsLink = screen.getByRole("link", {
+      const battlesListLink = screen.getByRole("link", {
         name: expectedLinkText,
       });
 
-      expect(postsLink).toBeInTheDocument();
+      expect(battlesListLink).toBeInTheDocument();
     });
   });
 });

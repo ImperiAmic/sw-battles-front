@@ -6,8 +6,7 @@ export const battleOfEmpuries: BattleDto = {
   conflict: "Second Punic War",
   year: 218,
   period: "BBY",
-  imageUrl:
-    "https://upload.wikimedia.org/wikipedia/commons/3/38/Empúries_Ruins.jpg",
+  imageUrl: "",
   description:
     "Roman general Gnaeus Scipio landed at Empúries to confront the Carthaginian presence in Iberia. The victory laid the foundation for Roman influence in the region that would become Catalonia.",
   lightSide: ["Roman Republic"],
