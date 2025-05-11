@@ -6,11 +6,14 @@ import "@fontsource-variable/museomoderno/index.css";
 import "./styles/styles.css";
 import AppRouter from "./router/AppRouter";
 import { BrowserRouter } from "react-router";
+import BattleContextProvider from "./battle/context/BattlesContextProvider";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
-      <AppRouter />
-    </BrowserRouter>
+    <BattleContextProvider>
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
+    </BattleContextProvider>
   </StrictMode>,
 );
