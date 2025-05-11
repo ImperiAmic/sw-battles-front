@@ -1,13 +1,12 @@
-import { useCallback, useMemo, useState } from "react";
-import type { BattleContextStructure } from "../context/types";
-import type { BattlesInfo } from "../../types";
+import { useCallback, useMemo } from "react";
 import BattleClient from "../client/BattleClient";
+import { loadBattlesActionCreator } from "../slice/battleSlice";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
-const useBattles = (): BattleContextStructure => {
-  const [battlesInfo, setBattlesInfo] = useState<BattlesInfo>({
-    battles: [],
-    battlesTotal: 0,
-  });
+const useBattles = () => {
+  const battles = useAppSelector((state) => state.battlesReducer.battles);
+
+  const dispatch = useAppDispatch();
 
   const battleClient = useMemo(() => new BattleClient(), []);
 
@@ -15,11 +14,13 @@ const useBattles = (): BattleContextStructure => {
     async (page?: number): Promise<void> => {
       const apiBattlesInfo = await battleClient.getBattlesInfo(page);
 
-      setBattlesInfo(apiBattlesInfo);
+      const action = loadBattlesActionCreator(apiBattlesInfo);
+
+      dispatch(action);
     },
-    [battleClient],
+    [battleClient, dispatch],
   );
-  return { ...battlesInfo, loadBattlesInfo };
+  return { battles, loadBattlesInfo };
 };
 
 export default useBattles;
