@@ -1,12 +1,13 @@
-import { useSearchParams } from "react-router";
-import useBattlesProvider from "../../hooks/useBattlesProvider";
-import "./BattlesPage.css";
 import { useEffect } from "react";
+import { useSearchParams } from "react-router";
+import useBattles from "../../hooks/useBattles";
+import "./BattlesPage.css";
 
 const BattlesPage: React.FC = () => {
-  const { battles, battlesTotal, loadBattlesInfo } = useBattlesProvider();
-  const [searchParams] = useSearchParams();
+  const { battles, loadBattlesInfo } = useBattles();
+  const { battles: groupOfBattles, battlesTotal } = battles;
 
+  const [searchParams] = useSearchParams();
   const page = searchParams.get("page") ? Number(searchParams.get("page")) : 1;
 
   useEffect(() => {
@@ -20,7 +21,7 @@ const BattlesPage: React.FC = () => {
       <header className="page-info">
         <h2 className="page-info__title">Your battles collection!</h2>
         <span className="page-info__details">
-          Showing: {battles.length} of {battlesTotal} battles
+          Showing: {groupOfBattles.length} of {battlesTotal} battles
         </span>
       </header>
     </div>
