@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import Navigator from "./Navigator";
 import { MemoryRouter } from "react-router";
-import BattleContextProvider from "../../battle/context/BattlesContextProvider";
+import { Provider } from "react-redux";
+import { store } from "../../store/store";
 
 describe("Given the Navigator component", () => {
   describe("When it renders", () => {
@@ -9,11 +10,11 @@ describe("Given the Navigator component", () => {
       const expectedLinkText = /battles list/i;
 
       render(
-        <BattleContextProvider>
+        <Provider store={store}>
           <MemoryRouter>
             <Navigator />
           </MemoryRouter>
-        </BattleContextProvider>,
+        </Provider>,
       );
 
       const battlesListLink = screen.getByRole("link", {

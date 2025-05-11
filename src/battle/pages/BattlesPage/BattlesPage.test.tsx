@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import BattlesPage from "./BattlesPage";
-import BattleContextProvider from "../../context/BattlesContextProvider";
 import { MemoryRouter } from "react-router";
+import { Provider } from "react-redux";
+import { store } from "../../../store/store";
 
 describe("Given the BattlesPage component", () => {
   describe("When it renders", () => {
@@ -9,11 +10,11 @@ describe("Given the BattlesPage component", () => {
       const expectedPageTitle = /your battles collection!/i;
 
       render(
-        <BattleContextProvider>
+        <Provider store={store}>
           <MemoryRouter>
             <BattlesPage />
           </MemoryRouter>
-        </BattleContextProvider>,
+        </Provider>,
       );
 
       const pageTitle = screen.getByRole("heading", {
