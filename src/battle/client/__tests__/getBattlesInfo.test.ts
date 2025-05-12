@@ -1,15 +1,13 @@
-import {
-  catalanBattles,
-  catalanBattlesPage1,
-  catalanBattlesPage2,
-} from "../../dto/fixturesDto";
-import { mapBattlesDtoToBattles } from "../../dto/mapper";
+import { catalanBattles } from "../../dto/fixturesDto";
+import { mapBattlesDtoToBattles } from "../../dto/mappers";
 import BattleClient from "../BattleClient";
 
 describe("Given the getBattlesInfo method from BattleClient", () => {
   describe("When it is called", () => {
     test("Then it should return Empúries, Ruscino, Ilipa, Martorell, Monjuïc and Lleida battles", async () => {
-      const expectedBattles = mapBattlesDtoToBattles(catalanBattlesPage1);
+      const expectedBattles = mapBattlesDtoToBattles(
+        catalanBattles.slice(0, 6),
+      );
 
       const battleClient = new BattleClient();
       const battleInfo = await battleClient.getBattlesInfo();
@@ -35,8 +33,10 @@ describe("Given the getBattlesInfo method from BattleClient", () => {
   describe("When it receives a number 2", () => {
     const expectedPage = 2;
 
-    test("Then it should return Empúries, Ruscino, Ilipa, Martorell, Monjuïc and Lleida battles", async () => {
-      const expectedBattles = mapBattlesDtoToBattles(catalanBattlesPage2);
+    test("Then it should return Barcelona, seige of Roses and Ebre battles", async () => {
+      const expectedBattles = mapBattlesDtoToBattles(
+        catalanBattles.slice(6, 12),
+      );
 
       const battleClient = new BattleClient();
       const battleInfo = await battleClient.getBattlesInfo(expectedPage);

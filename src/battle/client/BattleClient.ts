@@ -1,5 +1,5 @@
 import type { BattlesInfo } from "../../types";
-import { mapBattlesDtoToBattles } from "../dto/mapper";
+import { mapBattlesDtoToBattles } from "../dto/mappers";
 import type { BattlesInfoDto } from "../dto/types";
 import type { BattleClientStructure } from "./types";
 
@@ -8,6 +8,10 @@ class BattleClient implements BattleClientStructure {
 
   public getBattlesInfo = async (page = 1): Promise<BattlesInfo> => {
     const response = await fetch(`${this.apiUrl}/battles?page=${page}`);
+
+    if (!response.ok) {
+      throw new Error("Error while fetching battles information");
+    }
 
     const { battles: battlesDto, battlesTotal } =
       (await response.json()) as BattlesInfoDto;
