@@ -7,10 +7,8 @@ const Header: React.FC = () => {
       <h1 className="header-title">Star Wars Battles</h1>
       <img
         className="header-background"
-        srcSet="/images/hyperspace-small.webp 320w, /images/hyperspace-big.webp 600w"
-        sizes="(max-width: 400px) 320px, 600px"
-        src="/images/hyperspace-big.webp"
-        alt="Representation of when stars seem to elongate just as a ship begins to enter hyperspace"
+        src="/images/hyperspace.webp"
+        alt=""
         height={150}
         width={600}
       />

@@ -17,6 +17,7 @@ export default defineConfig({
         "src/vite-env.d.ts",
         "**/types.ts",
         "./vite.config.ts",
+        "src/setupTest.ts",
       ],
       reportsDirectory: "./coverage",
       reporter: ["lcov", "text", "html", "clover", "json"],
