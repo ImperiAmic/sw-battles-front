@@ -7,18 +7,14 @@
   gap: 24px;
 }
 
-.not-found__title,
-.quote__pharagraph {
+.title {
   text-align: center;
-}
-
-.not-found__title {
   font-family: var(--font-title);
   font-weight: 900;
   font-size: 1.875rem;
 }
 
-.quote-container {
+.quote {
   display: flex;
   flex-direction: column;
   gap: 12px;
