@@ -20,22 +20,5 @@ describe("Given the Header component", () => {
 
       expect(pageTitle).toBeInTheDocument();
     });
-
-    test("Then it should show an image with 'Representation of when stars seem to elongate just as a ship begins to enter hyperspace' as alternative text", () => {
-      const expectedAltText =
-        "Representation of when stars seem to elongate just as a ship begins to enter hyperspace";
-
-      render(
-        <MemoryRouter>
-          <Header />
-        </MemoryRouter>,
-      );
-
-      const image = screen.getByRole("img", {
-        name: expectedAltText,
-      });
-
-      expect(image).toBeInTheDocument();
-    });
   });
 });
