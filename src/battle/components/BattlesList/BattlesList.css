@@ -1,0 +1,9 @@
+.battles-container {
+  padding: 30px 0;
+}
+
+.battles {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

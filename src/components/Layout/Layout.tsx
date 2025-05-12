@@ -4,9 +4,11 @@ import "./Layout.css";
 
 const Layout: React.FC = () => {
   return (
-    <div className="container">
+    <div className="main-container">
       <Header />
-      <Outlet />
+      <main className="page-container">
+        <Outlet />
+      </main>
     </div>
   );
 };

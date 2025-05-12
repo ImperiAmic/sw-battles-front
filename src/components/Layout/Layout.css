@@ -1,4 +1,9 @@
-.container {
+.main-container {
   max-width: 600px;
   margin: 0 auto;
+}
+
+.page-container {
+  padding: 30px 20px;
+  color: var(--color-main);
 }
