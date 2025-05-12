@@ -1,8 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { battlesReducer } from "../battle/slice/battleSlice";
+import { battlesReducer } from "../battle/slice/battlesSlice";
+import { battlesTotalReducer } from "../battle/slice/battlesTotalSlice";
 
 export const store = configureStore({
-  reducer: { battlesReducer: battlesReducer },
+  reducer: {
+    battlesReducer: battlesReducer,
+    battlesTotalReducer: battlesTotalReducer,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
