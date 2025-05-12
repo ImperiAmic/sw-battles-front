@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useSearchParams } from "react-router";
 import useBattles from "../../hooks/useBattles";
 import "./BattlesPage.css";
+import BattlesList from "../../components/BattlesList/BattlesList";
 
 const BattlesPage: React.FC = () => {
   const { battles, battlesTotal, loadBattlesInfo } = useBattles();
@@ -14,14 +15,15 @@ const BattlesPage: React.FC = () => {
   }, [loadBattlesInfo, page]);
 
   return (
-    <div className="battles-container">
+    <>
       <header className="page-info">
         <h2 className="page-info__title">Your battles collection!</h2>
         <span className="page-info__details">
           Showing: {battles.length} of {battlesTotal} battles
         </span>
       </header>
-    </div>
+      <BattlesList battles={battles} />
+    </>
   );
 };
 
