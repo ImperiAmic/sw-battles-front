@@ -6,13 +6,11 @@ export const battleOfEmpuries: BattleDto = {
   conflict: "Second Punic War",
   year: 218,
   period: "BBY",
-  imageUrl: "",
   description:
     "Roman general Gnaeus Scipio landed at Empúries to confront the Carthaginian presence in Iberia. The victory laid the foundation for Roman influence in the region that would become Catalonia.",
   lightSide: ["Roman Republic"],
   darkSide: ["Carthaginian Empire"],
   doesLightSideWin: true,
-  imageAlt: `General view of ${name}`,
 };
 
 export const battleOfRuscino: BattleDto = {

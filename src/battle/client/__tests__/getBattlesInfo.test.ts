@@ -1,3 +1,5 @@
+import { http, HttpResponse } from "msw";
+import { server } from "../../../mocks/node";
 import { catalanBattles } from "../../dto/fixturesDto";
 import { mapBattlesDtoToBattles } from "../../dto/mappers";
 import BattleClient from "../BattleClient";
@@ -44,6 +46,24 @@ describe("Given the getBattlesInfo method from BattleClient", () => {
       const battles = battleInfo.battles;
 
       expect(battles).toStrictEqual(expectedBattles);
+    });
+  });
+
+  describe("And the response is not ok", () => {
+    test("Then it should throw an 'Error while fetching battles information' message", () => {
+      const expectedMessage = "Error while fetching battles information";
+
+      const apiUrl = import.meta.env.VITE_API_URL;
+
+      server.use(
+        http.get(`${apiUrl}/battles`, () => {
+          return new HttpResponse(null, { status: 500 });
+        }),
+      );
+      const battleClient = new BattleClient();
+      const battleInfo = battleClient.getBattlesInfo();
+
+      expect(battleInfo).rejects.toThrow(expectedMessage);
     });
   });
 });
