@@ -1,9 +1,5 @@
 import { http, HttpResponse } from "msw";
-import {
-  catalanBattles,
-  catalanBattlesPage1,
-  catalanBattlesPage2,
-} from "../battle/dto/fixturesDto";
+import { catalanBattles } from "../battle/dto/fixturesDto";
 import type { BattlesInfoDto } from "../battle/dto/types";
 
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -19,13 +15,13 @@ export const handlers = [
 
     if (currentPage === "2") {
       return HttpResponse.json<BattlesInfoDto>({
-        battles: catalanBattlesPage2,
+        battles: catalanBattles.slice(6, 12),
         battlesTotal: catalanBattles.length,
       });
     }
 
     return HttpResponse.json<BattlesInfoDto>({
-      battles: catalanBattlesPage1,
+      battles: catalanBattles.slice(0, 6),
       battlesTotal: catalanBattles.length,
     });
   }),

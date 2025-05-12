@@ -12,7 +12,7 @@ export const battleOfEmpuries: BattleDto = {
   lightSide: ["Roman Republic"],
   darkSide: ["Carthaginian Empire"],
   doesLightSideWin: true,
-  imageAlt: `General view of of ${name}`,
+  imageAlt: `General view of ${name}`,
 };
 
 export const battleOfRuscino: BattleDto = {
@@ -28,7 +28,7 @@ export const battleOfRuscino: BattleDto = {
   lightSide: ["Roman Republic"],
   darkSide: ["Gallic Tribes"],
   doesLightSideWin: true,
-  imageAlt: `General view of of ${name}`,
+  imageAlt: `General view of ${name}`,
 };
 
 export const battleOfIlipa: BattleDto = {
@@ -44,7 +44,7 @@ export const battleOfIlipa: BattleDto = {
   lightSide: ["Roman Republic"],
   darkSide: ["Carthaginian Empire"],
   doesLightSideWin: true,
-  imageAlt: `General view of of ${name}`,
+  imageAlt: `General view of ${name}`,
 };
 
 export const battleOfMartorell: BattleDto = {
@@ -60,7 +60,7 @@ export const battleOfMartorell: BattleDto = {
   lightSide: ["Catalan Republic", "Kingdom of France"],
   darkSide: ["Spanish Monarchy"],
   doesLightSideWin: false,
-  imageAlt: `General view of of ${name}`,
+  imageAlt: `General view of ${name}`,
 };
 
 export const battleOfMontjuic: BattleDto = {
@@ -76,7 +76,7 @@ export const battleOfMontjuic: BattleDto = {
   lightSide: ["Catalan Republic", "Kingdom of France"],
   darkSide: ["Spanish Monarchy"],
   doesLightSideWin: true,
-  imageAlt: `General view of of ${name}`,
+  imageAlt: `General view of ${name}`,
 };
 
 export const battleOfLleida: BattleDto = {
@@ -92,7 +92,7 @@ export const battleOfLleida: BattleDto = {
   lightSide: ["Catalan Republic", "Kingdom of France"],
   darkSide: ["Spanish Monarchy"],
   doesLightSideWin: false,
-  imageAlt: `General view of of ${name}`,
+  imageAlt: `General view of ${name}`,
 };
 
 export const battleOfBarcelona: BattleDto = {
@@ -108,7 +108,7 @@ export const battleOfBarcelona: BattleDto = {
   lightSide: ["Principality of Catalonia", "Habsburg loyalists"],
   darkSide: ["Bourbon Spain"],
   doesLightSideWin: false,
-  imageAlt: `General view of of ${name}`,
+  imageAlt: `General view of ${name}`,
 };
 
 export const siegeOfRoses: BattleDto = {
@@ -124,12 +124,12 @@ export const siegeOfRoses: BattleDto = {
   lightSide: ["French Republic"],
   darkSide: ["Spanish Monarchy"],
   doesLightSideWin: true,
-  imageAlt: `General view of of ${name}`,
+  imageAlt: `General view of ${name}`,
 };
 
-export const battleOfTheEbro: BattleDto = {
+export const battleOfTheEbre: BattleDto = {
   _id: "ccc333ccc333ccc333ccc333",
-  name: "Battle of the Ebro",
+  name: "Battle of the Ebre",
   conflict: "Spanish Civil War",
   year: 1938,
   period: "ABY",
@@ -140,7 +140,7 @@ export const battleOfTheEbro: BattleDto = {
   lightSide: ["Spanish Republic"],
   darkSide: ["Nationalist Spain"],
   doesLightSideWin: false,
-  imageAlt: `General view of of ${name}`,
+  imageAlt: `General view of ${name}`,
 };
 
 export const catalanBattles: BattleDto[] = [
@@ -152,20 +152,5 @@ export const catalanBattles: BattleDto[] = [
   battleOfLleida,
   battleOfBarcelona,
   siegeOfRoses,
-  battleOfTheEbro,
-];
-
-export const catalanBattlesPage1: BattleDto[] = [
-  battleOfEmpuries,
-  battleOfRuscino,
-  battleOfIlipa,
-  battleOfMartorell,
-  battleOfMontjuic,
-  battleOfLleida,
-];
-
-export const catalanBattlesPage2: BattleDto[] = [
-  battleOfBarcelona,
-  siegeOfRoses,
-  battleOfTheEbro,
+  battleOfTheEbre,
 ];
