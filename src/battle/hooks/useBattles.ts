@@ -1,10 +1,15 @@
 import { useCallback, useMemo } from "react";
 import BattleClient from "../client/BattleClient";
-import { loadBattlesActionCreator } from "../slice/battleSlice";
+import { loadBattlesActionCreator } from "../slice/battlesSlice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { loadBattlesTotalActionCreator } from "../slice/battlesTotalSlice";
 
 const useBattles = () => {
   const battles = useAppSelector((state) => state.battlesReducer.battles);
+
+  const battlesTotal = useAppSelector(
+    (state) => state.battlesTotalReducer.battlesTotal,
+  );
 
   const dispatch = useAppDispatch();
 
@@ -14,13 +19,17 @@ const useBattles = () => {
     async (page?: number): Promise<void> => {
       const apiBattlesInfo = await battleClient.getBattlesInfo(page);
 
-      const action = loadBattlesActionCreator(apiBattlesInfo);
+      const battlesAction = loadBattlesActionCreator(apiBattlesInfo.battles);
+      const battlesTotalAction = loadBattlesTotalActionCreator(
+        apiBattlesInfo.battlesTotal,
+      );
 
-      dispatch(action);
+      dispatch(battlesAction);
+      dispatch(battlesTotalAction);
     },
     [battleClient, dispatch],
   );
-  return { battles, loadBattlesInfo };
+  return { battles, battlesTotal, loadBattlesInfo };
 };
 
 export default useBattles;

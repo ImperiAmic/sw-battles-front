@@ -4,8 +4,7 @@ import useBattles from "../../hooks/useBattles";
 import "./BattlesPage.css";
 
 const BattlesPage: React.FC = () => {
-  const { battles, loadBattlesInfo } = useBattles();
-  const { battles: groupOfBattles, battlesTotal } = battles;
+  const { battles, battlesTotal, loadBattlesInfo } = useBattles();
 
   const [searchParams] = useSearchParams();
   const page = searchParams.get("page") ? Number(searchParams.get("page")) : 1;
@@ -14,14 +13,12 @@ const BattlesPage: React.FC = () => {
     loadBattlesInfo(page);
   }, [loadBattlesInfo, page]);
 
-  console.log(battles);
-
   return (
     <div className="battles-container">
       <header className="page-info">
         <h2 className="page-info__title">Your battles collection!</h2>
         <span className="page-info__details">
-          Showing: {groupOfBattles.length} of {battlesTotal} battles
+          Showing: {battles.length} of {battlesTotal} battles
         </span>
       </header>
     </div>

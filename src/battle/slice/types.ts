@@ -1,5 +1,9 @@
-import type { BattlesInfo } from "../../types";
+import type { Battle } from "../../types";
 
-export type BattleState = {
-  battles: BattlesInfo;
-};
+export interface BattlesState {
+  battles: Battle[];
+}
+
+export interface BattlesTotalState {
+  battlesTotal: number;
+}
