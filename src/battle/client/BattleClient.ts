@@ -1,7 +1,7 @@
 import type { BattlesInfo } from "../../types";
-import { mapBattlesDtoToBattles } from "../dto/mappers";
 import type { BattlesInfoDto } from "../dto/types";
 import type { BattleClientStructure } from "./types";
+import { mapBattlesDtoToBattles } from "../dto/mappers";
 
 class BattleClient implements BattleClientStructure {
   private readonly apiUrl = import.meta.env.VITE_API_URL;

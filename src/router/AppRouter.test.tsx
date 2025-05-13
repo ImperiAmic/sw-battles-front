@@ -1,7 +1,7 @@
+import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router";
 import { render, screen } from "@testing-library/react";
 import AppRouter from "./AppRouter";
-import { Provider } from "react-redux";
 import { store } from "../store/store";
 
 describe("Given the AppRouter component", () => {

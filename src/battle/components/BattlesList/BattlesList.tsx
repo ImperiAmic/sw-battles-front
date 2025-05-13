@@ -1,4 +1,5 @@
 import type { Battle } from "../../../types";
+import BattleCard from "../BattleCard/BattleCard";
 import "./BattlesList.css";
 
 interface BattleListProps {
@@ -10,7 +11,9 @@ const BattlesList: React.FC<BattleListProps> = ({ battles }) => {
     <div className="battles-container">
       <ul className="battles">
         {battles.map((battle) => (
-          <li key={battle.id}></li>
+          <li key={battle.id}>
+            <BattleCard battle={battle} />
+          </li>
         ))}
       </ul>
     </div>

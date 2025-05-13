@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router";
 import useBattles from "../../hooks/useBattles";
-import "./BattlesPage.css";
 import BattlesList from "../../components/BattlesList/BattlesList";
+import "./BattlesPage.css";
 
 const BattlesPage: React.FC = () => {
   const { battles, battlesTotal, loadBattlesInfo } = useBattles();

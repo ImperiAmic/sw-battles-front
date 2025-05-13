@@ -1,7 +1,7 @@
+import { Provider } from "react-redux";
+import { MemoryRouter } from "react-router";
 import { render, screen } from "@testing-library/react";
 import BattlesPage from "./BattlesPage";
-import { MemoryRouter } from "react-router";
-import { Provider } from "react-redux";
 import { store } from "../../../store/store";
 
 describe("Given the BattlesPage component", () => {
