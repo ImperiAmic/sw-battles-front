@@ -1,3 +1,4 @@
+import Button from "../../../components/Button/Button";
 import type { Battle } from "../../../types";
 import "./BattleCard.css";
 
@@ -38,13 +39,15 @@ const BattleCard: React.FC<BattleCardProps> = ({
           loading={imageLoading}
         />
         <h3 className="battle__title">{name}</h3>
-        <img
-          className="battle__winner"
-          src={winner}
-          alt={winnerAlt}
-          height={30}
-          width={30}
-        />
+        <Button ariaLabel="Change battle winner" ariaRole="img">
+          <img
+            className="battle__winner"
+            src={winner}
+            alt={winnerAlt}
+            height={30}
+            width={30}
+          />
+        </Button>
       </header>
       <div className="battle__details">
         <div className="battle__info">
@@ -58,20 +61,18 @@ const BattleCard: React.FC<BattleCardProps> = ({
         </div>
         <footer className="battle__footer">
           <div className="battle__actions">
-            <button className="button" type="button">
-              +info
-            </button>
-            <button className="button" type="button">
-              update
-            </button>
+            <Button className="button">+info</Button>
+            <Button className="button">update</Button>
           </div>
-          <img
-            className="battle__delete"
-            src="images/delete.svg"
-            alt="Delete icon"
-            height={30}
-            width={30}
-          />
+          <Button ariaLabel="Delete battle" ariaRole="img">
+            <img
+              className="battle__delete"
+              src="images/delete.svg"
+              alt="Delete icon"
+              height={30}
+              width={30}
+            />
+          </Button>
         </footer>
       </div>
     </div>
