@@ -13,7 +13,7 @@ describe("Given the BattleCard component", () => {
       render(
         <Provider store={store}>
           <MemoryRouter>
-            <BattleCard battle={battleOfMuret} />
+            <BattleCard battle={battleOfMuret} index={0} />
           </MemoryRouter>
         </Provider>,
       );
@@ -31,7 +31,7 @@ describe("Given the BattleCard component", () => {
       render(
         <Provider store={store}>
           <MemoryRouter>
-            <BattleCard battle={battleOfMuret} />
+            <BattleCard battle={battleOfMuret} index={0} />
           </MemoryRouter>
         </Provider>,
       );
@@ -47,7 +47,7 @@ describe("Given the BattleCard component", () => {
       render(
         <Provider store={store}>
           <MemoryRouter>
-            <BattleCard battle={battleOfMuret} />
+            <BattleCard battle={battleOfMuret} index={0} />
           </MemoryRouter>
         </Provider>,
       );
