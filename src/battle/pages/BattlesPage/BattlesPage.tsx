@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router";
 import useBattles from "../../hooks/useBattles";
+import Loader from "../../../components/Loader/Loader";
 import BattlesList from "../../components/BattlesList/BattlesList";
 import "./BattlesPage.css";
 
@@ -13,6 +14,10 @@ const BattlesPage: React.FC = () => {
   useEffect(() => {
     loadBattlesInfo(page);
   }, [loadBattlesInfo, page]);
+
+  if (battles.length === 0) {
+    return <Loader />;
+  }
 
   return (
     <>
