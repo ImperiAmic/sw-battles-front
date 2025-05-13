@@ -1,10 +1,11 @@
 import { useCallback, useMemo } from "react";
 import BattleClient from "../client/BattleClient";
+import type { UseBattlesStructure } from "./types";
 import { loadBattlesActionCreator } from "../slice/battlesSlice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { loadBattlesTotalActionCreator } from "../slice/battlesTotalSlice";
 
-const useBattles = () => {
+const useBattles = (): UseBattlesStructure => {
   const battles = useAppSelector((state) => state.battlesReducer.battles);
 
   const battlesTotal = useAppSelector(
