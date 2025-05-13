@@ -6,7 +6,7 @@ import { store } from "../../../store/store";
 
 describe("Given the BattlesPage component", () => {
   describe("When it renders", () => {
-    test("Then it should show 'Your battles collection!' inside a heading", () => {
+    test("Then it should show 'Your battles collection!' inside a heading", async () => {
       const expectedPageTitle = /your battles collection!/i;
 
       render(
@@ -17,7 +17,7 @@ describe("Given the BattlesPage component", () => {
         </Provider>,
       );
 
-      const pageTitle = screen.getByRole("heading", {
+      const pageTitle = await screen.findByRole("heading", {
         name: expectedPageTitle,
       });
 

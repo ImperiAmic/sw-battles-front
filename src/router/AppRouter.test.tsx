@@ -6,7 +6,7 @@ import { store } from "../store/store";
 
 describe("Given the AppRouter component", () => {
   describe("When it renders in path '/'", () => {
-    test("Then it should route to a page that shows 'Your battles collection!' inside a heading", () => {
+    test("Then it should route to a page that shows 'Your battles collection!' inside a heading", async () => {
       const expectedText = /your battles collection/i;
 
       render(
@@ -17,7 +17,7 @@ describe("Given the AppRouter component", () => {
         </Provider>,
       );
 
-      const battlesPageTitle = screen.getByRole("heading", {
+      const battlesPageTitle = await screen.findByRole("heading", {
         name: expectedText,
       });
 

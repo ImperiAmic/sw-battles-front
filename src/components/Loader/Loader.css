@@ -1,0 +1,7 @@
+.loader {
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-size: 1.875rem;
+  text-align: center;
+  line-height: 2rem;
+}
