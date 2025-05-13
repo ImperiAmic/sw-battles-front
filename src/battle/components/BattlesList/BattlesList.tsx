@@ -10,9 +10,9 @@ const BattlesList: React.FC<BattleListProps> = ({ battles }) => {
   return (
     <div className="battles-container">
       <ul className="battles">
-        {battles.map((battle) => (
+        {battles.map((battle, index) => (
           <li key={battle.id}>
-            <BattleCard battle={battle} />
+            <BattleCard battle={battle} index={index} />
           </li>
         ))}
       </ul>
