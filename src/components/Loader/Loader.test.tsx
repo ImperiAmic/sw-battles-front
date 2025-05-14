@@ -6,9 +6,9 @@ describe("Given the Loader component", () => {
     test("Then it should show 'Battling the load' as a text", () => {
       render(<Loader />);
 
-      const coso = screen.getByText("Battling the load...");
+      const loaderText = screen.getByText("Battling the load...");
 
-      expect(coso).toBeInTheDocument();
+      expect(loaderText).toBeInTheDocument();
     });
   });
 });
