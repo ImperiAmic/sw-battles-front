@@ -4,6 +4,7 @@ import useBattles from "../../hooks/useBattles";
 import Loader from "../../../components/Loader/Loader";
 import BattlesList from "../../components/BattlesList/BattlesList";
 import "./BattlesPage.css";
+import Paginator from "../../../components/Paginator/Paginator";
 
 const BattlesPage: React.FC = () => {
   const { battles, battlesTotal, loadBattlesInfo } = useBattles();
@@ -12,6 +13,8 @@ const BattlesPage: React.FC = () => {
   const page = searchParams.get("page") ? Number(searchParams.get("page")) : 1;
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     loadBattlesInfo(page);
   }, [loadBattlesInfo, page]);
 
@@ -28,6 +31,7 @@ const BattlesPage: React.FC = () => {
         </span>
       </header>
       <BattlesList battles={battles} />
+      <Paginator page={page} battlesTotal={battlesTotal} />
     </>
   );
 };

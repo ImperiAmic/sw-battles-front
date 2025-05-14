@@ -1,6 +1,6 @@
+import { MemoryRouter } from "react-router";
 import { render, screen } from "@testing-library/react";
 import Paginator from "./Paginator";
-import { MemoryRouter } from "react-router";
 
 describe("Given the Paginator component", () => {
   describe("When it renders at page 2 with a total number of battles of 9", () => {
