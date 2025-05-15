@@ -1,6 +1,6 @@
 import type { BattleDto } from "./types";
 
-export const battleOfEmpuries: BattleDto = {
+export const empuriesBattle: BattleDto = {
   _id: "111aaa111aaa111aaa111aaa",
   name: "Battle of Empúries",
   conflict: "Second Punic War",
@@ -13,7 +13,7 @@ export const battleOfEmpuries: BattleDto = {
   doesLightSideWin: true,
 };
 
-export const battleOfRuscino: BattleDto = {
+export const ruscinoBattle: BattleDto = {
   _id: "222bbb222bbb222bbb222bbb",
   name: "Battle of Ruscino",
   conflict: "Gallic Invasions",
@@ -29,7 +29,7 @@ export const battleOfRuscino: BattleDto = {
   imageAlt: `General view of ${name}`,
 };
 
-export const battleOfIlipa: BattleDto = {
+export const ilipaBattle: BattleDto = {
   _id: "333ccc333ccc333ccc333ccc",
   name: "Battle of Ilipa",
   conflict: "Second Punic War",
@@ -45,7 +45,7 @@ export const battleOfIlipa: BattleDto = {
   imageAlt: `General view of ${name}`,
 };
 
-export const battleOfMartorell: BattleDto = {
+export const martorellBattle: BattleDto = {
   _id: "444ddd444ddd444ddd444ddd",
   name: "Battle of Martorell",
   conflict: "Catalan Revolt",
@@ -61,7 +61,7 @@ export const battleOfMartorell: BattleDto = {
   imageAlt: `General view of ${name}`,
 };
 
-export const battleOfMontjuic: BattleDto = {
+export const montjuicBattle: BattleDto = {
   _id: "555eee555eee555eee555eee",
   name: "Battle of Montjuïc",
   conflict: "Catalan Revolt",
@@ -77,7 +77,7 @@ export const battleOfMontjuic: BattleDto = {
   imageAlt: `General view of ${name}`,
 };
 
-export const battleOfLleida: BattleDto = {
+export const lleidaBattle: BattleDto = {
   _id: "666fff666fff666fff666fff",
   name: "Battle of Lleida",
   conflict: "Catalan Revolt",
@@ -93,7 +93,7 @@ export const battleOfLleida: BattleDto = {
   imageAlt: `General view of ${name}`,
 };
 
-export const battleOfBarcelona: BattleDto = {
+export const barcelonaBattle: BattleDto = {
   _id: "aaa111aaa111aaa111aaa111",
   name: "Battle of Barcelona",
   conflict: "War of the Spanish Succession",
@@ -109,7 +109,7 @@ export const battleOfBarcelona: BattleDto = {
   imageAlt: `General view of ${name}`,
 };
 
-export const siegeOfRoses: BattleDto = {
+export const rosesSiege: BattleDto = {
   _id: "bbb222bbb222bbb222bbb222",
   name: "Siege of Roses",
   conflict: "War of the Pyrenees",
@@ -125,7 +125,7 @@ export const siegeOfRoses: BattleDto = {
   imageAlt: `General view of ${name}`,
 };
 
-export const battleOfTheEbre: BattleDto = {
+export const ebreBattle: BattleDto = {
   _id: "ccc333ccc333ccc333ccc333",
   name: "Battle of the Ebre",
   conflict: "Spanish Civil War",
@@ -142,13 +142,29 @@ export const battleOfTheEbre: BattleDto = {
 };
 
 export const catalanBattles: BattleDto[] = [
-  battleOfEmpuries,
-  battleOfRuscino,
-  battleOfIlipa,
-  battleOfMartorell,
-  battleOfMontjuic,
-  battleOfLleida,
-  battleOfBarcelona,
-  siegeOfRoses,
-  battleOfTheEbre,
+  empuriesBattle,
+  ruscinoBattle,
+  ilipaBattle,
+  martorellBattle,
+  montjuicBattle,
+  lleidaBattle,
+  barcelonaBattle,
+  rosesSiege,
+  ebreBattle,
 ];
+
+export const revisitedEbreBattle: BattleDto = {
+  _id: "ccc333ccc333ccc333ccc333",
+  name: "Battle of the Ebre",
+  conflict: "Spanish Civil War",
+  year: 1938,
+  period: "ABY",
+  imageUrl:
+    "https://upload.wikimedia.org/wikipedia/commons/4/4c/Batalla_del_Ebre.jpg",
+  description:
+    "The largest and bloodiest battle of the Spanish Civil War, fought largely in Catalonia. Despite initial Republican advances, Franco's forces ultimately prevailed.",
+  lightSide: ["Spanish Republic"],
+  darkSide: ["Nationalist Spain"],
+  doesLightSideWin: true,
+  imageAlt: `General view of ${name}`,
+};
