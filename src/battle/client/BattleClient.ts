@@ -1,7 +1,7 @@
-import type { BattlesInfo } from "../../types";
-import type { BattlesInfoDto } from "../dto/types";
 import type { BattleClientStructure } from "./types";
-import { mapBattlesDtoToBattles } from "../dto/mappers";
+import type { Battle, BattlesInfo } from "../../types";
+import type { BattleDto, BattlesInfoDto } from "../dto/types";
+import { mapBattleDtoToBattle, mapBattlesDtoToBattles } from "../dto/mappers";
 
 class BattleClient implements BattleClientStructure {
   private readonly apiUrl = import.meta.env.VITE_API_URL;
@@ -22,6 +22,23 @@ class BattleClient implements BattleClientStructure {
       battles,
       battlesTotal,
     };
+  };
+
+  public updateBattleWinner = async (battleId: string): Promise<Battle> => {
+    const response = await fetch(`${this.apiUrl}/battles/${battleId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (!response.ok) {
+      throw new Error("Error while fetching battle update");
+    }
+
+    const { battle } = (await response.json()) as { battle: BattleDto };
+
+    const updatedBattle = mapBattleDtoToBattle(battle);
+
+    return updatedBattle;
   };
 }
 
