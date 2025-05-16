@@ -2,8 +2,8 @@ import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router";
 import { render, screen } from "@testing-library/react";
 import BattleCard from "./BattleCard";
-import { store } from "../../../store/store";
-import { battleOfMuret } from "../../../fixtures";
+import store from "../../../store/store";
+import { muretBattle } from "../../../fixtures";
 
 describe("Given the BattleCard component", () => {
   describe("When it receives Muret battle and renders", () => {
@@ -13,7 +13,7 @@ describe("Given the BattleCard component", () => {
       render(
         <Provider store={store}>
           <MemoryRouter>
-            <BattleCard battle={battleOfMuret} index={0} />
+            <BattleCard battle={muretBattle} index={0} />
           </MemoryRouter>
         </Provider>,
       );
@@ -31,7 +31,7 @@ describe("Given the BattleCard component", () => {
       render(
         <Provider store={store}>
           <MemoryRouter>
-            <BattleCard battle={battleOfMuret} index={0} />
+            <BattleCard battle={muretBattle} index={0} />
           </MemoryRouter>
         </Provider>,
       );
@@ -47,7 +47,7 @@ describe("Given the BattleCard component", () => {
       render(
         <Provider store={store}>
           <MemoryRouter>
-            <BattleCard battle={battleOfMuret} index={0} />
+            <BattleCard battle={muretBattle} index={0} />
           </MemoryRouter>
         </Provider>,
       );

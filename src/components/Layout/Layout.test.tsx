@@ -3,7 +3,7 @@ import { MemoryRouter } from "react-router";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 import Layout from "./Layout";
-import { store } from "../../store/store";
+import store from "../../store/store";
 import AppRouter from "../../router/AppRouter";
 
 describe("Given the Layout component", () => {
@@ -27,9 +27,9 @@ describe("Given the Layout component", () => {
   });
 
   describe("When it renders in path /battles and the user clicks on 'Next page' link", () => {
-    test("Then it should show 'Battle of Barcelona' inside a heading", async () => {
+    test("Then it should show 'Battle of Llucmajor' inside a heading", async () => {
       const expectedNextPageLinkText = /next page/i;
-      const expectedBarcelonaBattleTitle = /battle of barcelona/i;
+      const expectedLlucmajorBattleTitle = /battle of llucmajor/i;
 
       render(
         <Provider store={store}>
@@ -46,18 +46,18 @@ describe("Given the Layout component", () => {
 
       await userEvent.click(nextPageLink);
 
-      const barcelonaBattleTitle = await screen.findByRole("heading", {
-        name: expectedBarcelonaBattleTitle,
+      const llucmajorBattleTitle = await screen.findByRole("heading", {
+        name: expectedLlucmajorBattleTitle,
       });
 
-      expect(barcelonaBattleTitle).toBeInTheDocument();
+      expect(llucmajorBattleTitle).toBeInTheDocument();
     });
   });
 
   describe("When it renders in path /battles?page=2 and the user clicks on 'Previous page' link", () => {
-    test("Then it should show 'Battle of Empúries' inside a heading", async () => {
+    test("Then it should show 'Battle of Roncesvalles' inside a heading", async () => {
       const expectedPreviousPageLinkText = /previous page/i;
-      const expectedEmpuriesBattleTitle = /battle of empúries/i;
+      const expectedRoncesvallesBattleTitle = /battle of roncesvalles/i;
 
       render(
         <Provider store={store}>
@@ -74,11 +74,11 @@ describe("Given the Layout component", () => {
 
       await userEvent.click(nextPageLink);
 
-      const empuriesBattleTitle = await screen.findByRole("heading", {
-        name: expectedEmpuriesBattleTitle,
+      const roncesvallesBattleTitle = await screen.findByRole("heading", {
+        name: expectedRoncesvallesBattleTitle,
       });
 
-      expect(empuriesBattleTitle).toBeInTheDocument();
+      expect(roncesvallesBattleTitle).toBeInTheDocument();
     });
   });
 });

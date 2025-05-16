@@ -2,7 +2,7 @@ import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router";
 import { render, screen } from "@testing-library/react";
 import AppRouter from "./AppRouter";
-import { store } from "../store/store";
+import store from "../store/store";
 
 describe("Given the AppRouter component", () => {
   describe("When it renders in path '/'", () => {
@@ -26,7 +26,7 @@ describe("Given the AppRouter component", () => {
   });
 
   describe("When it renders in a non-existing path 'palpatine'", () => {
-    test("Then it should route to a page that shows 'R2-D2 noises' as a text", () => {
+    test("Then it should route to a page that shows 'R2-D2 noises'", () => {
       const expectedNotFoundText = /r2-d2 noises/i;
 
       render(
