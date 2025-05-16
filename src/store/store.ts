@@ -1,11 +1,8 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { battlesReducer } from "../battle/slice/battlesSlice";
+import setupStore from "./setupStore";
 
-export const store = configureStore({
-  reducer: {
-    battlesReducer: battlesReducer,
-  },
-});
+const store = setupStore();
+
+export default store;
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
