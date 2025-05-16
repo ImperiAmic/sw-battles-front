@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { Battle, BattlesInfo } from "../../types";
-import type { BattlesInfoState as BattlesInfoState } from "./types";
+import type { BattlesInfoState } from "./types";
 
 const initialState: BattlesInfoState = {
   battlesInfo: {

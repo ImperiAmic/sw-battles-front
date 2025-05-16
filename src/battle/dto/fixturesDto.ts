@@ -2,7 +2,7 @@ import type { BattleDto } from "./types";
 
 export const empuriesBattle: BattleDto = {
   _id: "111aaa111aaa111aaa111aaa",
-  name: "Battle of Empúries",
+  battleName: "Battle of Empúries",
   conflict: "Second Punic War",
   year: 218,
   period: "BBY",
@@ -15,7 +15,7 @@ export const empuriesBattle: BattleDto = {
 
 export const ruscinoBattle: BattleDto = {
   _id: "222bbb222bbb222bbb222bbb",
-  name: "Battle of Ruscino",
+  battleName: "Battle of Ruscino",
   conflict: "Gallic Invasions",
   year: 121,
   period: "BBY",
@@ -26,12 +26,14 @@ export const ruscinoBattle: BattleDto = {
   lightSide: ["Roman Republic"],
   darkSide: ["Gallic Tribes"],
   doesLightSideWin: true,
-  imageAlt: `General view of ${name}`,
+  imageAlt: "",
 };
+
+ruscinoBattle.imageAlt = `Genera view of ${ruscinoBattle.battleName}`;
 
 export const ilipaBattle: BattleDto = {
   _id: "333ccc333ccc333ccc333ccc",
-  name: "Battle of Ilipa",
+  battleName: "Battle of Ilipa",
   conflict: "Second Punic War",
   year: 206,
   period: "BBY",
@@ -42,12 +44,14 @@ export const ilipaBattle: BattleDto = {
   lightSide: ["Roman Republic"],
   darkSide: ["Carthaginian Empire"],
   doesLightSideWin: true,
-  imageAlt: `General view of ${name}`,
+  imageAlt: "",
 };
+
+ilipaBattle.imageAlt = `Genera view of ${ilipaBattle.battleName}`;
 
 export const martorellBattle: BattleDto = {
   _id: "444ddd444ddd444ddd444ddd",
-  name: "Battle of Martorell",
+  battleName: "Battle of Martorell",
   conflict: "Catalan Revolt",
   year: 1641,
   period: "ABY",
@@ -58,12 +62,14 @@ export const martorellBattle: BattleDto = {
   lightSide: ["Catalan Republic", "Kingdom of France"],
   darkSide: ["Spanish Monarchy"],
   doesLightSideWin: false,
-  imageAlt: `General view of ${name}`,
+  imageAlt: "",
 };
+
+martorellBattle.imageAlt = `Genera view of ${martorellBattle.battleName}`;
 
 export const montjuicBattle: BattleDto = {
   _id: "555eee555eee555eee555eee",
-  name: "Battle of Montjuïc",
+  battleName: "Battle of Montjuïc",
   conflict: "Catalan Revolt",
   year: 1641,
   period: "ABY",
@@ -74,12 +80,14 @@ export const montjuicBattle: BattleDto = {
   lightSide: ["Catalan Republic", "Kingdom of France"],
   darkSide: ["Spanish Monarchy"],
   doesLightSideWin: true,
-  imageAlt: `General view of ${name}`,
+  imageAlt: "",
 };
+
+montjuicBattle.imageAlt = `Genera view of ${montjuicBattle.battleName}`;
 
 export const lleidaBattle: BattleDto = {
   _id: "666fff666fff666fff666fff",
-  name: "Battle of Lleida",
+  battleName: "Battle of Lleida",
   conflict: "Catalan Revolt",
   year: 1644,
   period: "ABY",
@@ -90,12 +98,14 @@ export const lleidaBattle: BattleDto = {
   lightSide: ["Catalan Republic", "Kingdom of France"],
   darkSide: ["Spanish Monarchy"],
   doesLightSideWin: false,
-  imageAlt: `General view of ${name}`,
+  imageAlt: "",
 };
+
+lleidaBattle.imageAlt = `Genera view of ${lleidaBattle.battleName}`;
 
 export const barcelonaBattle: BattleDto = {
   _id: "aaa111aaa111aaa111aaa111",
-  name: "Battle of Barcelona",
+  battleName: "Battle of Barcelona",
   conflict: "War of the Spanish Succession",
   year: 1714,
   period: "ABY",
@@ -106,12 +116,14 @@ export const barcelonaBattle: BattleDto = {
   lightSide: ["Principality of Catalonia", "Habsburg loyalists"],
   darkSide: ["Bourbon Spain"],
   doesLightSideWin: false,
-  imageAlt: `General view of ${name}`,
+  imageAlt: "",
 };
+
+barcelonaBattle.imageAlt = `Genera view of ${barcelonaBattle.battleName}`;
 
 export const rosesSiege: BattleDto = {
   _id: "bbb222bbb222bbb222bbb222",
-  name: "Siege of Roses",
+  battleName: "Siege of Roses",
   conflict: "War of the Pyrenees",
   year: 1794,
   period: "ABY",
@@ -122,12 +134,14 @@ export const rosesSiege: BattleDto = {
   lightSide: ["French Republic"],
   darkSide: ["Spanish Monarchy"],
   doesLightSideWin: true,
-  imageAlt: `General view of ${name}`,
+  imageAlt: "",
 };
+
+rosesSiege.imageAlt = `Genera view of ${rosesSiege.battleName}`;
 
 export const ebreBattle: BattleDto = {
   _id: "ccc333ccc333ccc333ccc333",
-  name: "Battle of the Ebre",
+  battleName: "Battle of the Ebre",
   conflict: "Spanish Civil War",
   year: 1938,
   period: "ABY",
@@ -138,8 +152,10 @@ export const ebreBattle: BattleDto = {
   lightSide: ["Spanish Republic"],
   darkSide: ["Nationalist Spain"],
   doesLightSideWin: false,
-  imageAlt: `General view of ${name}`,
+  imageAlt: "",
 };
+
+ebreBattle.imageAlt = `Genera view of ${ebreBattle.battleName}`;
 
 export const catalanBattles: BattleDto[] = [
   empuriesBattle,
@@ -155,7 +171,7 @@ export const catalanBattles: BattleDto[] = [
 
 export const revisitedEbreBattle: BattleDto = {
   _id: "ccc333ccc333ccc333ccc333",
-  name: "Battle of the Ebre",
+  battleName: "Battle of the Ebre",
   conflict: "Spanish Civil War",
   year: 1938,
   period: "ABY",
@@ -166,5 +182,7 @@ export const revisitedEbreBattle: BattleDto = {
   lightSide: ["Spanish Republic"],
   darkSide: ["Nationalist Spain"],
   doesLightSideWin: true,
-  imageAlt: `General view of ${name}`,
+  imageAlt: "",
 };
+
+revisitedEbreBattle.imageAlt = `Genera view of ${revisitedEbreBattle.battleName}`;

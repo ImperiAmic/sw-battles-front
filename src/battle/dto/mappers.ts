@@ -5,7 +5,7 @@ export const mapBattleDtoToBattle = (battleDto: BattleDto): Battle => {
   const isImageMissing = battleDto.imageUrl ?? "/images/placeholder.webp";
 
   const doesImageNeedAlt = battleDto.imageUrl
-    ? `General view of ${battleDto.name}`
+    ? `General view of ${battleDto.battleName}`
     : "";
 
   return {

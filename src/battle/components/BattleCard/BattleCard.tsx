@@ -1,5 +1,6 @@
 import Button from "../../../components/Button/Button";
 import type { Battle } from "../../../types";
+import useBattles from "../../hooks/useBattles";
 import "./BattleCard.css";
 
 interface BattleCardProps {
@@ -11,24 +12,25 @@ const BattleCard: React.FC<BattleCardProps> = ({
   battle: {
     imageUrl,
     imageAlt,
-    name,
+    battleName,
     year,
     period,
     conflict,
     lightSide,
     darkSide,
     doesLightSideWin,
+    id,
   },
   index,
 }) => {
+  const { toggleBattleWinner } = useBattles();
+
   const winner = doesLightSideWin ? "images/rebels.svg" : "images/empire.svg";
-
   const winnerAlt = doesLightSideWin ? "Rebel icon" : "Empire icon";
-
   const imageLoading = index <= 1 ? "eager" : "lazy";
 
   return (
-    <div className="battle">
+    <article className="battle">
       <header className="battle-header">
         <img
           className="battle__image"
@@ -38,8 +40,11 @@ const BattleCard: React.FC<BattleCardProps> = ({
           width={560}
           loading={imageLoading}
         />
-        <h3 className="battle__title">{name}</h3>
-        <Button ariaLabel="Change battle winner" ariaRole="img">
+        <h3 className="battle__title">{battleName}</h3>
+        <Button
+          aria-label="Change battle winner"
+          onClick={() => toggleBattleWinner(id)}
+        >
           <img
             className="battle__winner"
             src={winner}
@@ -64,7 +69,7 @@ const BattleCard: React.FC<BattleCardProps> = ({
             <Button className="button">+info</Button>
             <Button className="button">update</Button>
           </div>
-          <Button ariaLabel="Delete battle" ariaRole="img">
+          <Button aria-label="Delete battle">
             <img
               className="battle__delete"
               src="images/delete.svg"
@@ -75,7 +80,7 @@ const BattleCard: React.FC<BattleCardProps> = ({
           </Button>
         </footer>
       </div>
-    </div>
+    </article>
   );
 };
 

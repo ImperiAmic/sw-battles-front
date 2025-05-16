@@ -2,7 +2,7 @@ import type { Battle } from "./types";
 
 export const battleOfRoncesvalles: Battle = {
   id: "111aaa111aaa111aaa111aaa",
-  name: "Battle of Roncesvalles",
+  battleName: "Battle of Roncesvalles",
   conflict: "Muslim-Christian Conflicts in the Iberian Peninsula",
   year: 778,
   period: "BBY",
@@ -18,7 +18,7 @@ export const battleOfRoncesvalles: Battle = {
 
 export const battleOfTebas: Battle = {
   id: "222bbb222bbb222bbb222bbb",
-  name: "Battle of Tebas",
+  battleName: "Battle of Tebas",
   conflict: "Frankish-Muslim Border Skirmishes",
   year: 793,
   period: "BBY",
@@ -34,7 +34,7 @@ export const battleOfTebas: Battle = {
 
 export const battleOfBarcelona: Battle = {
   id: "333ccc333ccc333ccc333ccc",
-  name: "Siege of Barcelona",
+  battleName: "Siege of Barcelona",
   conflict: "Reconquista",
   year: 801,
   period: "ABY",
@@ -50,7 +50,7 @@ export const battleOfBarcelona: Battle = {
 
 export const battleOfLleida: Battle = {
   id: "444ddd444ddd444ddd444ddd",
-  name: "Battle of Lleida",
+  battleName: "Battle of Lleida",
   conflict: "Catalan Reconquest",
   year: 1149,
   period: "ABY",
@@ -66,7 +66,7 @@ export const battleOfLleida: Battle = {
 
 export const battleOfMuret: Battle = {
   id: "555eee555eee555eee555eee",
-  name: "Battle of Muret",
+  battleName: "Battle of Muret",
   conflict: "Albigensian Crusade",
   year: 1213,
   period: "ABY",
@@ -82,7 +82,7 @@ export const battleOfMuret: Battle = {
 
 export const battleOfMallorca: Battle = {
   id: "666fff666fff666fff666fff",
-  name: "Conquest of Mallorca",
+  battleName: "Conquest of Mallorca",
   conflict: "Catalan Expansion",
   year: 1229,
   period: "ABY",
@@ -98,7 +98,7 @@ export const battleOfMallorca: Battle = {
 
 export const battleOfLlucmajor: Battle = {
   id: "aaa111aaa111aaa111aaa111",
-  name: "Battle of Llucmajor",
+  battleName: "Battle of Llucmajor",
   conflict: "Unification of the Balearic Islands",
   year: 1349,
   period: "ABY",
@@ -114,7 +114,7 @@ export const battleOfLlucmajor: Battle = {
 
 export const battleOfMontjuïc: Battle = {
   id: "bbb222bbb222bbb222bbb222",
-  name: "Battle of Montjuïc",
+  battleName: "Battle of Montjuïc",
   conflict: "Reapers' War",
   year: 1641,
   period: "ABY",
@@ -130,7 +130,7 @@ export const battleOfMontjuïc: Battle = {
 
 export const battleOfAlmansa: Battle = {
   id: "ccc333ccc333ccc333ccc333",
-  name: "Battle of Almansa",
+  battleName: "Battle of Almansa",
   conflict: "War of Spanish Succession",
   year: 1707,
   period: "ABY",

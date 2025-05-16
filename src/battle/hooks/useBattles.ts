@@ -1,11 +1,11 @@
 import { useCallback, useMemo } from "react";
 import BattleClient from "../client/BattleClient";
 import type { UseBattlesStructure } from "./types";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import {
   getBattlesInfoActionCreator,
   toggleBattleWinnerActionCreator,
 } from "../slice/battlesSlice";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
 const useBattles = (): UseBattlesStructure => {
   const battlesInfo = useAppSelector(
