@@ -1,14 +1,14 @@
 import { http, HttpResponse } from "msw";
 import { server } from "../../../mocks/node";
-import { catalanBattles } from "../../dto/fixturesDto";
-import { mapBattlesDtoToBattles } from "../../dto/mappers";
 import BattleClient from "../BattleClient";
+import { catalanBattlesDtos } from "../../dto/fixturesDto";
+import { mapBattlesDtoToBattles } from "../../dto/mappers";
 
 describe("Given the getBattlesInfo method from BattleClient", () => {
   describe("When it is called", () => {
-    test("Then it should return Empúries, Ruscino, Ilipa, Martorell, Monjuïc and Lleida battles", async () => {
+    test("Then it should return Roncesvalles, Tebas, Barcelona, Lleida, Muret and Mallorca battles", async () => {
       const expectedBattles = mapBattlesDtoToBattles(
-        catalanBattles.slice(0, 6),
+        catalanBattlesDtos.slice(0, 6),
       );
 
       const battleClient = new BattleClient();
@@ -21,7 +21,7 @@ describe("Given the getBattlesInfo method from BattleClient", () => {
 
     test("Then it should return 9 as the total number of battles", async () => {
       const expectedBattlesTotal =
-        mapBattlesDtoToBattles(catalanBattles).length;
+        mapBattlesDtoToBattles(catalanBattlesDtos).length;
 
       const battleClient = new BattleClient();
       const battleInfo = await battleClient.getBattlesInfo();
@@ -35,9 +35,9 @@ describe("Given the getBattlesInfo method from BattleClient", () => {
   describe("When it receives a number 2", () => {
     const expectedPage = 2;
 
-    test("Then it should return Barcelona, seige of Roses and Ebre battles", async () => {
+    test("Then it should return Llucmajor, Montjuïc and Almansa battles", async () => {
       const expectedBattles = mapBattlesDtoToBattles(
-        catalanBattles.slice(6, 12),
+        catalanBattlesDtos.slice(6, 12),
       );
 
       const battleClient = new BattleClient();

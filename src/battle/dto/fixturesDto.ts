@@ -1,188 +1,157 @@
 import type { BattleDto } from "./types";
 
-export const empuriesBattle: BattleDto = {
+export const roncesvallesBattleDto: BattleDto = {
   _id: "111aaa111aaa111aaa111aaa",
-  battleName: "Battle of Empúries",
-  conflict: "Second Punic War",
-  year: 218,
+  battleName: "Battle of Roncesvalles",
+  conflict: "Muslim-Christian Conflicts in the Iberian Peninsula",
+  year: 778,
   period: "BBY",
+  imageUrl:
+    "https://upload.wikimedia.org/wikipedia/commons/6/67/Battle_of_Roncesvalles.jpg",
+  imageAlt: "Depiction of the Battle of Roncesvalles",
   description:
-    "Roman general Gnaeus Scipio landed at Empúries to confront the Carthaginian presence in Iberia. The victory laid the foundation for Roman influence in the region that would become Catalonia.",
-  lightSide: ["Roman Republic"],
-  darkSide: ["Carthaginian Empire"],
+    "Fought in 778, this ambush in the Pyrenees involved Basque forces attacking the rearguard of Charlemagne’s army. Though not a 'Catalan' army, the event impacted early Frankish efforts in the region that would eventually shape Catalonia.",
+  lightSide: ["Basques", "Local mountain tribes"],
+  darkSide: ["Frankish Empire"],
   doesLightSideWin: true,
 };
 
-export const ruscinoBattle: BattleDto = {
+export const tebasBattleDto: BattleDto = {
   _id: "222bbb222bbb222bbb222bbb",
-  battleName: "Battle of Ruscino",
-  conflict: "Gallic Invasions",
-  year: 121,
+  battleName: "Battle of Tebas",
+  conflict: "Frankish-Muslim Border Skirmishes",
+  year: 793,
   period: "BBY",
   imageUrl:
-    "https://upload.wikimedia.org/wikipedia/commons/1/1b/Gallia_Narbonensis.png",
+    "https://upload.wikimedia.org/wikipedia/commons/9/93/Battle_Tebas.jpg",
+  imageAlt: "Imagined scene of the Battle of Tebas",
   description:
-    "Fought near present-day Roussillon, the Romans defeated the Gallic tribes and reinforced their dominance in southeastern Gaul, impacting Catalonia’s northern border.",
-  lightSide: ["Roman Republic"],
-  darkSide: ["Gallic Tribes"],
-  doesLightSideWin: true,
-  imageAlt: "",
+    "This lesser-known clash was part of early confrontations between Muslim forces and the Carolingians in what would become Catalonia. The battle showed the vulnerabilities of early Frankish outposts in Hispania.",
+  lightSide: ["Frankish defenders"],
+  darkSide: ["Al-Andalus raiders"],
+  doesLightSideWin: false,
 };
 
-ruscinoBattle.imageAlt = `Genera view of ${ruscinoBattle.battleName}`;
-
-export const ilipaBattle: BattleDto = {
+export const barcelonaBattleDto: BattleDto = {
   _id: "333ccc333ccc333ccc333ccc",
-  battleName: "Battle of Ilipa",
-  conflict: "Second Punic War",
-  year: 206,
-  period: "BBY",
+  battleName: "Siege of Barcelona",
+  conflict: "Reconquista",
+  year: 801,
+  period: "ABY",
   imageUrl:
-    "https://upload.wikimedia.org/wikipedia/commons/f/fd/Battle_of_Ilipa.png",
+    "https://upload.wikimedia.org/wikipedia/commons/4/4c/Barcelona_801_Siege.jpg",
+  imageAlt: "Siege of Barcelona by Frankish forces",
   description:
-    "One of Rome's most decisive victories over Carthage in Iberia, this battle helped secure Roman control over the territory, including Catalonia.",
-  lightSide: ["Roman Republic"],
-  darkSide: ["Carthaginian Empire"],
+    "Led by Louis the Pious, Frankish forces captured Barcelona from Muslim control in 801. This marked a turning point in establishing the Catalan counties under the Carolingian Empire.",
+  lightSide: ["Frankish Empire", "Local Christian allies"],
+  darkSide: ["Emirate of Córdoba"],
   doesLightSideWin: true,
-  imageAlt: "",
 };
 
-ilipaBattle.imageAlt = `Genera view of ${ilipaBattle.battleName}`;
-
-export const martorellBattle: BattleDto = {
+export const lleidaBattleDto: BattleDto = {
   _id: "444ddd444ddd444ddd444ddd",
-  battleName: "Battle of Martorell",
-  conflict: "Catalan Revolt",
-  year: 1641,
-  period: "ABY",
-  imageUrl:
-    "https://upload.wikimedia.org/wikipedia/commons/6/6e/Batalla_de_Martorell.jpg",
-  description:
-    "As part of the Reapers' War, Catalan and French forces tried to defend against a Spanish advance. Though they delayed Spanish forces, Martorell ultimately fell.",
-  lightSide: ["Catalan Republic", "Kingdom of France"],
-  darkSide: ["Spanish Monarchy"],
-  doesLightSideWin: false,
-  imageAlt: "",
-};
-
-martorellBattle.imageAlt = `Genera view of ${martorellBattle.battleName}`;
-
-export const montjuicBattle: BattleDto = {
-  _id: "555eee555eee555eee555eee",
-  battleName: "Battle of Montjuïc",
-  conflict: "Catalan Revolt",
-  year: 1641,
-  period: "ABY",
-  imageUrl:
-    "https://upload.wikimedia.org/wikipedia/commons/9/9f/Battle_of_Montjuic_1641.jpg",
-  description:
-    "Only days after Martorell, Catalan and French forces successfully repelled the Spanish army at Montjuïc hill near Barcelona, preserving the city’s independence.",
-  lightSide: ["Catalan Republic", "Kingdom of France"],
-  darkSide: ["Spanish Monarchy"],
-  doesLightSideWin: true,
-  imageAlt: "",
-};
-
-montjuicBattle.imageAlt = `Genera view of ${montjuicBattle.battleName}`;
-
-export const lleidaBattle: BattleDto = {
-  _id: "666fff666fff666fff666fff",
   battleName: "Battle of Lleida",
-  conflict: "Catalan Revolt",
-  year: 1644,
+  conflict: "Catalan Reconquest",
+  year: 1149,
   period: "ABY",
   imageUrl:
-    "https://upload.wikimedia.org/wikipedia/commons/6/64/Catedral_Lleida.JPG",
+    "https://upload.wikimedia.org/wikipedia/commons/e/e3/Battle_of_Lleida.jpg",
+  imageAlt: "Depiction of Christian forces in Lleida",
   description:
-    "Spanish royal forces recaptured Lleida from Catalan and French defenders after a prolonged siege, dealing a blow to the Catalan resistance during the Reapers' War.",
-  lightSide: ["Catalan Republic", "Kingdom of France"],
-  darkSide: ["Spanish Monarchy"],
-  doesLightSideWin: false,
-  imageAlt: "",
+    "Part of the Christian reconquest, the capture of Lleida in 1149 by the Count of Barcelona and allies marked the integration of western Catalonia into Christian rule.",
+  lightSide: ["Catalans", "Aragonese"],
+  darkSide: ["Almohads"],
+  doesLightSideWin: true,
 };
 
-lleidaBattle.imageAlt = `Genera view of ${lleidaBattle.battleName}`;
+export const muretBattleDto: BattleDto = {
+  _id: "555eee555eee555eee555eee",
+  battleName: "Battle of Muret",
+  conflict: "Albigensian Crusade",
+  year: 1213,
+  period: "ABY",
+  imageUrl:
+    "https://upload.wikimedia.org/wikipedia/commons/0/0e/Battle_of_Muret_1213.jpg",
+  imageAlt: "Illustration of the Battle of Muret",
+  description:
+    "Catalan forces led by King Peter II of Aragon faced a crushing defeat at the hands of Simon de Montfort. The loss curtailed Catalan ambitions in Occitania.",
+  lightSide: ["Crown of Aragon"],
+  darkSide: ["French Crusaders"],
+  doesLightSideWin: false,
+};
 
-export const barcelonaBattle: BattleDto = {
+export const mallorcaBattleDto: BattleDto = {
+  _id: "666fff666fff666fff666fff",
+  battleName: "Conquest of Mallorca",
+  conflict: "Catalan Expansion",
+  year: 1229,
+  period: "ABY",
+  imageUrl:
+    "https://upload.wikimedia.org/wikipedia/commons/f/f6/Conquest_Mallorca_1229.jpg",
+  imageAlt: "Catalan fleet landing in Mallorca",
+  description:
+    "Under King James I, Catalan-Aragonese forces conquered Mallorca from the Moors. It marked a major step in the Mediterranean expansion of Catalonia.",
+  lightSide: ["Crown of Aragon", "Catalan nobles"],
+  darkSide: ["Moorish Taifa of Mallorca"],
+  doesLightSideWin: true,
+};
+
+export const llucmajorBattleDto: BattleDto = {
   _id: "aaa111aaa111aaa111aaa111",
-  battleName: "Battle of Barcelona",
-  conflict: "War of the Spanish Succession",
-  year: 1714,
+  battleName: "Battle of Llucmajor",
+  conflict: "Unification of the Balearic Islands",
+  year: 1349,
   period: "ABY",
   imageUrl:
-    "https://upload.wikimedia.org/wikipedia/commons/e/e6/1714_-_Setge_de_Barcelona.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/3/31/Battle_of_Llucmajor.jpg",
+  imageAlt: "Naval Battle of Llucmajor",
   description:
-    "After a 14-month siege, Bourbon forces captured Barcelona, ending Catalan resistance and leading to the suppression of Catalan institutions and laws.",
-  lightSide: ["Principality of Catalonia", "Habsburg loyalists"],
-  darkSide: ["Bourbon Spain"],
-  doesLightSideWin: false,
-  imageAlt: "",
+    "In this decisive battle, King Peter IV of Aragon defeated James III of Mallorca, ending the independence of the Kingdom of Mallorca and integrating it fully into the Crown of Aragon.",
+  lightSide: ["Crown of Aragon"],
+  darkSide: ["Kingdom of Mallorca"],
+  doesLightSideWin: true,
 };
 
-barcelonaBattle.imageAlt = `Genera view of ${barcelonaBattle.battleName}`;
-
-export const rosesSiege: BattleDto = {
+export const montjuicBattleDto: BattleDto = {
   _id: "bbb222bbb222bbb222bbb222",
-  battleName: "Siege of Roses",
-  conflict: "War of the Pyrenees",
-  year: 1794,
+  battleName: "Battle of Montjuïc",
+  conflict: "Reapers' War",
+  year: 1641,
   period: "ABY",
   imageUrl:
-    "https://upload.wikimedia.org/wikipedia/commons/8/87/Siege_of_Roses_1794.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/7/75/Battle_Montjuic_1641.jpg",
+  imageAlt: "Catalan and French troops defending Montjuïc",
   description:
-    "The French Revolutionary Army besieged and captured Roses, a key strategic port on the Catalan coast, from Spanish forces during the War of the Pyrenees.",
-  lightSide: ["French Republic"],
-  darkSide: ["Spanish Monarchy"],
+    "Catalan and French forces successfully defended Barcelona against the Spanish Crown. The battle strengthened Catalan resistance during the Reapers' War.",
+  lightSide: ["Catalan rebels", "France"],
+  darkSide: ["Spanish Crown"],
   doesLightSideWin: true,
-  imageAlt: "",
 };
 
-rosesSiege.imageAlt = `Genera view of ${rosesSiege.battleName}`;
-
-export const ebreBattle: BattleDto = {
+export const almansaBattleDto: BattleDto = {
   _id: "ccc333ccc333ccc333ccc333",
-  battleName: "Battle of the Ebre",
-  conflict: "Spanish Civil War",
-  year: 1938,
+  battleName: "Battle of Almansa",
+  conflict: "War of Spanish Succession",
+  year: 1707,
   period: "ABY",
   imageUrl:
-    "https://upload.wikimedia.org/wikipedia/commons/4/4c/Batalla_del_Ebre.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/5/57/Battle_of_Almansa_1707.jpg",
+  imageAlt: "Battle of Almansa scene",
   description:
-    "The largest and bloodiest battle of the Spanish Civil War, fought largely in Catalonia. Despite initial Republican advances, Franco's forces ultimately prevailed.",
-  lightSide: ["Spanish Republic"],
-  darkSide: ["Nationalist Spain"],
+    "This major defeat of the pro-Habsburg forces led to the eventual suppression of Catalan institutions after the Bourbon victory in the War of Spanish Succession.",
+  lightSide: ["Austrian Habsburgs", "Catalan allies"],
+  darkSide: ["Bourbon Spanish troops", "French troops"],
   doesLightSideWin: false,
-  imageAlt: "",
 };
 
-ebreBattle.imageAlt = `Genera view of ${ebreBattle.battleName}`;
-
-export const catalanBattles: BattleDto[] = [
-  empuriesBattle,
-  ruscinoBattle,
-  ilipaBattle,
-  martorellBattle,
-  montjuicBattle,
-  lleidaBattle,
-  barcelonaBattle,
-  rosesSiege,
-  ebreBattle,
+export const catalanBattlesDtos: BattleDto[] = [
+  roncesvallesBattleDto,
+  tebasBattleDto,
+  barcelonaBattleDto,
+  lleidaBattleDto,
+  muretBattleDto,
+  mallorcaBattleDto,
+  llucmajorBattleDto,
+  montjuicBattleDto,
+  almansaBattleDto,
 ];
-
-export const revisitedEbreBattle: BattleDto = {
-  _id: "ccc333ccc333ccc333ccc333",
-  battleName: "Battle of the Ebre",
-  conflict: "Spanish Civil War",
-  year: 1938,
-  period: "ABY",
-  imageUrl:
-    "https://upload.wikimedia.org/wikipedia/commons/4/4c/Batalla_del_Ebre.jpg",
-  description:
-    "The largest and bloodiest battle of the Spanish Civil War, fought largely in Catalonia. Despite initial Republican advances, Franco's forces ultimately prevailed.",
-  lightSide: ["Spanish Republic"],
-  darkSide: ["Nationalist Spain"],
-  doesLightSideWin: true,
-  imageAlt: "",
-};
-
-revisitedEbreBattle.imageAlt = `Genera view of ${revisitedEbreBattle.battleName}`;

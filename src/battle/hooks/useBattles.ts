@@ -9,7 +9,7 @@ import {
 
 const useBattles = (): UseBattlesStructure => {
   const battlesInfo = useAppSelector(
-    (state) => state.battlesReducer.battlesInfo,
+    (state) => state.battlesInfoStateData.battlesInfo,
   );
 
   const dispatch = useAppDispatch();

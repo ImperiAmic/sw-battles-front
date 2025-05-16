@@ -1,6 +1,6 @@
 import type { Battle } from "./types";
 
-export const battleOfRoncesvalles: Battle = {
+export const roncesvallesBattle: Battle = {
   id: "111aaa111aaa111aaa111aaa",
   battleName: "Battle of Roncesvalles",
   conflict: "Muslim-Christian Conflicts in the Iberian Peninsula",
@@ -16,7 +16,7 @@ export const battleOfRoncesvalles: Battle = {
   doesLightSideWin: true,
 };
 
-export const battleOfTebas: Battle = {
+export const tebasBattle: Battle = {
   id: "222bbb222bbb222bbb222bbb",
   battleName: "Battle of Tebas",
   conflict: "Frankish-Muslim Border Skirmishes",
@@ -32,7 +32,7 @@ export const battleOfTebas: Battle = {
   doesLightSideWin: false,
 };
 
-export const battleOfBarcelona: Battle = {
+export const barcelonaBattle: Battle = {
   id: "333ccc333ccc333ccc333ccc",
   battleName: "Siege of Barcelona",
   conflict: "Reconquista",
@@ -48,7 +48,7 @@ export const battleOfBarcelona: Battle = {
   doesLightSideWin: true,
 };
 
-export const battleOfLleida: Battle = {
+export const lleidaBattle: Battle = {
   id: "444ddd444ddd444ddd444ddd",
   battleName: "Battle of Lleida",
   conflict: "Catalan Reconquest",
@@ -64,7 +64,7 @@ export const battleOfLleida: Battle = {
   doesLightSideWin: true,
 };
 
-export const battleOfMuret: Battle = {
+export const muretBattle: Battle = {
   id: "555eee555eee555eee555eee",
   battleName: "Battle of Muret",
   conflict: "Albigensian Crusade",
@@ -80,7 +80,7 @@ export const battleOfMuret: Battle = {
   doesLightSideWin: false,
 };
 
-export const battleOfMallorca: Battle = {
+export const mallorcaBattle: Battle = {
   id: "666fff666fff666fff666fff",
   battleName: "Conquest of Mallorca",
   conflict: "Catalan Expansion",
@@ -96,7 +96,7 @@ export const battleOfMallorca: Battle = {
   doesLightSideWin: true,
 };
 
-export const battleOfLlucmajor: Battle = {
+export const llucmajorBattle: Battle = {
   id: "aaa111aaa111aaa111aaa111",
   battleName: "Battle of Llucmajor",
   conflict: "Unification of the Balearic Islands",
@@ -112,7 +112,7 @@ export const battleOfLlucmajor: Battle = {
   doesLightSideWin: true,
 };
 
-export const battleOfMontjuïc: Battle = {
+export const montjuicBattle: Battle = {
   id: "bbb222bbb222bbb222bbb222",
   battleName: "Battle of Montjuïc",
   conflict: "Reapers' War",
@@ -128,7 +128,7 @@ export const battleOfMontjuïc: Battle = {
   doesLightSideWin: true,
 };
 
-export const battleOfAlmansa: Battle = {
+export const almansaBattle: Battle = {
   id: "ccc333ccc333ccc333ccc333",
   battleName: "Battle of Almansa",
   conflict: "War of Spanish Succession",
@@ -144,8 +144,8 @@ export const battleOfAlmansa: Battle = {
   doesLightSideWin: false,
 };
 
-export const veryOldCatalanBattles = [
-  battleOfRoncesvalles,
-  battleOfTebas,
-  battleOfBarcelona,
+export const catalanBattles = [
+  roncesvallesBattle,
+  tebasBattle,
+  barcelonaBattle,
 ];

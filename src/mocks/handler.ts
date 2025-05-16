@@ -1,10 +1,11 @@
 import { http, HttpResponse } from "msw";
-import {
-  catalanBattles,
-  ebreBattle,
-  revisitedEbreBattle,
-} from "../battle/dto/fixturesDto";
+import { almansaBattle, lleidaBattle } from "../fixtures";
 import { type BattleDto, type BattlesInfoDto } from "../battle/dto/types";
+import {
+  almansaBattleDto,
+  catalanBattlesDtos,
+  lleidaBattleDto,
+} from "../battle/dto/fixturesDto";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -19,20 +20,26 @@ export const handlers = [
 
     if (currentPage === "2") {
       return HttpResponse.json<BattlesInfoDto>({
-        battles: catalanBattles.slice(6, 12),
-        battlesTotal: catalanBattles.length,
+        battles: catalanBattlesDtos.slice(6, 12),
+        battlesTotal: catalanBattlesDtos.length,
       });
     }
 
     return HttpResponse.json<BattlesInfoDto>({
-      battles: catalanBattles.slice(0, 6),
-      battlesTotal: catalanBattles.length,
+      battles: catalanBattlesDtos.slice(0, 6),
+      battlesTotal: catalanBattlesDtos.length,
     });
   }),
 
-  http.patch(`${apiUrl}/battles/${ebreBattle._id}`, () => {
+  http.patch(`${apiUrl}/battles/${lleidaBattle.id}`, () => {
     return HttpResponse.json<{ battle: BattleDto }>({
-      battle: revisitedEbreBattle,
+      battle: { ...lleidaBattleDto, doesLightSideWin: false },
+    });
+  }),
+
+  http.patch(`${apiUrl}/battles/${almansaBattle.id}`, () => {
+    return HttpResponse.json<{ battle: BattleDto }>({
+      battle: { ...almansaBattleDto, doesLightSideWin: true },
     });
   }),
 ];

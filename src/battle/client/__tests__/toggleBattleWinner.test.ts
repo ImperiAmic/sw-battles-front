@@ -1,19 +1,17 @@
 import { http, HttpResponse } from "msw";
 import { server } from "../../../mocks/node";
 import BattleClient from "../BattleClient";
-import { ebreBattle, revisitedEbreBattle } from "../../dto/fixturesDto";
+import { lleidaBattle } from "../../../fixtures";
 
 describe("Given the toggleBattleWinner method from BattleClient", () => {
-  describe("When it is called with the Battle of the Ebre ID", () => {
-    test("Then it should return Battle of the Ebre with a switched battle winner", async () => {
+  describe("When it is called with the Battle of the Lleida ID", () => {
+    test("Then it should return Battle of the Lleida with a switched battle winner", async () => {
       const battleClient = new BattleClient();
       const battleUpdate = await battleClient.toggleBattleWinner(
-        ebreBattle._id,
+        lleidaBattle.id,
       );
 
-      expect(battleUpdate.doesLightSideWin).toBe(
-        revisitedEbreBattle.doesLightSideWin,
-      );
+      expect(battleUpdate.doesLightSideWin).toBe(false);
     });
   });
 

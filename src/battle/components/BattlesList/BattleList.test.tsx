@@ -2,8 +2,8 @@ import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router";
 import { render, screen } from "@testing-library/react";
 import BattlesList from "./BattlesList";
-import { store } from "../../../store/store";
-import { veryOldCatalanBattles } from "../../../fixtures";
+import store from "../../../store/store";
+import { catalanBattles } from "../../../fixtures";
 
 describe("Given the BattlesList component", () => {
   describe("When it receives Roncesvalles, Tebas and Barcelona battles", () => {
@@ -15,7 +15,7 @@ describe("Given the BattlesList component", () => {
       render(
         <Provider store={store}>
           <MemoryRouter>
-            <BattlesList battles={veryOldCatalanBattles} />
+            <BattlesList battles={catalanBattles} />
           </MemoryRouter>
         </Provider>,
       );
