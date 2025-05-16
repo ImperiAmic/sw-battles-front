@@ -1,11 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { battlesReducer } from "../battle/slice/battlesSlice";
-import { battlesTotalReducer } from "../battle/slice/battlesTotalSlice";
 
 export const store = configureStore({
   reducer: {
     battlesReducer: battlesReducer,
-    battlesTotalReducer: battlesTotalReducer,
   },
 });
 

@@ -1,7 +1,7 @@
-import type { Battle } from "../../types";
+import type { BattlesInfo } from "../../types";
 
 export interface UseBattlesStructure {
-  battles: Battle[];
-  battlesTotal: number;
-  loadBattlesInfo: (page?: number) => Promise<void>;
+  battlesInfo: BattlesInfo;
+  getBattlesInfo: (page?: number) => Promise<void>;
+  toggleBattleWinner: (battleID: string) => Promise<void>;
 }

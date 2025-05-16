@@ -7,7 +7,10 @@ import "./BattlesPage.css";
 import Paginator from "../../../components/Paginator/Paginator";
 
 const BattlesPage: React.FC = () => {
-  const { battles, battlesTotal, loadBattlesInfo } = useBattles();
+  const {
+    battlesInfo: { battles, battlesTotal },
+    getBattlesInfo,
+  } = useBattles();
 
   const [searchParams] = useSearchParams();
   const page = searchParams.get("page") ? Number(searchParams.get("page")) : 1;
@@ -15,8 +18,8 @@ const BattlesPage: React.FC = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 
-    loadBattlesInfo(page);
-  }, [loadBattlesInfo, page]);
+    getBattlesInfo(page);
+  }, [getBattlesInfo, page]);
 
   if (battles.length === 0) {
     return <Loader />;

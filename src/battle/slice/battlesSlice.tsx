@@ -1,22 +1,39 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { Battle } from "../../types";
-import type { BattlesState } from "./types";
+import type { Battle, BattlesInfo } from "../../types";
+import type { BattlesInfoState as BattlesInfoState } from "./types";
 
-const initialState: BattlesState = {
-  battles: [],
+const initialState: BattlesInfoState = {
+  battlesInfo: {
+    battles: [],
+    battlesTotal: 0,
+  },
 };
 
 const battlesSlice = createSlice({
   name: "battles",
   initialState,
   reducers: {
-    loadBattles: (
-      currentState,
-      action: PayloadAction<Battle[]>,
-    ): BattlesState => {
+    getBattlesInfo: (
+      { battlesInfo },
+      { payload: { battles, battlesTotal } }: PayloadAction<BattlesInfo>,
+    ): BattlesInfoState => {
       return {
-        ...currentState,
-        battles: action.payload,
+        ...battlesInfo,
+        battlesInfo: { battles: [...battles], battlesTotal },
+      };
+    },
+
+    toggleBattleWinner: (
+      { battlesInfo: { battles, battlesTotal } },
+      { payload }: PayloadAction<Battle>,
+    ): BattlesInfoState => {
+      return {
+        battlesInfo: {
+          battles: battles.map((battle) =>
+            battle.id === payload.id ? payload : battle,
+          ),
+          battlesTotal,
+        },
       };
     },
   },
@@ -24,4 +41,7 @@ const battlesSlice = createSlice({
 
 export const battlesReducer = battlesSlice.reducer;
 
-export const { loadBattles: loadBattlesActionCreator } = battlesSlice.actions;
+export const {
+  getBattlesInfo: getBattlesInfoActionCreator,
+  toggleBattleWinner: toggleBattleWinnerActionCreator,
+} = battlesSlice.actions;
