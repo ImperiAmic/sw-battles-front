@@ -3,11 +3,11 @@ import { server } from "../../../mocks/node";
 import { ebreBattle, revisitedEbreBattle } from "../../dto/fixturesDto";
 import BattleClient from "../BattleClient";
 
-describe("Given the updateBattleWinner method from BattleClient", () => {
+describe("Given the toggleBattleWinner method from BattleClient", () => {
   describe("When it is called with the Battle of the Ebre ID", () => {
     test("Then it should return Battle of the Ebre with a switched battle winner", async () => {
       const battleClient = new BattleClient();
-      const battleUpdate = await battleClient.updateBattleWinner(
+      const battleUpdate = await battleClient.toggleBattleWinner(
         ebreBattle._id,
       );
 
@@ -31,7 +31,7 @@ describe("Given the updateBattleWinner method from BattleClient", () => {
       );
 
       const battleClient = new BattleClient();
-      const battleUpdate = battleClient.updateBattleWinner(notCorrectID);
+      const battleUpdate = battleClient.toggleBattleWinner(notCorrectID);
 
       expect(battleUpdate).rejects.toThrow(expectedErrorMessage);
     });

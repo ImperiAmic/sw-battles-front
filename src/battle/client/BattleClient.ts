@@ -24,7 +24,7 @@ class BattleClient implements BattleClientStructure {
     };
   };
 
-  public updateBattleWinner = async (battleId: string): Promise<Battle> => {
+  public toggleBattleWinner = async (battleId: string): Promise<Battle> => {
     const response = await fetch(`${this.apiUrl}/battles/${battleId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
