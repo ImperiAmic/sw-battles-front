@@ -5,16 +5,12 @@ interface ButtonProps extends ComponentProps<"button"> {
   action?: () => void;
   className?: string;
   type?: "button" | "submit";
-  ariaLabel?: string;
-  ariaRole?: "img";
 }
 
 const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
   action,
   className,
   type = "button",
-  ariaLabel,
-  ariaRole,
   children,
   ...buttonProps
 }) => {
@@ -23,8 +19,6 @@ const Button: React.FC<PropsWithChildren<ButtonProps>> = ({
       className={`${className ?? ""}`}
       type={type}
       onClick={action}
-      aria-label={ariaLabel}
-      role={ariaRole}
       {...buttonProps}
     >
       {children}

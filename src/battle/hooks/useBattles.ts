@@ -1,36 +1,42 @@
 import { useCallback, useMemo } from "react";
 import BattleClient from "../client/BattleClient";
 import type { UseBattlesStructure } from "./types";
-import { loadBattlesActionCreator } from "../slice/battlesSlice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { loadBattlesTotalActionCreator } from "../slice/battlesTotalSlice";
+import {
+  getBattlesInfoActionCreator,
+  toggleBattleWinnerActionCreator,
+} from "../slice/battlesSlice";
 
 const useBattles = (): UseBattlesStructure => {
-  const battles = useAppSelector((state) => state.battlesReducer.battles);
-
-  const battlesTotal = useAppSelector(
-    (state) => state.battlesTotalReducer.battlesTotal,
+  const battlesInfo = useAppSelector(
+    (state) => state.battlesReducer.battlesInfo,
   );
 
   const dispatch = useAppDispatch();
 
   const battleClient = useMemo(() => new BattleClient(), []);
 
-  const loadBattlesInfo = useCallback(
+  const getBattlesInfo = useCallback(
     async (page?: number): Promise<void> => {
       const apiBattlesInfo = await battleClient.getBattlesInfo(page);
 
-      const battlesAction = loadBattlesActionCreator(apiBattlesInfo.battles);
-      const battlesTotalAction = loadBattlesTotalActionCreator(
-        apiBattlesInfo.battlesTotal,
-      );
+      const battlesInfo = getBattlesInfoActionCreator(apiBattlesInfo);
 
-      dispatch(battlesAction);
-      dispatch(battlesTotalAction);
+      dispatch(battlesInfo);
     },
     [battleClient, dispatch],
   );
-  return { battles, battlesTotal, loadBattlesInfo };
+
+  const toggleBattleWinner = async (battleId: string): Promise<void> => {
+    const apiToggleBattleWinner =
+      await battleClient.toggleBattleWinner(battleId);
+
+    const battle = toggleBattleWinnerActionCreator(apiToggleBattleWinner);
+
+    dispatch(battle);
+  };
+
+  return { battlesInfo, getBattlesInfo, toggleBattleWinner };
 };
 
 export default useBattles;

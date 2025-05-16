@@ -1,6 +1,10 @@
 import { http, HttpResponse } from "msw";
-import { catalanBattles } from "../battle/dto/fixturesDto";
-import type { BattlesInfoDto } from "../battle/dto/types";
+import {
+  catalanBattles,
+  ebreBattle,
+  revisitedEbreBattle,
+} from "../battle/dto/fixturesDto";
+import { type BattleDto, type BattlesInfoDto } from "../battle/dto/types";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -23,6 +27,12 @@ export const handlers = [
     return HttpResponse.json<BattlesInfoDto>({
       battles: catalanBattles.slice(0, 6),
       battlesTotal: catalanBattles.length,
+    });
+  }),
+
+  http.patch(`${apiUrl}/battles/${ebreBattle._id}`, () => {
+    return HttpResponse.json<{ battle: BattleDto }>({
+      battle: revisitedEbreBattle,
     });
   }),
 ];
