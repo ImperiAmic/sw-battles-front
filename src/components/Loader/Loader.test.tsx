@@ -3,10 +3,10 @@ import Loader from "./Loader";
 
 describe("Given the Loader component", () => {
   describe("When it renders", () => {
-    test("Then it should show 'Battling the load'", () => {
+    test("Then it should show 'LOADING'", () => {
       render(<Loader />);
 
-      const loaderText = screen.getByText("Battling the load...");
+      const loaderText = screen.getByText("LOADING...");
 
       expect(loaderText).toBeInTheDocument();
     });
