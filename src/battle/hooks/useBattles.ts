@@ -8,6 +8,10 @@ import {
 } from "../slice/battlesSlice";
 
 const useBattles = (): UseBattlesStructure => {
+  const isLoading = useAppSelector(
+    (state) => state.battlesInfoStateData.isLoading,
+  );
+
   const battlesInfo = useAppSelector(
     (state) => state.battlesInfoStateData.battlesInfo,
   );
@@ -36,7 +40,7 @@ const useBattles = (): UseBattlesStructure => {
     dispatch(battle);
   };
 
-  return { battlesInfo, getBattlesInfo, toggleBattleWinner };
+  return { isLoading, battlesInfo, getBattlesInfo, toggleBattleWinner };
 };
 
 export default useBattles;

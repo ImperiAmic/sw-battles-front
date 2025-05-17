@@ -8,6 +8,7 @@ import Paginator from "../../../components/Paginator/Paginator";
 
 const BattlesPage: React.FC = () => {
   const {
+    isLoading,
     battlesInfo: { battles, battlesTotal },
     getBattlesInfo,
   } = useBattles();
@@ -21,7 +22,7 @@ const BattlesPage: React.FC = () => {
     getBattlesInfo(page);
   }, [getBattlesInfo, page]);
 
-  if (battles.length === 0) {
+  if (isLoading) {
     return <Loader />;
   }
 
