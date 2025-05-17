@@ -1,7 +1,38 @@
 .loader {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: center;
+  line-height: 2rem;
+  overflow-wrap: break-word;
+}
+
+.loader__main-text {
   font-family: var(--font-title);
   font-weight: 900;
   font-size: 1.875rem;
-  text-align: center;
-  line-height: 2rem;
+}
+
+.loader__secundary-text {
+  font-size: 1.25rem;
+}
+
+.loader__image {
+  align-self: center;
+  animation: spin infinite 3s alternate;
+}
+
+@keyframes spin {
+  from {
+    transform: scale(-1) rotate(0deg);
+  }
+  to {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader__image {
+    animation: none;
+  }
 }
