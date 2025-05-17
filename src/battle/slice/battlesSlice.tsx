@@ -3,6 +3,7 @@ import type { Battle, BattlesInfo } from "../../types";
 import type { BattlesInfoState } from "./types";
 
 const initialState: BattlesInfoState = {
+  isLoading: true,
   battlesInfo: {
     battles: [],
     battlesTotal: 0,
@@ -13,6 +14,10 @@ const battlesSlice = createSlice({
   name: "battles",
   initialState,
   reducers: {
+    setLoading: (currentState): void => {
+      currentState.isLoading = true;
+    },
+
     getBattlesInfo: (
       { battlesInfo },
       { payload: { battles, battlesTotal } }: PayloadAction<BattlesInfo>,
@@ -20,6 +25,7 @@ const battlesSlice = createSlice({
       return {
         ...battlesInfo,
         battlesInfo: { battles: [...battles], battlesTotal },
+        isLoading: false,
       };
     },
 
@@ -34,6 +40,7 @@ const battlesSlice = createSlice({
           ),
           battlesTotal,
         },
+        isLoading: false,
       };
     },
   },
@@ -42,6 +49,7 @@ const battlesSlice = createSlice({
 export const battlesReducer = battlesSlice.reducer;
 
 export const {
+  setLoading: setLoadingActionCreator,
   getBattlesInfo: getBattlesInfoActionCreator,
   toggleBattleWinner: toggleBattleWinnerActionCreator,
 } = battlesSlice.actions;
