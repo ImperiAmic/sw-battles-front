@@ -2,6 +2,7 @@ import { http, HttpResponse } from "msw";
 import {
   almansaBattle,
   lleidaBattle,
+  llucmajorBattle,
   mallorcaBattle,
   tebasBattle,
 } from "../fixtures";
@@ -10,6 +11,7 @@ import {
   almansaBattleDto,
   catalanBattlesDtos,
   lleidaBattleDto,
+  llucmajorBattleDto,
   mallorcaBattleDto,
   tebasBattleDto,
 } from "../battle/dto/fixturesDto";
@@ -59,6 +61,12 @@ export const handlers = [
   http.delete(`${apiUrl}/battles/${mallorcaBattle.id}`, () => {
     return HttpResponse.json<{ battle: BattleDto }>({
       battle: mallorcaBattleDto,
+    });
+  }),
+
+  http.delete(`${apiUrl}/battles/${llucmajorBattle.id}`, () => {
+    return HttpResponse.json<{ battle: BattleDto }>({
+      battle: llucmajorBattleDto,
     });
   }),
 ];

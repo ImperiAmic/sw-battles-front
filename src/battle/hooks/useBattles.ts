@@ -3,6 +3,7 @@ import BattleClient from "../client/BattleClient";
 import type { UseBattlesStructure } from "./types";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import {
+  deleteBattleActionCreator,
   getBattlesInfoActionCreator,
   toggleBattleWinnerActionCreator,
 } from "../slice/battlesSlice";
@@ -40,7 +41,21 @@ const useBattles = (): UseBattlesStructure => {
     dispatch(battle);
   };
 
-  return { isLoading, battlesInfo, getBattlesInfo, toggleBattleWinner };
+  const deletteBattle = async (battleId: string): Promise<void> => {
+    const apiDeletedBattle = await battleClient.deleteBattle(battleId);
+
+    const battle = deleteBattleActionCreator(apiDeletedBattle);
+
+    dispatch(battle);
+  };
+
+  return {
+    isLoading,
+    battlesInfo,
+    getBattlesInfo,
+    toggleBattleWinner,
+    deletteBattle,
+  };
 };
 
 export default useBattles;
