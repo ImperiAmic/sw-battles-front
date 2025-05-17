@@ -2,7 +2,7 @@ import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router";
 import { render, screen } from "@testing-library/react";
 import store from "../store/store";
-import AppRouterTest from "./TestAppRouter";
+import AppRouter from "./AppRouter";
 
 describe("Given the AppRouter component", () => {
   describe("When it renders in path '/'", () => {
@@ -12,7 +12,7 @@ describe("Given the AppRouter component", () => {
       render(
         <Provider store={store}>
           <MemoryRouter initialEntries={["/battles"]}>
-            <AppRouterTest />
+            <AppRouter />
           </MemoryRouter>
         </Provider>,
       );
@@ -32,7 +32,7 @@ describe("Given the AppRouter component", () => {
       render(
         <Provider store={store}>
           <MemoryRouter initialEntries={["/palpatine"]}>
-            <AppRouterTest />
+            <AppRouter />
           </MemoryRouter>
         </Provider>,
       );
