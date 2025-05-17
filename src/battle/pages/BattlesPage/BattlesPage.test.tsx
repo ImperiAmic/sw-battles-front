@@ -1,8 +1,9 @@
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import BattlesPage from "./BattlesPage";
 import store from "../../../store/store";
+import userEvent from "@testing-library/user-event";
 
 describe("Given the BattlesPage component", () => {
   describe("When it renders", () => {
@@ -20,8 +21,43 @@ describe("Given the BattlesPage component", () => {
       const pageTitle = await screen.findByRole("heading", {
         name: expectedPageTitle,
       });
-
+      screen.debug();
       expect(pageTitle).toBeInTheDocument();
+    });
+  });
+
+  describe("And the user clicks on Rebel icon from Battle of Tebas card", () => {
+    test("Then it should show the Empire as battle winner", async () => {
+      const expectedBattleName = "Battle of Tebas";
+      const expectedBattleToggleButton = "Change battle winner";
+      const expectedNewWinnerImage = "Rebel icon";
+
+      render(
+        <Provider store={store}>
+          <MemoryRouter>
+            <BattlesPage />
+          </MemoryRouter>
+        </Provider>,
+      );
+
+      const tebasBattleName = await screen.findByRole("heading", {
+        name: expectedBattleName,
+      });
+
+      const tebasBattleCard = tebasBattleName.closest("article")!;
+
+      const tebasToggleWinnerButton = await within(
+        tebasBattleCard,
+      ).findByLabelText(expectedBattleToggleButton);
+
+      await userEvent.click(tebasToggleWinnerButton);
+
+      const tebasBattleWinner = await within(tebasBattleCard).findByRole(
+        "img",
+        { name: expectedNewWinnerImage },
+      );
+
+      expect(tebasBattleWinner).toBeInTheDocument();
     });
   });
 });

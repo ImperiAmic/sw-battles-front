@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 import Layout from "./Layout";
 import store from "../../store/store";
-import AppRouter from "../../router/AppRouter";
+import AppRouterTest from "../../router/TestAppRouter";
 
 describe("Given the Layout component", () => {
   describe("When it renders", () => {
@@ -35,7 +35,7 @@ describe("Given the Layout component", () => {
         <Provider store={store}>
           <MemoryRouter initialEntries={["/battles"]}>
             <Layout />
-            <AppRouter />
+            <AppRouterTest />
           </MemoryRouter>
         </Provider>,
       );
@@ -63,7 +63,7 @@ describe("Given the Layout component", () => {
         <Provider store={store}>
           <MemoryRouter initialEntries={["/battles?page=2"]}>
             <Layout />
-            <AppRouter />
+            <AppRouterTest />
           </MemoryRouter>
         </Provider>,
       );

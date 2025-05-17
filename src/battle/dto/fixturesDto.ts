@@ -6,9 +6,6 @@ export const roncesvallesBattleDto: BattleDto = {
   conflict: "Muslim-Christian Conflicts in the Iberian Peninsula",
   year: 778,
   period: "BBY",
-  imageUrl:
-    "https://upload.wikimedia.org/wikipedia/commons/6/67/Battle_of_Roncesvalles.jpg",
-  imageAlt: "Depiction of the Battle of Roncesvalles",
   description:
     "Fought in 778, this ambush in the Pyrenees involved Basque forces attacking the rearguard of Charlemagne’s army. Though not a 'Catalan' army, the event impacted early Frankish efforts in the region that would eventually shape Catalonia.",
   lightSide: ["Basques", "Local mountain tribes"],

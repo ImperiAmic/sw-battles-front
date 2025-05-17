@@ -1,10 +1,11 @@
 import { http, HttpResponse } from "msw";
-import { almansaBattle, lleidaBattle } from "../fixtures";
+import { almansaBattle, lleidaBattle, tebasBattle } from "../fixtures";
 import { type BattleDto, type BattlesInfoDto } from "../battle/dto/types";
 import {
   almansaBattleDto,
   catalanBattlesDtos,
   lleidaBattleDto,
+  tebasBattleDto,
 } from "../battle/dto/fixturesDto";
 
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -40,6 +41,12 @@ export const handlers = [
   http.patch(`${apiUrl}/battles/${almansaBattle.id}`, () => {
     return HttpResponse.json<{ battle: BattleDto }>({
       battle: { ...almansaBattleDto, doesLightSideWin: true },
+    });
+  }),
+
+  http.patch(`${apiUrl}/battles/${tebasBattle.id}`, () => {
+    return HttpResponse.json<{ battle: BattleDto }>({
+      battle: { ...tebasBattleDto, doesLightSideWin: true },
     });
   }),
 ];
