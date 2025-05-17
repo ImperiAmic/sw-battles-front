@@ -40,6 +40,23 @@ class BattleClient implements BattleClientStructure {
 
     return updatedBattle;
   };
+
+  public deleteBattle = async (battleId: string): Promise<Battle> => {
+    const response = await fetch(`${this.apiUrl}/battles/${battleId}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (!response.ok) {
+      throw new Error("Error while fetching battle deletion");
+    }
+
+    const { battle } = (await response.json()) as { battle: BattleDto };
+
+    const deletedBattle = mapBattleDtoToBattle(battle);
+
+    return deletedBattle;
+  };
 }
 
 export default BattleClient;

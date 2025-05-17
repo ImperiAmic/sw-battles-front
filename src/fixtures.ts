@@ -88,7 +88,7 @@ export const mallorcaBattle: Battle = {
   period: "ABY",
   imageUrl:
     "https://upload.wikimedia.org/wikipedia/commons/f/f6/Conquest_Mallorca_1229.jpg",
-  imageAlt: "Catalan fleet landing in Mallorca",
+  imageAlt: "General view of Conquest of Mallorca",
   description:
     "Under King James I, Catalan-Aragonese forces conquered Mallorca from the Moors. It marked a major step in the Mediterranean expansion of Catalonia.",
   lightSide: ["Crown of Aragon", "Catalan nobles"],

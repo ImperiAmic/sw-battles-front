@@ -1,10 +1,16 @@
 import { http, HttpResponse } from "msw";
-import { almansaBattle, lleidaBattle, tebasBattle } from "../fixtures";
+import {
+  almansaBattle,
+  lleidaBattle,
+  mallorcaBattle,
+  tebasBattle,
+} from "../fixtures";
 import { type BattleDto, type BattlesInfoDto } from "../battle/dto/types";
 import {
   almansaBattleDto,
   catalanBattlesDtos,
   lleidaBattleDto,
+  mallorcaBattleDto,
   tebasBattleDto,
 } from "../battle/dto/fixturesDto";
 
@@ -47,6 +53,12 @@ export const handlers = [
   http.patch(`${apiUrl}/battles/${tebasBattle.id}`, () => {
     return HttpResponse.json<{ battle: BattleDto }>({
       battle: { ...tebasBattleDto, doesLightSideWin: true },
+    });
+  }),
+
+  http.delete(`${apiUrl}/battles/${mallorcaBattle.id}`, () => {
+    return HttpResponse.json<{ battle: BattleDto }>({
+      battle: mallorcaBattleDto,
     });
   }),
 ];
