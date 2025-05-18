@@ -43,6 +43,19 @@ const battlesSlice = createSlice({
         isLoading: false,
       };
     },
+
+    deleteBattle: (
+      { battlesInfo: { battles, battlesTotal } },
+      { payload }: PayloadAction<Battle>,
+    ): BattlesInfoState => {
+      return {
+        battlesInfo: {
+          battles: battles.filter((battle) => battle.id !== payload.id),
+          battlesTotal,
+        },
+        isLoading: false,
+      };
+    },
   },
 });
 
@@ -52,4 +65,5 @@ export const {
   setLoading: setLoadingActionCreator,
   getBattlesInfo: getBattlesInfoActionCreator,
   toggleBattleWinner: toggleBattleWinnerActionCreator,
+  deleteBattle: deleteBattleActionCreator,
 } = battlesSlice.actions;
