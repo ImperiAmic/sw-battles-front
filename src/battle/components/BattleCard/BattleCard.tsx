@@ -23,7 +23,7 @@ const BattleCard: React.FC<BattleCardProps> = ({
   },
   index,
 }) => {
-  const { toggleBattleWinner, deletteBattle } = useBattles();
+  const { toggleBattleWinner, deleteBattle: deletteBattle } = useBattles();
 
   const winner = doesLightSideWin ? "images/rebels.svg" : "images/empire.svg";
   const winnerAlt = doesLightSideWin ? "Rebel icon" : "Empire icon";
@@ -66,8 +66,12 @@ const BattleCard: React.FC<BattleCardProps> = ({
         </div>
         <footer className="battle__footer">
           <div className="battle__actions">
-            <Button className="button">+info</Button>
-            <Button className="button">update</Button>
+            <Button aria-label="More information" className="button">
+              +info
+            </Button>
+            <Button aria-label="Update information" className="button">
+              update
+            </Button>
           </div>
           <Button aria-label="Delete battle" onClick={() => deletteBattle(id)}>
             <img
