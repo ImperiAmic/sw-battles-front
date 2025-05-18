@@ -60,4 +60,33 @@ describe("Given the BattlesPage component", () => {
       expect(tebasBattleWinner).toBeInTheDocument();
     });
   });
+
+  describe("And the user clicks on the delete button from Battle of Roncesvalles", () => {
+    test("Then it should delete the Battle of Roncesvalles from the page", async () => {
+      const expectedBattleName = "Battle of Roncesvalles";
+      const expectedDeleteButtonText = "Delete battle";
+
+      render(
+        <Provider store={store}>
+          <MemoryRouter>
+            <BattlesPage />
+          </MemoryRouter>
+        </Provider>,
+      );
+
+      const battleHeading = await screen.findByRole("heading", {
+        name: expectedBattleName,
+      });
+
+      const battleCard = battleHeading.closest("article")!;
+
+      const deleteButton = await within(battleCard).findByLabelText(
+        expectedDeleteButtonText,
+      );
+
+      await userEvent.click(deleteButton);
+
+      expect(battleHeading).not.toBeInTheDocument();
+    });
+  });
 });
