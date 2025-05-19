@@ -1,6 +1,6 @@
 import Button from "../../../components/Button/Button";
-import type { Battle } from "../../../types";
 import useBattles from "../../hooks/useBattles";
+import type { Battle } from "../../../types";
 import "./BattleCard.css";
 
 interface BattleCardProps {
@@ -23,7 +23,7 @@ const BattleCard: React.FC<BattleCardProps> = ({
   },
   index,
 }) => {
-  const { toggleBattleWinner, deleteBattle: deletteBattle } = useBattles();
+  const { toggleBattleWinner, deleteBattle } = useBattles();
 
   const winner = doesLightSideWin ? "images/rebels.svg" : "images/empire.svg";
   const winnerAlt = doesLightSideWin ? "Rebel icon" : "Empire icon";
@@ -73,7 +73,7 @@ const BattleCard: React.FC<BattleCardProps> = ({
               update
             </Button>
           </div>
-          <Button aria-label="Delete battle" onClick={() => deletteBattle(id)}>
+          <Button aria-label="Delete battle" onClick={() => deleteBattle(id)}>
             <img
               className="battle__delete"
               src="images/delete.svg"

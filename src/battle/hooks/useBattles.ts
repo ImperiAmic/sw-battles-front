@@ -7,8 +7,11 @@ import {
   getBattlesInfoActionCreator,
   toggleBattleWinnerActionCreator,
 } from "../slice/battlesSlice";
+import useModal from "../../hooks/useModal";
 
 const useBattles = (): UseBattlesStructure => {
+  const { showModal } = useModal();
+
   const isLoading = useAppSelector(
     (state) => state.battlesInfoStateData.isLoading,
   );
@@ -42,11 +45,17 @@ const useBattles = (): UseBattlesStructure => {
   };
 
   const deleteBattle = async (battleId: string): Promise<void> => {
-    const apiDeletedBattle = await battleClient.deleteBattle(battleId);
+    try {
+      const apiDeletedBattle = await battleClient.deleteBattle(battleId);
 
-    const battle = deleteBattleActionCreator(apiDeletedBattle);
+      const battle = deleteBattleActionCreator(apiDeletedBattle);
 
-    dispatch(battle);
+      dispatch(battle);
+
+      showModal(true, "Battle has been successfully deleted!");
+    } catch {
+      showModal(false, "Oops! Can’t delete your battle!");
+    }
   };
 
   return {
