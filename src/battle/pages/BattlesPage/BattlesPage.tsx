@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { useSearchParams } from "react-router";
 import useBattles from "../../hooks/useBattles";
 import Loader from "../../../components/Loader/Loader";
+import Paginator from "../../../components/Paginator/Paginator";
 import BattlesList from "../../components/BattlesList/BattlesList";
 import "./BattlesPage.css";
-import Paginator from "../../../components/Paginator/Paginator";
 
 const BattlesPage: React.FC = () => {
   const {

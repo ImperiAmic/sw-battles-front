@@ -5,5 +5,5 @@ export interface UseBattlesStructure {
   battlesInfo: BattlesInfo;
   getBattlesInfo: (page?: number) => Promise<void>;
   toggleBattleWinner: (battleID: string) => Promise<void>;
-  deletteBattle: (battleID: string) => Promise<void>;
+  deleteBattle: (battleID: string) => Promise<void>;
 }

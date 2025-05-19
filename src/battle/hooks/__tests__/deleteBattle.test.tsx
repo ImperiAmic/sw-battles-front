@@ -36,7 +36,7 @@ describe("Given the deleteBattle method from useBattle hook", () => {
       const { result } = renderHook(() => useBattles(), { wrapper });
 
       await act(() => {
-        result.current.deletteBattle(llucmajorBattle.id);
+        result.current.deleteBattle(llucmajorBattle.id);
       });
 
       const battles = result.current.battlesInfo.battles;

@@ -41,7 +41,7 @@ const useBattles = (): UseBattlesStructure => {
     dispatch(battle);
   };
 
-  const deletteBattle = async (battleId: string): Promise<void> => {
+  const deleteBattle = async (battleId: string): Promise<void> => {
     const apiDeletedBattle = await battleClient.deleteBattle(battleId);
 
     const battle = deleteBattleActionCreator(apiDeletedBattle);
@@ -54,7 +54,7 @@ const useBattles = (): UseBattlesStructure => {
     battlesInfo,
     getBattlesInfo,
     toggleBattleWinner,
-    deletteBattle,
+    deleteBattle,
   };
 };
 

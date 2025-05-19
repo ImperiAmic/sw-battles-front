@@ -43,7 +43,7 @@ This project provides a frontend interface to visualize and manage battles from 
 - ~~✅ Page to add a new battle~~
 - ~~✅ Page to edit an existing battle~~
 - ✅ Edit winner of the battle
-- ~~✅ Delete a battle~~
+- ✅ Delete a battle
 - ✅ Feedback for loading, errors, and success states
 
 ---
