@@ -12,9 +12,11 @@ describe("Given the Layout component", () => {
       const expectedPageTitle = "Star Wars Battles";
 
       render(
-        <MemoryRouter>
-          <Layout />
-        </MemoryRouter>,
+        <Provider store={store}>
+          <MemoryRouter>
+            <Layout />
+          </MemoryRouter>
+        </Provider>,
       );
 
       const pageTitle = screen.getByRole("heading", {
