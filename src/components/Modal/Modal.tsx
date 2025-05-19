@@ -2,34 +2,37 @@ import Button from "../Button/Button";
 import "./Modal.css";
 
 interface ModalProps {
+  isSuccess: boolean;
   text: string;
   action: () => void;
-  isSuccess?: boolean;
 }
 
-const Modal: React.FC<ModalProps> = ({ text, isSuccess, action }) => {
-  const crossColor = isSuccess
+const Modal: React.FC<ModalProps> = ({ isSuccess, text, action }) => {
+  const isModalClassSuccess = isSuccess
+    ? " modal-content--success"
+    : " modal-content--error";
+
+  const isImgClassSuccess = isSuccess ? " img--success" : " img--error";
+  const isImgSrcSuccess = isSuccess
     ? "images/delete.svg"
     : "images/delete-white.svg";
 
-  const crossModifier = isSuccess
-    ? " modal__cross--success"
-    : " modal__cross--error";
-
-  const modalModifier = isSuccess ? " modal--success" : " modal--error";
-
   return (
-    <dialog open className={`modal${modalModifier}`}>
-      <Button aria-label="Close modal" onClick={action}>
-        <img
-          className={`modal__cross${crossModifier}`}
-          src={crossColor}
-          alt="Close modal"
-          height={30}
-          width={30}
-        />
-      </Button>
-      {text}
+    <dialog open className="modal">
+      <div className={`modal-content${isModalClassSuccess}`}>
+        <Button
+          aria-label="Close modal"
+          className="modal-button"
+          action={action}
+        >
+          <img
+            className={`img${isImgClassSuccess}`}
+            src={isImgSrcSuccess}
+            alt="Delete icon"
+          />
+        </Button>
+        <span className="modal-text">{text}</span>
+      </div>
     </dialog>
   );
 };

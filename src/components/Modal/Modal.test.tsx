@@ -11,7 +11,11 @@ describe("Given the Modal component", () => {
     test("Then it should show 'Perico de los palotes'", async () => {
       render(
         <MemoryRouter>
-          <Modal text="Perico de los palotes" action={action} />
+          <Modal
+            text="Perico de los palotes"
+            action={action}
+            isSuccess={true}
+          />
         </MemoryRouter>,
       );
 
@@ -23,7 +27,11 @@ describe("Given the Modal component", () => {
     test("Then it shold show a button to close the modal", async () => {
       render(
         <MemoryRouter>
-          <Modal text="Perico de los palotes" action={action} />
+          <Modal
+            text="Perico de los palotes"
+            action={action}
+            isSuccess={true}
+          />
         </MemoryRouter>,
       );
 
@@ -36,7 +44,11 @@ describe("Given the Modal component", () => {
       test("Then it should call the action received", async () => {
         render(
           <MemoryRouter>
-            <Modal text="Perico de los palotes" action={action} />
+            <Modal
+              text="Perico de los palotes"
+              action={action}
+              isSuccess={true}
+            />
           </MemoryRouter>,
         );
 
