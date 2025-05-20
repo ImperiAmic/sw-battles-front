@@ -24,10 +24,9 @@ describe("Given the deleteBattle method from useBattle hook", () => {
           battles: initialStateBattles,
           battlesTotal: initialStateBattles.length,
         },
-        isLoading: false,
       };
 
-      const store = setupStore({ battlesInfoStateData: initialState });
+      const store = setupStore({ battlesInfoSlice: initialState });
 
       const wrapper = ({ children }: { children: React.ReactNode }) => (
         <Provider store={store}>{children}</Provider>

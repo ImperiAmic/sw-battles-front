@@ -5,13 +5,17 @@ import Loader from "../../../components/Loader/Loader";
 import Paginator from "../../../components/Paginator/Paginator";
 import BattlesList from "../../components/BattlesList/BattlesList";
 import "./BattlesPage.css";
+import useLoading from "../../../hooks/useLoading";
 
 const BattlesPage: React.FC = () => {
   const {
-    isLoading,
     battlesInfo: { battles, battlesTotal },
     getBattlesInfo,
   } = useBattles();
+
+  const {
+    loadingState: { isLoading },
+  } = useLoading();
 
   const [searchParams] = useSearchParams();
   const page = searchParams.get("page") ? Number(searchParams.get("page")) : 1;
