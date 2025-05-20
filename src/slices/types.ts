@@ -8,3 +8,7 @@ export interface ShowModalPayload {
   modalText: string;
   isSuccess: boolean;
 }
+
+export interface LoadingState {
+  isLoading: boolean;
+}

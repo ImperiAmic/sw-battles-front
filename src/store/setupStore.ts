@@ -2,10 +2,15 @@ import { configureStore } from "@reduxjs/toolkit";
 import { battlesReducer } from "../battle/slice/battlesSlice";
 import type { BattlesPreloadedState } from "../battle/slice/types";
 import { modalReducer } from "../slices/modalSlice";
+import { loadingReducer } from "../slices/loadingSlice";
 
 const setupStore = (preloadedState?: BattlesPreloadedState) => {
   const store = configureStore({
-    reducer: { battlesInfoStateData: battlesReducer, modalSlice: modalReducer },
+    reducer: {
+      battlesInfoStateData: battlesReducer,
+      modalSlice: modalReducer,
+      loadingSlice: loadingReducer,
+    },
     preloadedState,
   });
 

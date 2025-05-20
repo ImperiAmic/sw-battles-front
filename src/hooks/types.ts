@@ -1,7 +1,13 @@
-import type { ModalState } from "../slices/types";
+import type { LoadingState, ModalState } from "../slices/types";
 
 export interface UseModalStructure {
   modalState: ModalState;
   showModal: (isSuccess: boolean, modalText: string) => void;
   hideModal: () => void;
+}
+
+export interface UseLoadingStructure {
+  loadingState: LoadingState;
+  startLoading: () => void;
+  endLoading: () => void;
 }
