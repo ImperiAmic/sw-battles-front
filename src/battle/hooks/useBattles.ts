@@ -8,8 +8,10 @@ import {
   toggleBattleWinnerActionCreator,
 } from "../slice/battlesSlice";
 import useModal from "../../hooks/useModal";
+import useLoading from "../../hooks/useLoading";
 
 const useBattles = (): UseBattlesStructure => {
+  const { startLoading, endLoading } = useLoading();
   const { showModal } = useModal();
 
   const isLoading = useAppSelector(
@@ -26,13 +28,17 @@ const useBattles = (): UseBattlesStructure => {
 
   const getBattlesInfo = useCallback(
     async (page?: number): Promise<void> => {
+      startLoading();
+
       const apiBattlesInfo = await battleClient.getBattlesInfo(page);
 
       const battlesInfo = getBattlesInfoActionCreator(apiBattlesInfo);
 
       dispatch(battlesInfo);
+
+      endLoading();
     },
-    [battleClient, dispatch],
+    [battleClient, dispatch, startLoading, endLoading],
   );
 
   const toggleBattleWinner = async (battleId: string): Promise<void> => {
