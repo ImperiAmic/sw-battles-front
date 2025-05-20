@@ -6,7 +6,7 @@ import {
   deleteBattleActionCreator,
   getBattlesInfoActionCreator,
   toggleBattleWinnerActionCreator,
-} from "../slice/battlesSlice";
+} from "../slice/battlesInfoSlice";
 import useModal from "../../hooks/useModal";
 import useLoading from "../../hooks/useLoading";
 
@@ -14,12 +14,10 @@ const useBattles = (): UseBattlesStructure => {
   const { startLoading, endLoading } = useLoading();
   const { showModal } = useModal();
 
-  const isLoading = useAppSelector(
-    (state) => state.battlesInfoStateData.isLoading,
-  );
+  const isLoading = useAppSelector((state) => state.battlesInfoSlice.isLoading);
 
   const battlesInfo = useAppSelector(
-    (state) => state.battlesInfoStateData.battlesInfo,
+    (state) => state.battlesInfoSlice.battlesInfo,
   );
 
   const dispatch = useAppDispatch();
@@ -28,17 +26,26 @@ const useBattles = (): UseBattlesStructure => {
 
   const getBattlesInfo = useCallback(
     async (page?: number): Promise<void> => {
-      startLoading();
+      try {
+        startLoading();
 
-      const apiBattlesInfo = await battleClient.getBattlesInfo(page);
+        const apiBattlesInfo = await battleClient.getBattlesInfo(page);
 
-      const battlesInfo = getBattlesInfoActionCreator(apiBattlesInfo);
+        const battlesInfo = getBattlesInfoActionCreator(apiBattlesInfo);
 
-      dispatch(battlesInfo);
+        dispatch(battlesInfo);
 
-      endLoading();
+        endLoading();
+      } catch {
+        showModal(
+          false,
+          "Oops, can't find your battles! Reload in a few minutes...",
+        );
+
+        endLoading();
+      }
     },
-    [battleClient, dispatch, startLoading, endLoading],
+    [battleClient, dispatch, startLoading, endLoading, showModal],
   );
 
   const toggleBattleWinner = async (battleId: string): Promise<void> => {

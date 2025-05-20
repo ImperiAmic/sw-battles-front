@@ -5,4 +5,4 @@ export interface BattlesInfoState {
   battlesInfo: BattlesInfo;
 }
 
-export type BattlesPreloadedState = { battlesInfoStateData: BattlesInfoState };
+export type BattlesPreloadedState = { battlesInfoSlice: BattlesInfoState };

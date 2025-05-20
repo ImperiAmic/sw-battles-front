@@ -26,7 +26,7 @@ describe("Given the toggleBattleWinner method from useBattle hook", () => {
         isLoading: false,
       };
 
-      const store = setupStore({ battlesInfoStateData: initialState });
+      const store = setupStore({ battlesInfoSlice: initialState });
 
       const wrapper = ({ children }: { children: React.ReactNode }) => (
         <Provider store={store}>{children}</Provider>

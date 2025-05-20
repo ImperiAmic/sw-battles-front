@@ -10,7 +10,7 @@ const initialState: BattlesInfoState = {
   },
 };
 
-const battlesSlice = createSlice({
+const battlesInfoSlice = createSlice({
   name: "battles",
   initialState,
   reducers: {
@@ -59,11 +59,11 @@ const battlesSlice = createSlice({
   },
 });
 
-export const battlesReducer = battlesSlice.reducer;
+export const battlesReducer = battlesInfoSlice.reducer;
 
 export const {
   setLoading: setLoadingActionCreator,
   getBattlesInfo: getBattlesInfoActionCreator,
   toggleBattleWinner: toggleBattleWinnerActionCreator,
   deleteBattle: deleteBattleActionCreator,
-} = battlesSlice.actions;
+} = battlesInfoSlice.actions;
