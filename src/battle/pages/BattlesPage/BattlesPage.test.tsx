@@ -1,9 +1,9 @@
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router";
+import userEvent from "@testing-library/user-event";
 import { render, screen, within } from "@testing-library/react";
 import BattlesPage from "./BattlesPage";
 import store from "../../../store/store";
-import userEvent from "@testing-library/user-event";
 
 describe("Given the BattlesPage component", () => {
   describe("When it renders", () => {
@@ -21,7 +21,7 @@ describe("Given the BattlesPage component", () => {
       const pageTitle = await screen.findByRole("heading", {
         name: expectedPageTitle,
       });
-      screen.debug();
+
       expect(pageTitle).toBeInTheDocument();
     });
   });
