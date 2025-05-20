@@ -23,7 +23,6 @@ describe("Given the toggleBattleWinner method from useBattle hook", () => {
           battles: initialStateBattles,
           battlesTotal: initialStateBattles.length,
         },
-        isLoading: false,
       };
 
       const store = setupStore({ battlesInfoSlice: initialState });

@@ -3,7 +3,6 @@ import type { Battle, BattlesInfo } from "../../types";
 import type { BattlesInfoState } from "./types";
 
 const initialState: BattlesInfoState = {
-  isLoading: true,
   battlesInfo: {
     battles: [],
     battlesTotal: 0,
@@ -14,10 +13,6 @@ const battlesInfoSlice = createSlice({
   name: "battles",
   initialState,
   reducers: {
-    setLoading: (currentState): void => {
-      currentState.isLoading = true;
-    },
-
     getBattlesInfo: (
       { battlesInfo },
       { payload: { battles, battlesTotal } }: PayloadAction<BattlesInfo>,
@@ -25,10 +20,8 @@ const battlesInfoSlice = createSlice({
       return {
         ...battlesInfo,
         battlesInfo: { battles: [...battles], battlesTotal },
-        isLoading: false,
       };
     },
-
     toggleBattleWinner: (
       { battlesInfo: { battles, battlesTotal } },
       { payload }: PayloadAction<Battle>,
@@ -40,10 +33,8 @@ const battlesInfoSlice = createSlice({
           ),
           battlesTotal,
         },
-        isLoading: false,
       };
     },
-
     deleteBattle: (
       { battlesInfo: { battles, battlesTotal } },
       { payload }: PayloadAction<Battle>,
@@ -53,7 +44,6 @@ const battlesInfoSlice = createSlice({
           battles: battles.filter((battle) => battle.id !== payload.id),
           battlesTotal,
         },
-        isLoading: false,
       };
     },
   },
@@ -62,7 +52,6 @@ const battlesInfoSlice = createSlice({
 export const battlesReducer = battlesInfoSlice.reducer;
 
 export const {
-  setLoading: setLoadingActionCreator,
   getBattlesInfo: getBattlesInfoActionCreator,
   toggleBattleWinner: toggleBattleWinnerActionCreator,
   deleteBattle: deleteBattleActionCreator,

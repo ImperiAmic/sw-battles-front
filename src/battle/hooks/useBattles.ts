@@ -14,8 +14,6 @@ const useBattles = (): UseBattlesStructure => {
   const { startLoading, endLoading } = useLoading();
   const { showModal } = useModal();
 
-  const isLoading = useAppSelector((state) => state.battlesInfoSlice.isLoading);
-
   const battlesInfo = useAppSelector(
     (state) => state.battlesInfoSlice.battlesInfo,
   );
@@ -72,7 +70,6 @@ const useBattles = (): UseBattlesStructure => {
   };
 
   return {
-    isLoading,
     battlesInfo,
     getBattlesInfo,
     toggleBattleWinner,
