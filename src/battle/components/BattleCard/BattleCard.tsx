@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Button from "../../../components/Button/Button";
 import useBattles from "../../hooks/useBattles";
 import type { Battle } from "../../../types";
@@ -66,12 +67,16 @@ const BattleCard: React.FC<BattleCardProps> = ({
         </div>
         <footer className="battle__footer">
           <div className="battle__actions">
-            <Button aria-label="More information" className="button">
+            <Link aria-label="More information" className="battle-link" to={""}>
               +info
-            </Button>
-            <Button aria-label="Update information" className="button">
+            </Link>
+            <Link
+              aria-label="Update information"
+              className="battle-link"
+              to={""}
+            >
               update
-            </Button>
+            </Link>
           </div>
           <Button aria-label="Delete battle" onClick={() => deleteBattle(id)}>
             <img

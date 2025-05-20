@@ -85,12 +85,15 @@
   gap: 12px;
 }
 
-.button {
+.battle-link {
   height: 30px;
   width: 60px;
   background-color: var(--color-main);
   border-radius: 12px;
   border: 1px solid var(--dark-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .battle__delete {

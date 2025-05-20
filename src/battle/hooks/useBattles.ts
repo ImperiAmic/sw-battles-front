@@ -33,14 +33,14 @@ const useBattles = (): UseBattlesStructure => {
 
         dispatch(battlesInfo);
 
-        endLoading();
+        setTimeout(() => endLoading(), 200);
       } catch {
         showModal(
           false,
           "Oops, can't find your battles! Reload in a few minutes...",
         );
 
-        endLoading();
+        setTimeout(() => endLoading(), 1300);
       }
     },
     [battleClient, dispatch, startLoading, endLoading, showModal],
