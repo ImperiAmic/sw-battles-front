@@ -24,23 +24,24 @@ const useBattles = (): UseBattlesStructure => {
 
   const getBattlesInfo = useCallback(
     async (page?: number): Promise<void> => {
-      try {
+      const timeout = setTimeout(() => {
         startLoading();
+      }, 200);
 
+      try {
         const apiBattlesInfo = await battleClient.getBattlesInfo(page);
 
         const battlesInfo = getBattlesInfoActionCreator(apiBattlesInfo);
 
         dispatch(battlesInfo);
-
-        setTimeout(() => endLoading(), 200);
       } catch {
         showModal(
           false,
           "Oops, can't find your battles! Reload in a few minutes...",
         );
-
-        setTimeout(() => endLoading(), 1300);
+      } finally {
+        endLoading();
+        clearTimeout(timeout);
       }
     },
     [battleClient, dispatch, startLoading, endLoading, showModal],
