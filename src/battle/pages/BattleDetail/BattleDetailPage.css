@@ -48,12 +48,6 @@
   font-weight: bold;
 }
 
-.battle-error {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .battle-description {
   white-space: pre-line;
 }

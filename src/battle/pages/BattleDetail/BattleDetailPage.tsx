@@ -1,12 +1,19 @@
-import { Link, useParams } from "react-router";
 import { useEffect } from "react";
-import { useAppSelector } from "../../../store/hooks";
+import { Link, useParams } from "react-router";
 import useBattles from "../../hooks/useBattles";
-import "./BattleDetailPage.css";
+import useLoading from "../../../hooks/useLoading";
+import { useAppSelector } from "../../../store/hooks";
+import Loader from "../../../components/Loader/Loader";
 import Button from "../../../components/Button/Button";
+import "./BattleDetailPage.css";
+import NotFoundPage from "../../../pages/NotFoundPage.tsx/NotFoundPage";
 
 const BattleDetailPage: React.FC = () => {
   const { getBattleDetail, toggleBattleWinner } = useBattles();
+
+  const {
+    loadingState: { isLoading },
+  } = useLoading();
 
   const { battleId } = useParams<{ battleId: string }>();
 
@@ -20,13 +27,12 @@ const BattleDetailPage: React.FC = () => {
     ),
   );
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   if (!battle) {
-    return (
-      <div className="battle-error">
-        <span>The Force may be with you...</span>
-        <span>{`But not this battle ${`¯\\_(ツ)_/¯`}`}</span>
-      </div>
-    );
+    return <NotFoundPage />;
   }
 
   const winnerClaim = battle.doesLightSideWin
