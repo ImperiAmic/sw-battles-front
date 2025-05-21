@@ -2,39 +2,35 @@ import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router";
 import { render, screen } from "@testing-library/react";
 import store from "../../../store/store";
-import BattleDetailPage from "./BattleDetailPage";
 import AppRouterTest from "../../../router/TestAppRouter";
+import { muretBattle } from "../../../fixtures";
 
 describe("Given the BattleDetailPage component", () => {
   describe("When it renders at `/battle/666fff666fff666fff666fff` path", () => {
-    const expectedBattleId = "666fff666fff666fff666fff";
+    const expectedBattleId = muretBattle.id;
 
-    test("Then it should show an image of a general view of Conquest of Mallorca", async () => {
-      const expectedImageAlt = "General view of Conquest of Mallorca";
+    test("Then it should show an image of a general view of Battle of Muret", async () => {
+      const expectedImageAlt = /general view of battle of muret/i;
 
       render(
         <Provider store={store}>
           <MemoryRouter initialEntries={[`/battle/${expectedBattleId}`]}>
-            <BattleDetailPage />
             <AppRouterTest />
           </MemoryRouter>
         </Provider>,
       );
 
-      const imageAlt = await screen.findByRole("img", {
-        name: expectedImageAlt,
-      });
+      const image = await screen.findByAltText(expectedImageAlt);
 
-      expect(imageAlt).toBeInTheDocument();
+      expect(image).toBeInTheDocument();
     });
 
-    test("Then it should show 'Conquest of Mallorca' inside a heading", async () => {
-      const expectedBattleTitle = "Conquest of Mallorca";
+    test("Then it should show 'Battle of Muret' inside a heading", async () => {
+      const expectedBattleTitle = /battle of muret/i;
 
       render(
         <Provider store={store}>
           <MemoryRouter initialEntries={[`/battle/${expectedBattleId}`]}>
-            <BattleDetailPage />
             <AppRouterTest />
           </MemoryRouter>
         </Provider>,
@@ -43,7 +39,7 @@ describe("Given the BattleDetailPage component", () => {
       const battleTitle = await screen.findByRole("heading", {
         name: expectedBattleTitle,
       });
-
+      screen.debug();
       expect(battleTitle).toBeInTheDocument();
     });
   });

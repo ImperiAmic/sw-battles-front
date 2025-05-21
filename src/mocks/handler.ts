@@ -5,6 +5,7 @@ import {
   llucmajorBattle,
   mallorcaBattle,
   montjuicBattle,
+  muretBattle,
   roncesvallesBattle,
   tebasBattle,
 } from "../fixtures";
@@ -16,6 +17,7 @@ import {
   llucmajorBattleDto,
   mallorcaBattleDto,
   montjuicBattleDto,
+  muretBattleDto,
   roncesvallesBattleDto,
   tebasBattleDto,
 } from "../battle/dto/fixturesDto";
@@ -92,9 +94,9 @@ export const handlers = [
     });
   }),
 
-  http.get(`${apiUrl}/battles/${mallorcaBattle.id}`, () => {
+  http.get(`${apiUrl}/battles/${muretBattle.id}`, () => {
     return HttpResponse.json<{ battle: BattleDto }>({
-      battle: mallorcaBattleDto,
+      battle: muretBattleDto,
     });
   }),
 ];

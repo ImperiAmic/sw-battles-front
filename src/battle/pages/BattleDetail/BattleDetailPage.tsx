@@ -1,12 +1,11 @@
 import { useEffect } from "react";
-import { Link, useParams } from "react-router";
+import { Link, Navigate, useParams } from "react-router";
 import useBattles from "../../hooks/useBattles";
 import useLoading from "../../../hooks/useLoading";
 import { useAppSelector } from "../../../store/hooks";
 import Loader from "../../../components/Loader/Loader";
 import Button from "../../../components/Button/Button";
 import "./BattleDetailPage.css";
-import NotFoundPage from "../../../pages/NotFoundPage.tsx/NotFoundPage";
 
 const BattleDetailPage: React.FC = () => {
   const { getBattleDetail, toggleBattleWinner } = useBattles();
@@ -32,7 +31,7 @@ const BattleDetailPage: React.FC = () => {
   }
 
   if (!battle) {
-    return <NotFoundPage />;
+    return <Navigate to={"/"} />;
   }
 
   const winnerClaim = battle.doesLightSideWin
@@ -42,6 +41,8 @@ const BattleDetailPage: React.FC = () => {
   const winnerIcon = battle.doesLightSideWin
     ? "/images/rebels.svg"
     : "/images/empire.svg";
+
+  const winnerAlt = battle.doesLightSideWin ? "Rebel icon" : "Empire icon";
 
   return (
     <main className="battle">
@@ -81,6 +82,7 @@ const BattleDetailPage: React.FC = () => {
             <img
               className="winner-icon"
               src={winnerIcon}
+              alt={winnerAlt}
               height={66}
               width={66}
             />
