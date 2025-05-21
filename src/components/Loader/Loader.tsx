@@ -9,7 +9,7 @@ const Loader: React.FC = () => {
       </span>
       <img
         className="loader__image"
-        src="images/chewbacca.svg"
+        src="/images/chewbacca.svg"
         alt="Bust of Chewbacca"
         height={240}
         width={240}

@@ -1,6 +1,10 @@
 import { Navigate, Route, Routes } from "react-router";
 import App from "../components/App/App";
-import { LazyBattlesPage, LazyNotFoundPage } from "./LazyLoader";
+import {
+  LazyBattleDetailPage,
+  LazyBattlesPage,
+  LazyNotFoundPage,
+} from "./LazyLoadings";
 
 const AppRouter: React.FC = () => {
   return (
@@ -8,6 +12,7 @@ const AppRouter: React.FC = () => {
       <Route path="/" element={<App />}>
         <Route index element={<Navigate to={"/battles"} />} />
         <Route path="battles" element={<LazyBattlesPage />} />
+        <Route path="battle/:battleId" element={<LazyBattleDetailPage />} />
         <Route path="*" element={<LazyNotFoundPage />} />
       </Route>
     </Routes>

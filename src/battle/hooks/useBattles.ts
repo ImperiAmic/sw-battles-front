@@ -4,6 +4,7 @@ import type { UseBattlesStructure } from "./types";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import {
   deleteBattleActionCreator,
+  getBattlesDetailActionCreator,
   getBattlesInfoActionCreator,
   toggleBattleWinnerActionCreator,
 } from "../slice/battlesInfoSlice";
@@ -24,23 +25,24 @@ const useBattles = (): UseBattlesStructure => {
 
   const getBattlesInfo = useCallback(
     async (page?: number): Promise<void> => {
-      try {
+      const timeout = setTimeout(() => {
         startLoading();
+      }, 200);
 
+      try {
         const apiBattlesInfo = await battleClient.getBattlesInfo(page);
 
         const battlesInfo = getBattlesInfoActionCreator(apiBattlesInfo);
 
         dispatch(battlesInfo);
-
-        setTimeout(() => endLoading(), 200);
       } catch {
         showModal(
           false,
-          "Oops, can't find your battles! Reload in a few minutes...",
+          "Oops, can't find your battles! Try again in a few minutes...",
         );
-
-        setTimeout(() => endLoading(), 1300);
+      } finally {
+        endLoading();
+        clearTimeout(timeout);
       }
     },
     [battleClient, dispatch, startLoading, endLoading, showModal],
@@ -69,11 +71,34 @@ const useBattles = (): UseBattlesStructure => {
     }
   };
 
+  const getBattleDetail = useCallback(
+    async (battleId: string): Promise<void> => {
+      const timeout = setTimeout(() => {
+        startLoading();
+      }, 200);
+
+      try {
+        const apiBattleDetail = await battleClient.getBattleDetail(battleId);
+
+        const action = getBattlesDetailActionCreator(apiBattleDetail);
+
+        dispatch(action);
+      } catch {
+        showModal(false, "Oops! Can't find your detailed battle!");
+      } finally {
+        endLoading();
+        clearTimeout(timeout);
+      }
+    },
+    [battleClient, dispatch, showModal, startLoading, endLoading],
+  );
+
   return {
     battlesInfo,
     getBattlesInfo,
     toggleBattleWinner,
     deleteBattle,
+    getBattleDetail,
   };
 };
 

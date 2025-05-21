@@ -51,7 +51,7 @@ describe("Given the getBattlesInfo method from BattleClient", () => {
 
   describe("And the response is not ok", () => {
     test("Then it should throw an 'Error while fetching battles information' message", () => {
-      const expectedMessage = "Error while fetching battles information";
+      const expectedMessage = "Error while getting battles information";
 
       const apiUrl = import.meta.env.VITE_API_URL;
 

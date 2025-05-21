@@ -1,7 +1,7 @@
-import type { BattleClientStructure } from "./types";
-import type { Battle, BattlesInfo } from "../../types";
-import type { BattleDto, BattlesInfoDto } from "../dto/types";
 import { mapBattleDtoToBattle, mapBattlesDtoToBattles } from "../dto/mappers";
+import type { BattlesInfoDto, ResponseBattleDto } from "../dto/types";
+import type { Battle, BattlesInfo } from "../../types";
+import type { BattleClientStructure } from "./types";
 
 class BattleClient implements BattleClientStructure {
   private readonly apiUrl = import.meta.env.VITE_API_URL;
@@ -10,7 +10,7 @@ class BattleClient implements BattleClientStructure {
     const response = await fetch(`${this.apiUrl}/battles?page=${page}`);
 
     if (!response.ok) {
-      throw new Error("Error while fetching battles information");
+      throw new Error("Error while getting battles information");
     }
 
     const { battles: battlesDto, battlesTotal } =
@@ -34,7 +34,7 @@ class BattleClient implements BattleClientStructure {
       throw new Error("Error while fetching battle update");
     }
 
-    const { battle } = (await response.json()) as { battle: BattleDto };
+    const { battle } = (await response.json()) as ResponseBattleDto;
 
     const updatedBattle = mapBattleDtoToBattle(battle);
 
@@ -51,11 +51,25 @@ class BattleClient implements BattleClientStructure {
       throw new Error("Error while fetching battle deletion");
     }
 
-    const { battle } = (await response.json()) as { battle: BattleDto };
+    const { battle } = (await response.json()) as ResponseBattleDto;
 
     const deletedBattle = mapBattleDtoToBattle(battle);
 
     return deletedBattle;
+  };
+
+  public getBattleDetail = async (battleId: string): Promise<Battle> => {
+    const response = await fetch(`${this.apiUrl}/battles/${battleId}`);
+
+    if (!response.ok) {
+      throw new Error("Error while getting battle detail");
+    }
+
+    const { battle } = (await response.json()) as ResponseBattleDto;
+
+    const detailedBattle = mapBattleDtoToBattle(battle);
+
+    return detailedBattle;
   };
 }
 
