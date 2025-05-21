@@ -85,4 +85,10 @@ export const handlers = [
       battle: montjuicBattleDto,
     });
   }),
+
+  http.get(`${apiUrl}/battles/${almansaBattle.id}`, () => {
+    return HttpResponse.json<{ battle: BattleDto }>({
+      battle: almansaBattleDto,
+    });
+  }),
 ];
