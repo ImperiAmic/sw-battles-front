@@ -16,7 +16,7 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
-  box-shadow: 0 4px 4px 0 #11111566;
+  box-shadow: 0 4px 4px 0 var(--dark-alpha-main);
   z-index: -1;
 }
 
@@ -38,7 +38,7 @@
   position: absolute;
   bottom: 12px;
   right: 12px;
-  box-shadow: 0 4px 4px 0 #11111566;
+  box-shadow: 0 4px 4px 0 var(--dark-alpha-main);
   border-radius: 100%;
 }
 
