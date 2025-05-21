@@ -21,13 +21,13 @@ describe("Given the getBattleDetail method from BattleClient", () => {
 
   describe("When it is called with an ID which is incorrect", () => {
     test("Then it should throw an 'Error while getting battle detail' error", () => {
-      const notCorrectID = "testingtrophy";
+      const notCorrectID = "neonlightsshimmeringneonlights";
       const expectedErrorMessage = "Error while fetching battle deletion";
 
       const apiUrl = import.meta.env.VITE_API_URL;
 
       server.use(
-        http.get(`${apiUrl}/battles/${notCorrectID}`, () => {
+        http.get(`${apiUrl}/battle/${notCorrectID}`, () => {
           return new HttpResponse(null, { status: 500 });
         }),
       );

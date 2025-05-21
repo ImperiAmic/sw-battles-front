@@ -40,7 +40,7 @@ describe("Given the deleteBattle method from useBattle hook", () => {
 
       const battles = result.current.battlesInfo.battles;
 
-      expect(battles).not.toContain(
+      expect(battles).not.toContainEqual(
         expect.objectContaining({
           battleName: llucmajorBattle.battleName,
         }),

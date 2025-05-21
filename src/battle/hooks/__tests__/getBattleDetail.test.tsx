@@ -1,14 +1,14 @@
+import { renderHook } from "@testing-library/react";
 import { Provider } from "react-redux";
+import { act } from "react";
+import type { BattlesInfoState } from "../../slice/types";
+import setupStore from "../../../store/setupStore";
+import useBattles from "../useBattles";
 import {
   roncesvallesBattle,
   muretBattle,
   almansaBattle,
 } from "../../../fixtures";
-import setupStore from "../../../store/setupStore";
-import type { BattlesInfoState } from "../../slice/types";
-import { renderHook } from "@testing-library/react";
-import useBattles from "../useBattles";
-import { act } from "react";
 
 describe("Given the getBattleDetail method from useBattle hook", () => {
   describe("When it receives the Battle of Almansa ID", () => {
