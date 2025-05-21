@@ -71,20 +71,27 @@ const useBattles = (): UseBattlesStructure => {
     }
   };
 
-  const getBattleDetail = async (battleId: string): Promise<void> => {
-    try {
-      const apiBattleDetail = await battleClient.getBattleDetail(battleId);
+  const getBattleDetail = useCallback(
+    async (battleId: string): Promise<void> => {
+      const timeout = setTimeout(() => {
+        startLoading();
+      }, 200);
 
-      const action = getBattlesDetailActionCreator(apiBattleDetail);
+      try {
+        const apiBattleDetail = await battleClient.getBattleDetail(battleId);
 
-      dispatch(action);
-    } catch {
-      showModal(
-        false,
-        "Oops! Can't find your detailed battle! Try again in a few minutes...",
-      );
-    }
-  };
+        const action = getBattlesDetailActionCreator(apiBattleDetail);
+
+        dispatch(action);
+      } catch {
+        showModal(false, "Oops! Can't find your detailed battle!");
+      } finally {
+        endLoading();
+        clearTimeout(timeout);
+      }
+    },
+    [battleClient, dispatch, showModal, startLoading, endLoading],
+  );
 
   return {
     battlesInfo,

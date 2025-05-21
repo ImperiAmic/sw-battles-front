@@ -14,8 +14,8 @@ const Modal: React.FC<ModalProps> = ({ isSuccess, text, action }) => {
 
   const isImgClassSuccess = isSuccess ? " img--success" : " img--error";
   const isImgSrcSuccess = isSuccess
-    ? "images/delete.svg"
-    : "images/delete-white.svg";
+    ? "/images/delete.svg"
+    : "/images/delete-white.svg";
 
   return (
     <dialog open className="modal">
