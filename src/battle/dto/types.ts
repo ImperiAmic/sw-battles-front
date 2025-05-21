@@ -10,3 +10,7 @@ export interface BattleDto
 export interface BattlesInfoDto extends Omit<BattlesInfo, "battles"> {
   battles: BattleDto[];
 }
+
+export interface ResponseBattleDto {
+  battle: BattleDto;
+}
