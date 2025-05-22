@@ -4,8 +4,8 @@ import useBattles from "../../hooks/useBattles";
 import Loader from "../../../components/Loader/Loader";
 import Paginator from "../../../components/Paginator/Paginator";
 import BattlesList from "../../components/BattlesList/BattlesList";
-import "./BattlesPage.css";
 import useLoading from "../../../hooks/useLoading";
+import "./BattlesPage.css";
 
 const BattlesPage: React.FC = () => {
   const {

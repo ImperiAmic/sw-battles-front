@@ -67,7 +67,11 @@ const BattleCard: React.FC<BattleCardProps> = ({
         </div>
         <footer className="battle__footer">
           <div className="battle__actions">
-            <Link aria-label="More information" className="battle-link" to={""}>
+            <Link
+              aria-label="More information"
+              className="battle-link"
+              to={`/battle/${id}`}
+            >
               +info
             </Link>
             <Link
