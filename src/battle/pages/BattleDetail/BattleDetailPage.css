@@ -1,4 +1,4 @@
-.battle {
+.battle-detail {
   background-color: var(--color-secundary);
   color: var(--dark-main);
   border-radius: 24px;
@@ -6,19 +6,19 @@
   font-size: 1.25rem;
 }
 
-.battle-container {
+.battle-detail-container {
   display: flex;
   flex-direction: column;
   padding: 12px 12px 24px 12px;
   gap: 30px;
 }
 
-.battle-header {
+.battle-detail-header {
   display: flex;
   flex-direction: column;
 }
 
-.battle__image {
+.battle-detail__image {
   border-radius: 24px 24px 0 0;
   height: 225px;
   width: 560px;
@@ -26,46 +26,46 @@
   box-shadow: 0 4px 4px 0 var(--dark-alpha-main);
 }
 
-.battle__title {
+.battle-detail__title {
   font-family: var(--font-title);
   font-weight: 900;
   font-size: 1.875rem;
 }
 
-.battle__info {
+.battle-detail__info {
   font-family: var(--font-details);
   display: flex;
   flex-direction: column;
 }
 
-.combatants {
+.combatants-detail {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.combatant {
+.combatant-detail {
   font-weight: bold;
 }
 
-.battle-description {
+.battle-detail-description {
   white-space: pre-line;
 }
 
-.battle-winner {
+.battle-detail-winner {
   font-size: 1.563rem;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.winner-icon {
+.winner-detail__icon {
   align-self: center;
   box-shadow: 0 4px 4px 0 var(--dark-alpha-main);
   border-radius: 100%;
 }
 
-.battle-update {
+.battle-detail-update {
   align-self: center;
   height: 30px;
   width: 200px;

@@ -45,42 +45,42 @@ const BattleDetailPage: React.FC = () => {
   const winnerAlt = battle.doesLightSideWin ? "Rebel icon" : "Empire icon";
 
   return (
-    <main className="battle">
+    <main className="battle-detail">
       <img
-        className="battle__image"
+        className="battle-detail__image"
         src={battle.imageUrl}
         alt={battle.imageAlt}
         height={225}
         width={560}
       />
-      <div className="battle-container">
-        <header className="battle-header">
-          <h2 className="battle__title">{battle.battleName}</h2>
-          <div className="battle__info">
+      <div className="battle-detail-container">
+        <header className="battle-detail-header">
+          <h2 className="battle-detail__title">{battle.battleName}</h2>
+          <div className="battle-detail__info">
             <span>{`${battle.year} ${battle.period}`}</span>
             <span>{battle.conflict}</span>
           </div>
         </header>
-        <div className="combatants">
+        <div className="combatants-detail">
           <p>
-            <span className="combatant">Light Side</span>
+            <span className="combatant-detail">Light Side</span>
             {`: ${battle.lightSide.join(", ")}`}
           </p>
           <span>vs.</span>
           <p>
-            <span className="combatant">Dark Side</span>
+            <span className="combatant-detail">Dark Side</span>
             {`: ${battle.darkSide.join(", ")}`}
           </p>
         </div>
-        <p className="battle__description">{battle.description}</p>
-        <div className="battle-winner">
+        <p className="battle-detail__description">{battle.description}</p>
+        <div className="battle-detail-winner">
           <span>{winnerClaim}</span>
           <Button
             aria-label="Change battle winner"
             onClick={() => toggleBattleWinner(battle.id)}
           >
             <img
-              className="winner-icon"
+              className="winner-detail__icon"
               src={winnerIcon}
               alt={winnerAlt}
               height={66}
@@ -88,7 +88,11 @@ const BattleDetailPage: React.FC = () => {
             />
           </Button>
         </div>
-        <Link aria-label="Update information" className="battle-update" to={""}>
+        <Link
+          aria-label="Update information"
+          className="battle-detail-update"
+          to={""}
+        >
           Update this battle
         </Link>
       </div>
