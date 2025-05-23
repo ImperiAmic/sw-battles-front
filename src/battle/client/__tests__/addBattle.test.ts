@@ -1,4 +1,6 @@
+import { http, HttpResponse } from "msw";
 import { vilafrancaFormBattle } from "../../../fixtures";
+import { server } from "../../../mocks/node";
 import { vilafrancaFormBattleDto } from "../../dto/fixturesDto";
 import { mapBattleDtoToBattle } from "../../dto/mappers";
 import BattleClient from "../BattleClient";
@@ -12,6 +14,25 @@ describe("Given the addBattle method from BattleClient", () => {
       const battle = mapBattleDtoToBattle(vilafrancaFormBattleDto);
 
       expect(newBattle).toStrictEqual(battle);
+    });
+  });
+
+  describe("When the response is not ok", () => {
+    test("Then it should throw an 'Error while adding a new battle' error", () => {
+      const expectedErrorMessage = "Error while adding a new battle";
+
+      const apiUrl = import.meta.env.VITE_API_URL;
+
+      server.use(
+        http.post(`${apiUrl}/battles`, () => {
+          return new HttpResponse(null, { status: 500 });
+        }),
+      );
+
+      const battleClient = new BattleClient();
+      const deletedBattle = battleClient.addBattle(vilafrancaFormBattle);
+
+      expect(deletedBattle).rejects.toThrow(expectedErrorMessage);
     });
   });
 });
