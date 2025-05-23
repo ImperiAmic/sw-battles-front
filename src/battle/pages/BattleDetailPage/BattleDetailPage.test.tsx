@@ -1,9 +1,10 @@
-import { Provider } from "react-redux";
+import { render, screen, within } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router";
-import { render, screen } from "@testing-library/react";
-import store from "../../../store/store";
+import { Provider } from "react-redux";
 import AppRouterTest from "../../../router/TestAppRouter";
 import { muretBattle } from "../../../fixtures";
+import store from "../../../store/store";
 
 describe("Given the BattleDetailPage component", () => {
   describe("When it renders at `/battle/666fff666fff666fff666fff` path", () => {
@@ -41,6 +42,39 @@ describe("Given the BattleDetailPage component", () => {
       });
       screen.debug();
       expect(battleTitle).toBeInTheDocument();
+    });
+
+    describe("And the user clicks on Rebel icon from Battle of Muret detail", () => {
+      test("Then it should show the Empire as battle winner", async () => {
+        const expectedPageTitle = "Battle of Muret";
+        const expectedButtonLabel = "Change battle winner";
+        const expectedImageAlt = "Rebel icon";
+
+        render(
+          <Provider store={store}>
+            <MemoryRouter initialEntries={[`/battle/${expectedBattleId}`]}>
+              <AppRouterTest />
+            </MemoryRouter>
+          </Provider>,
+        );
+
+        const pageTitle = screen.getByRole("heading", {
+          name: expectedPageTitle,
+        });
+
+        const pageArticle = pageTitle.closest("article")!;
+
+        const toggleButton =
+          within(pageArticle).getByLabelText(expectedButtonLabel);
+
+        userEvent.click(toggleButton);
+
+        const toggleImage = await screen.findByRole("img", {
+          name: expectedImageAlt,
+        });
+
+        expect(toggleImage).toBeInTheDocument();
+      });
     });
   });
 });

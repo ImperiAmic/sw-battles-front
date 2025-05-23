@@ -1,6 +1,7 @@
 :root {
   --dark-main: #111115;
   --dark-alpha-main: #111115dd;
+  --dark-secundary: #e5e4e2;
   --light-main: #fffff7;
   --color-main: #ffe81f;
   --color-secundary: #e6d64a;
@@ -46,7 +47,9 @@ a {
   text-decoration: none;
 }
 
-button {
+button,
+select,
+option {
   border: none;
   background: none;
   padding: 0;
@@ -55,6 +58,19 @@ button {
 }
 
 dialog {
+  border: none;
+  padding: 0;
+}
+
+input,
+label,
+textarea {
+  font: inherit;
+  margin: 0;
+}
+
+input,
+textarea {
   border: none;
   padding: 0;
 }

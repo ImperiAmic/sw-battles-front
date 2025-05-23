@@ -30,6 +30,7 @@ const BattleForm: React.FC = () => {
           className="battle-form__input"
           id="year"
           type="number"
+          min="0"
           required
         />
       </div>
