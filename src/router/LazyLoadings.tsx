@@ -5,7 +5,11 @@ export const LazyBattlesPage = lazy(
 );
 
 export const LazyBattleDetailPage = lazy(
-  () => import("../battle/pages/BattleDetail/BattleDetailPage"),
+  () => import("../battle/pages/BattleDetailPage/BattleDetailPage"),
+);
+
+export const LazyBattleFormPage = lazy(
+  () => import("../battle/pages/BattleFormPage/BattleFormPage"),
 );
 
 export const LazyNotFoundPage = lazy(

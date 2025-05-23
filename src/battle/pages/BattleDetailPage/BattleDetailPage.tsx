@@ -17,6 +17,8 @@ const BattleDetailPage: React.FC = () => {
   const { battleId } = useParams<{ battleId: string }>();
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     getBattleDetail(battleId!);
   }, [getBattleDetail, battleId]);
 
@@ -45,7 +47,7 @@ const BattleDetailPage: React.FC = () => {
   const winnerAlt = battle.doesLightSideWin ? "Rebel icon" : "Empire icon";
 
   return (
-    <main className="battle-detail">
+    <article className="battle-detail">
       <img
         className="battle-detail__image"
         src={battle.imageUrl}
@@ -96,7 +98,7 @@ const BattleDetailPage: React.FC = () => {
           Update this battle
         </Link>
       </div>
-    </main>
+    </article>
   );
 };
 

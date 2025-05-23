@@ -64,6 +64,12 @@ export const handlers = [
     });
   }),
 
+  http.patch(`${apiUrl}/battles/${muretBattle.id}`, () => {
+    return HttpResponse.json<{ battle: BattleDto }>({
+      battle: { ...muretBattleDto, doesLightSideWin: true },
+    });
+  }),
+
   http.delete(`${apiUrl}/battles/${mallorcaBattle.id}`, () => {
     return HttpResponse.json<{ battle: BattleDto }>({
       battle: mallorcaBattleDto,
