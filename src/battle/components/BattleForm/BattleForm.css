@@ -1,0 +1,57 @@
+.battle-form {
+  background-color: var(--color-secundary);
+  color: var(--dark-main);
+  border-radius: 24px;
+  padding: 30px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.battle-form__title {
+  font-family: var(--font-title);
+  font-weight: 900;
+  font-size: 1.875rem;
+}
+
+.battle-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.battle-form__label,
+.battle-form__select {
+  font-size: 1.25rem;
+}
+
+.battle-form__input {
+  padding: 6px;
+}
+
+.battle-form__input,
+.battle-form__select {
+  height: 2.125rem;
+  border-radius: 6px;
+  background-color: var(--dark-secundary);
+  border: 1px solid var(--dark-main);
+}
+
+.battle-form__textarea {
+  border-radius: 6px;
+  background-color: var(--dark-secundary);
+  border: 1px solid var(--dark-main);
+  padding: 6px;
+}
+
+.battle-form__checkbox {
+  height: 20px;
+  width: 20px;
+  accent-color: var(--color-terciary);
+}
+
+.battle-form__group--checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
