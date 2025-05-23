@@ -1,7 +1,11 @@
 import { mapBattleDtoToBattle, mapBattlesDtoToBattles } from "../dto/mappers";
-import type { BattlesInfoDto, ResponseBattleDto } from "../dto/types";
-import type { Battle, BattlesInfo } from "../../types";
+import type { Battle, BattleFormData, BattlesInfo } from "../../types";
 import type { BattleClientStructure } from "./types";
+import type {
+  BattleDto,
+  BattlesInfoDto,
+  ResponseBattleDto,
+} from "../dto/types";
 
 class BattleClient implements BattleClientStructure {
   private readonly apiUrl = import.meta.env.VITE_API_URL;
@@ -70,6 +74,24 @@ class BattleClient implements BattleClientStructure {
     const detailedBattle = mapBattleDtoToBattle(battle);
 
     return detailedBattle;
+  };
+
+  public addBattle = async (
+    battleFormData: BattleFormData,
+  ): Promise<Battle> => {
+    const response = await fetch(`${this.apiUrl}/battles`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(battleFormData),
+    });
+
+    if (!response.ok) {
+      throw new Error("Error while adding a new battle");
+    }
+
+    const { battle } = (await response.json()) as { battle: BattleDto };
+
+    return mapBattleDtoToBattle(battle);
   };
 }
 

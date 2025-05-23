@@ -20,7 +20,9 @@ import {
   muretBattleDto,
   roncesvallesBattleDto,
   tebasBattleDto,
+  vilafrancaFormBattleDto,
 } from "../battle/dto/fixturesDto";
+import type { BattleFormData } from "../types";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -103,6 +105,12 @@ export const handlers = [
   http.get(`${apiUrl}/battles/${muretBattle.id}`, () => {
     return HttpResponse.json<{ battle: BattleDto }>({
       battle: muretBattleDto,
+    });
+  }),
+
+  http.post(`${apiUrl}/battles`, () => {
+    return HttpResponse.json<{ battle: BattleFormData }>({
+      battle: vilafrancaFormBattleDto,
     });
   }),
 ];
