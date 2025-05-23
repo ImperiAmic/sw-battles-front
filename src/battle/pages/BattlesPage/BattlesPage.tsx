@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router";
 import useBattles from "../../hooks/useBattles";
-import Loader from "../../../components/Loader/Loader";
-import Paginator from "../../../components/Paginator/Paginator";
+import Loader from "../../../ui/components/Loader/Loader";
+import Paginator from "../../../ui/components/Paginator/Paginator";
 import BattlesList from "../../components/BattlesList/BattlesList";
 import useLoading from "../../../hooks/useLoading";
 import "./BattlesPage.css";

@@ -1,4 +1,4 @@
-import Button from "../../../components/Button/Button";
+import Button from "../../../ui/components/Button/Button";
 import "./BattleForm.css";
 
 const BattleForm: React.FC = () => {

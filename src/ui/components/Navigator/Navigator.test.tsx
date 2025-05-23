@@ -2,7 +2,7 @@ import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router";
 import { render, screen } from "@testing-library/react";
 import Navigator from "./Navigator";
-import store from "../../store/store";
+import store from "../../../store/store";
 
 describe("Given the Navigator component", () => {
   describe("When it renders", () => {
