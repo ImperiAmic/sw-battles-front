@@ -3,8 +3,8 @@ import { Link, Navigate, useParams } from "react-router";
 import useBattles from "../../hooks/useBattles";
 import useLoading from "../../../hooks/useLoading";
 import { useAppSelector } from "../../../store/hooks";
-import Loader from "../../../components/Loader/Loader";
-import Button from "../../../components/Button/Button";
+import Loader from "../../../ui/components/Loader/Loader";
+import Button from "../../../ui/components/Button/Button";
 import "./BattleDetailPage.css";
 
 const BattleDetailPage: React.FC = () => {

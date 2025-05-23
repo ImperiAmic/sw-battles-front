@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 import Header from "../Header/Header";
 import "./Layout.css";
 import Modal from "../Modal/Modal";
-import useModal from "../../hooks/useModal";
+import useModal from "../../../hooks/useModal";
 
 const Layout: React.FC = () => {
   const { modalState, hideModal } = useModal();

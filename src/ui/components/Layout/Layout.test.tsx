@@ -3,8 +3,8 @@ import { MemoryRouter } from "react-router";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 import Layout from "./Layout";
-import store from "../../store/store";
-import AppRouterTest from "../../router/TestAppRouter";
+import store from "../../../store/store";
+import AppRouterTest from "../../../router/TestAppRouter";
 
 describe("Given the Layout component", () => {
   describe("When it renders", () => {

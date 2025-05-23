@@ -13,5 +13,5 @@ export const LazyBattleFormPage = lazy(
 );
 
 export const LazyNotFoundPage = lazy(
-  () => import("../pages/NotFoundPage.tsx/NotFoundPage"),
+  () => import("../ui/pages/NotFoundPage.tsx/NotFoundPage"),
 );

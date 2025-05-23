@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import NotFoundPage from "../pages/NotFoundPage.tsx/NotFoundPage";
+import NotFoundPage from "../ui/pages/NotFoundPage.tsx/NotFoundPage";
 import BattlesPage from "../battle/pages/BattlesPage/BattlesPage";
 import BattleDetailPage from "../battle/pages/BattleDetailPage/BattleDetailPage";
 
