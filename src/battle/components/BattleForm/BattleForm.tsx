@@ -39,7 +39,9 @@ const BattleForm: React.FC = () => {
           Period
         </label>
         <select className="battle-form__select" id="period">
-          <option value="">--Select a period--</option>
+          <option value="" selected disabled>
+            --Select a period--
+          </option>
           <option value="BBY">{"BBY - Before Battle of Yavin"}</option>
           <option value="ABY">{"ABY - After Battle of Yavin"}</option>
         </select>

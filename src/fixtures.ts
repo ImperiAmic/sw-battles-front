@@ -1,4 +1,4 @@
-import type { Battle } from "./types";
+import type { Battle, BattleFormData } from "./types";
 
 export const roncesvallesBattle: Battle = {
   id: "111aaa111aaa111aaa111aaa",
@@ -149,3 +149,15 @@ export const catalanBattles = [
   tebasBattle,
   barcelonaBattle,
 ];
+
+export const vilafrancaFormBattle: BattleFormData = {
+  battleName: "Battle of Vilafranca",
+  conflict: "Guerra del Penedès",
+  darkSide: ["Los dolents", "Los més dolents"],
+  description: "Coses coses coses coses coses coses",
+  doesLightSideWin: true,
+  lightSide: ["Los bons", "Los més bons"],
+  period: "BBY",
+  year: 2025,
+  imageUrl: "vilafranca.cat/foto.webp",
+};

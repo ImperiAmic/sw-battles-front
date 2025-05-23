@@ -152,3 +152,17 @@ export const catalanBattlesDtos: BattleDto[] = [
   montjuicBattleDto,
   almansaBattleDto,
 ];
+
+export const vilafrancaFormBattleDto: BattleDto = {
+  battleName: "Battle of Vilafranca",
+  conflict: "Guerra del Penedès",
+  darkSide: ["Los dolents", "Los més dolents"],
+  description: "Coses coses coses coses coses coses",
+  doesLightSideWin: true,
+  lightSide: ["Los bons", "Los més bons"],
+  period: "BBY",
+  year: 2025,
+  imageUrl: "vilafranca.cat/foto.webp",
+  _id: "ff66ffff66ffff66ffff66ff",
+  imageAlt: "General view of Battle of Vilafranca",
+};
