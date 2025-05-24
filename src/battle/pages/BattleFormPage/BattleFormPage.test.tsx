@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import BattleFormPage from "./BattleFormPage";
-import { Provider } from "react-redux";
-import store from "../../../store/store";
 import { MemoryRouter } from "react-router";
+import { Provider } from "react-redux";
+import BattleFormPage from "./BattleFormPage";
+import store from "../../../store/store";
 
 describe("Given the BattleFormPage component", () => {
   describe("When it renders", () => {
@@ -22,6 +22,22 @@ describe("Given the BattleFormPage component", () => {
       });
 
       await expect(pageTitle).toBeInTheDocument();
+    });
+
+    test("Then it should show 'Name' as an input", () => {
+      const expectedNameLabel = /name/i;
+
+      render(
+        <Provider store={store}>
+          <MemoryRouter>
+            <BattleFormPage />
+          </MemoryRouter>
+        </Provider>,
+      );
+
+      const nameInput = screen.getByLabelText(expectedNameLabel);
+
+      expect(nameInput).toBeInTheDocument();
     });
   });
 });
