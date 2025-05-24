@@ -21,7 +21,7 @@ export interface BattleFormData {
   battleName: string;
   imageUrl?: string;
   year: number;
-  period: "BBY" | "ABY";
+  period: string;
   conflict: string;
   lightSide: string[];
   darkSide: string[];

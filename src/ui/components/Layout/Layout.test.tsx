@@ -5,6 +5,7 @@ import { render, screen } from "@testing-library/react";
 import Layout from "./Layout";
 import store from "../../../store/store";
 import AppRouterTest from "../../../router/TestAppRouter";
+import { vilafrancaFormBattle } from "../../../fixtures";
 
 describe("Given the Layout component", () => {
   describe("When it renders", () => {
@@ -81,6 +82,52 @@ describe("Given the Layout component", () => {
       });
 
       expect(roncesvallesBattleTitle).toBeInTheDocument();
+    });
+  });
+
+  describe("When it renders in path /add-battle and the user fills the form with the Battle of Vilafranca", () => {
+    test("Then it should show 'Battle of Vilafranca ' as a heading", async () => {
+      const expectedModalText = "Battle has been successfully created!";
+
+      const user = userEvent.setup();
+
+      render(
+        <Provider store={store}>
+          <MemoryRouter initialEntries={["/add-battle"]}>
+            <Layout />
+            <AppRouterTest />
+          </MemoryRouter>
+        </Provider>,
+      );
+
+      const nameInput = screen.getByLabelText(/name/i);
+      const yearInput = screen.getByLabelText(/year/i);
+      const periodInput = screen.getByLabelText(/period/i);
+      const conflictInput = screen.getByLabelText(/conflict/i);
+      const lightSideInput = screen.getByLabelText(/light side combatants/i);
+      const darkSideInput = screen.getByLabelText(/dark side combatants/i);
+      const descriptionInput = screen.getByLabelText(/explain the battle/i);
+      const winnerInput = screen.getByLabelText(/does the light side win/i);
+
+      await user.type(nameInput, vilafrancaFormBattle.battleName);
+      await user.type(yearInput, vilafrancaFormBattle.year.toString());
+      await user.selectOptions(periodInput, vilafrancaFormBattle.period);
+      await user.type(conflictInput, vilafrancaFormBattle.conflict);
+      await user.type(
+        lightSideInput,
+        vilafrancaFormBattle.lightSide.toString(),
+      );
+      await user.type(darkSideInput, vilafrancaFormBattle.darkSide.toString());
+      await user.type(descriptionInput, vilafrancaFormBattle.description);
+      await user.click(winnerInput);
+
+      const createButton = screen.getByText(/create new battle/i);
+
+      await user.click(createButton);
+
+      const battleName = await screen.findByText(expectedModalText);
+
+      expect(battleName).toBeInTheDocument();
     });
   });
 });
