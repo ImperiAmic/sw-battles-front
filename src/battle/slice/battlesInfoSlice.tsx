@@ -58,6 +58,17 @@ const battlesInfoSlice = createSlice({
         },
       };
     },
+    addBattle: (
+      { battlesInfo: { battles, battlesTotal } },
+      { payload: newBattle }: PayloadAction<Battle>,
+    ): BattlesInfoState => {
+      return {
+        battlesInfo: {
+          battles: [...battles, newBattle],
+          battlesTotal: battlesTotal + 1,
+        },
+      };
+    },
   },
 });
 
@@ -68,4 +79,5 @@ export const {
   toggleBattleWinner: toggleBattleWinnerActionCreator,
   deleteBattle: deleteBattleActionCreator,
   getBattlesDetail: getBattlesDetailActionCreator,
+  addBattle: addBattleActionCreator,
 } = battlesInfoSlice.actions;
