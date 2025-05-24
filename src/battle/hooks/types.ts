@@ -1,4 +1,4 @@
-import type { BattlesInfo } from "../../types";
+import type { BattleFormData, BattlesInfo } from "../../types";
 
 export interface UseBattlesStructure {
   battlesInfo: BattlesInfo;
@@ -6,4 +6,5 @@ export interface UseBattlesStructure {
   toggleBattleWinner: (battleId: string) => Promise<void>;
   deleteBattle: (battleId: string) => Promise<void>;
   getBattleDetail: (battleId: string) => Promise<void>;
+  addBattle: (battleFormData: BattleFormData) => Promise<void>;
 }

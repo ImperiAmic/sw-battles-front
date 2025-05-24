@@ -3,6 +3,7 @@ import BattleClient from "../client/BattleClient";
 import type { UseBattlesStructure } from "./types";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import {
+  addBattleActionCreator,
   deleteBattleActionCreator,
   getBattlesDetailActionCreator,
   getBattlesInfoActionCreator,
@@ -10,6 +11,7 @@ import {
 } from "../slice/battlesInfoSlice";
 import useModal from "../../hooks/useModal";
 import useLoading from "../../hooks/useLoading";
+import type { BattleFormData } from "../../types";
 
 const useBattles = (): UseBattlesStructure => {
   const { startLoading, endLoading } = useLoading();
@@ -93,12 +95,34 @@ const useBattles = (): UseBattlesStructure => {
     [battleClient, dispatch, showModal, startLoading, endLoading],
   );
 
+  const addBattle = async (battleFormData: BattleFormData): Promise<void> => {
+    const timeout = setTimeout(() => {
+      startLoading();
+    }, 200);
+
+    try {
+      const apiNewBattle = await battleClient.addBattle(battleFormData);
+
+      const action = addBattleActionCreator(apiNewBattle);
+
+      dispatch(action);
+
+      showModal(true, "Battle has been successfully created!");
+    } catch {
+      showModal(false, "Oops! Can't create your battle!");
+    } finally {
+      endLoading();
+      clearTimeout(timeout);
+    }
+  };
+
   return {
     battlesInfo,
     getBattlesInfo,
     toggleBattleWinner,
     deleteBattle,
     getBattleDetail,
+    addBattle,
   };
 };
 

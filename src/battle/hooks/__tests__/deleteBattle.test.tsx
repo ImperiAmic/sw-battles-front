@@ -12,7 +12,10 @@ import { act } from "react";
 
 describe("Given the deleteBattle method from useBattle hook", () => {
   describe("When it receives the ID for Battle of Llucmajor", () => {
-    test("Then it should delete Battle of Llucmajor from initial state and return 2 as total of battles", async () => {
+    test("Then it should delete Battle of Llucmajor from state and return 2 as total of battles", async () => {
+      const expectedOldBattleName = llucmajorBattle.battleName;
+      const expectedNewBattlesTotal = 2;
+
       const initialStateBattles = [
         llucmajorBattle,
         barcelonaBattle,
@@ -42,10 +45,10 @@ describe("Given the deleteBattle method from useBattle hook", () => {
 
       expect(battles).not.toContainEqual(
         expect.objectContaining({
-          battleName: llucmajorBattle.battleName,
+          battleName: expectedOldBattleName,
         }),
       );
-      expect(battles.length).toBe(2);
+      expect(battles.length).toBe(expectedNewBattlesTotal);
     });
   });
 });
