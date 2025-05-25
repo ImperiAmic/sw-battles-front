@@ -10,6 +10,11 @@ const Navigator: React.FC = () => {
             Battles List
           </NavLink>
         </li>
+        <li>
+          <NavLink className="navigator__link" to="/add-battle">
+            Add Battle
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

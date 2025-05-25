@@ -42,6 +42,8 @@ describe("Given the Modal component", () => {
 
     describe("And the user clicks on the button", () => {
       test("Then it should call the action received", async () => {
+        const user = userEvent.setup();
+
         render(
           <MemoryRouter>
             <Modal
@@ -54,7 +56,7 @@ describe("Given the Modal component", () => {
 
         const closeButton = await screen.findByLabelText("Close modal");
 
-        await userEvent.click(closeButton);
+        await user.click(closeButton);
 
         expect(action).toHaveBeenCalled();
       });

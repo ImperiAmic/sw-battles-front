@@ -40,7 +40,7 @@ describe("Given the BattleDetailPage component", () => {
       const battleTitle = await screen.findByRole("heading", {
         name: expectedBattleTitle,
       });
-      screen.debug();
+
       expect(battleTitle).toBeInTheDocument();
     });
 
@@ -49,6 +49,8 @@ describe("Given the BattleDetailPage component", () => {
         const expectedPageTitle = "Battle of Muret";
         const expectedButtonLabel = "Change battle winner";
         const expectedImageAlt = "Rebel icon";
+
+        const user = userEvent.setup();
 
         render(
           <Provider store={store}>
@@ -67,7 +69,7 @@ describe("Given the BattleDetailPage component", () => {
         const toggleButton =
           within(pageArticle).getByLabelText(expectedButtonLabel);
 
-        userEvent.click(toggleButton);
+        user.click(toggleButton);
 
         const toggleImage = await screen.findByRole("img", {
           name: expectedImageAlt,

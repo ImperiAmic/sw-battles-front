@@ -23,5 +23,23 @@ describe("Given the Navigator component", () => {
 
       expect(battlesListLink).toBeInTheDocument();
     });
+
+    test("Then it should show a 'Add Battle' link", () => {
+      const expectedLinkText = /add battle/i;
+
+      render(
+        <Provider store={store}>
+          <MemoryRouter>
+            <Navigator />
+          </MemoryRouter>
+        </Provider>,
+      );
+
+      const addBattleLink = screen.getByRole("link", {
+        name: expectedLinkText,
+      });
+
+      expect(addBattleLink).toBeInTheDocument();
+    });
   });
 });
