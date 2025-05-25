@@ -8,6 +8,8 @@ import AppRouterTest from "../../../router/TestAppRouter";
 import { vilafrancaBattleDto } from "../../../battle/dto/fixturesDto";
 
 describe("Given the Layout component", () => {
+  const user = userEvent.setup();
+
   describe("When it renders", () => {
     test("Then it should show 'Star Wars Battles' inside a level 1 heading", () => {
       const expectedPageTitle = "Star Wars Battles";
@@ -29,6 +31,33 @@ describe("Given the Layout component", () => {
     });
   });
 
+  describe("When it renders in path /battles and the user clicks on 'Add battle' link", () => {
+    test("Then it should show 'Add your own battle!' as a title", async () => {
+      const expectedLinkText = /add battle/i;
+
+      render(
+        <Provider store={store}>
+          <MemoryRouter initialEntries={["/battles"]}>
+            <Layout />
+            <AppRouterTest />
+          </MemoryRouter>
+        </Provider>,
+      );
+
+      const addBattleLink = screen.getByRole("link", {
+        name: expectedLinkText,
+      });
+
+      await user.click(addBattleLink);
+
+      const formTitle = await screen.findByRole("heading", {
+        name: "Add your own battle!",
+      });
+
+      expect(formTitle).toBeInTheDocument();
+    });
+  });
+
   describe("When it renders in path /battles and the user clicks on 'Next page' link", () => {
     test("Then it should show 'Battle of Llucmajor' inside a heading", async () => {
       const expectedNextPageLinkText = /next page/i;
@@ -47,7 +76,7 @@ describe("Given the Layout component", () => {
         name: expectedNextPageLinkText,
       });
 
-      await userEvent.click(nextPageLink);
+      await user.click(nextPageLink);
 
       const llucmajorBattleTitle = await screen.findByRole("heading", {
         name: expectedLlucmajorBattleTitle,
@@ -75,7 +104,7 @@ describe("Given the Layout component", () => {
         name: expectedPreviousPageLinkText,
       });
 
-      await userEvent.click(nextPageLink);
+      await user.click(nextPageLink);
 
       const roncesvallesBattleTitle = await screen.findByRole("heading", {
         name: expectedRoncesvallesBattleTitle,
@@ -88,8 +117,6 @@ describe("Given the Layout component", () => {
   describe("When it renders in path /add-battle and the user fills the form with the Battle of Vilafranca", () => {
     test("Then it should show 'Battle of Vilafranca ' as a heading", async () => {
       const expectedModalText = "Battle has been successfully created!";
-
-      const user = userEvent.setup();
 
       render(
         <Provider store={store}>
