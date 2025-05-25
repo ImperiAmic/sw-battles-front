@@ -1,14 +1,4 @@
 import { http, HttpResponse } from "msw";
-import {
-  almansaBattle,
-  lleidaBattle,
-  llucmajorBattle,
-  mallorcaBattle,
-  montjuicBattle,
-  muretBattle,
-  roncesvallesBattle,
-  tebasBattle,
-} from "../fixtures";
 import { type BattleDto, type BattlesInfoDto } from "../battle/dto/types";
 import {
   almansaBattleDto,
@@ -20,9 +10,18 @@ import {
   muretBattleDto,
   roncesvallesBattleDto,
   tebasBattleDto,
-  vilafrancaFormBattleDto,
+  vilafrancaBattleDto,
 } from "../battle/dto/fixturesDto";
-import type { BattleFormData } from "../types";
+import {
+  almansaBattle,
+  lleidaBattle,
+  llucmajorBattle,
+  mallorcaBattle,
+  montjuicBattle,
+  muretBattle,
+  roncesvallesBattle,
+  tebasBattle,
+} from "../fixtures";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -109,8 +108,8 @@ export const handlers = [
   }),
 
   http.post(`${apiUrl}/battles`, () => {
-    return HttpResponse.json<{ battle: BattleFormData }>({
-      battle: vilafrancaFormBattleDto,
+    return HttpResponse.json<{ battle: BattleDto }>({
+      battle: vilafrancaBattleDto,
     });
   }),
 ];

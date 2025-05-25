@@ -17,14 +17,19 @@ export interface BattlesInfo {
   battlesTotal: number;
 }
 
-export interface BattleFormData {
-  battleName: string;
-  imageUrl?: string;
-  year: number;
+export type BattleFormData = Omit<
+  Battle,
+  "id" | "period" | "lightSide" | "darkSide" | "imageAlt"
+> & {
   period: string;
-  conflict: string;
+  lightSide: string;
+  darkSide: string;
+};
+
+export type BattleFormDataDto = Omit<
+  BattleFormData,
+  "lightSide" | "darkSide"
+> & {
   lightSide: string[];
   darkSide: string[];
-  description: string;
-  doesLightSideWin: boolean;
-}
+};

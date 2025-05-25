@@ -1,5 +1,5 @@
 import type { BattleDto } from "./types";
-import type { Battle } from "../../types";
+import type { Battle, BattleFormData, BattleFormDataDto } from "../../types";
 
 export const mapBattleDtoToBattle = (battleDto: BattleDto): Battle => {
   const isImageMissing = battleDto.imageUrl ?? "/images/placeholder.webp";
@@ -18,4 +18,18 @@ export const mapBattleDtoToBattle = (battleDto: BattleDto): Battle => {
 
 export const mapBattlesDtoToBattles = (battlesDto: BattleDto[]): Battle[] => {
   return battlesDto.map<Battle>((battleDto) => mapBattleDtoToBattle(battleDto));
+};
+
+export const mapBattleFormDataToBattleFormDataDto = (
+  battleFormData: BattleFormData,
+): BattleFormDataDto => {
+  return {
+    ...battleFormData,
+    lightSide: battleFormData.lightSide
+      .split(",")
+      .map((lightCombatant) => lightCombatant.trim()),
+    darkSide: battleFormData.darkSide
+      .split(",")
+      .map((darkCombatant) => darkCombatant.trim()),
+  };
 };
