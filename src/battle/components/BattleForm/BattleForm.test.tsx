@@ -5,6 +5,7 @@ import BattleForm from "./BattleForm";
 
 describe("Given the BattleForm component", () => {
   const action = vitest.fn();
+  const user = userEvent.setup();
 
   describe("When it renders", () => {
     test("Then it should show 'Add your own battle' as a heading", () => {
@@ -169,8 +170,6 @@ describe("Given the BattleForm component", () => {
       const expectedNameLabel = /name/i;
       const expectedValue = "Battalla del Aurresku";
 
-      const user = userEvent.setup();
-
       render(
         <MemoryRouter>
           <BattleForm action={action} />
@@ -189,8 +188,6 @@ describe("Given the BattleForm component", () => {
     test("Then it should show 'http://www.ieee.es/saludo.webp' inside the 'Image URL' input", async () => {
       const expectedImageUrlLabel = /image url/i;
       const expectedValue = "http://www.ieee.es/saludo.webp";
-
-      const user = userEvent.setup();
 
       render(
         <MemoryRouter>
@@ -212,8 +209,6 @@ describe("Given the BattleForm component", () => {
       const expectedValue = "1582";
       const expectedNumber = parseInt(expectedValue);
 
-      const user = userEvent.setup();
-
       render(
         <MemoryRouter>
           <BattleForm action={action} />
@@ -232,8 +227,6 @@ describe("Given the BattleForm component", () => {
     test("Then it should show 'BBY' inside the 'Period' input", async () => {
       const expectedImageUrlLabel = /period/i;
       const expectedSelection = "BBY";
-
-      const user = userEvent.setup();
 
       render(
         <MemoryRouter>
@@ -254,8 +247,6 @@ describe("Given the BattleForm component", () => {
       const expectedConflictLabel = /conflict/i;
       const expectedValue = "La Guerra de l'Aigo";
 
-      const user = userEvent.setup();
-
       render(
         <MemoryRouter>
           <BattleForm action={action} />
@@ -274,8 +265,6 @@ describe("Given the BattleForm component", () => {
     test("Then it should show 'Los bons, Los més bons' inside the 'Light Side combatants' input", async () => {
       const expectedLightSideLabel = /light side combatants/i;
       const expectedValue = "Los bons, Los més bons";
-
-      const user = userEvent.setup();
 
       render(
         <MemoryRouter>
@@ -296,8 +285,6 @@ describe("Given the BattleForm component", () => {
       const expectedDarkSideLabel = /dark side combatants/i;
       const expectedValue = "Los dolents, Los més dolents";
 
-      const user = userEvent.setup();
-
       render(
         <MemoryRouter>
           <BattleForm action={action} />
@@ -317,8 +304,6 @@ describe("Given the BattleForm component", () => {
       const expectedDescriptionLabel = /explain the battle/i;
       const expectedValue = "La guerra pues oye que cosa más mala tu";
 
-      const user = userEvent.setup();
-
       render(
         <MemoryRouter>
           <BattleForm action={action} />
@@ -336,8 +321,6 @@ describe("Given the BattleForm component", () => {
   describe("And the user selects Light Side as winner inside the 'Does the Light Side win' input", () => {
     test("Then it should show the 'Does the Light Side win' input as selected", async () => {
       const expectedDescriptionLabel = /does the light side win/i;
-
-      const user = userEvent.setup();
 
       render(
         <MemoryRouter>

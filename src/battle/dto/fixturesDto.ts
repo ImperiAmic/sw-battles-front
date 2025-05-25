@@ -22,7 +22,6 @@ export const tebasBattleDto: BattleDto = {
   period: "BBY",
   imageUrl:
     "https://upload.wikimedia.org/wikipedia/commons/9/93/Battle_Tebas.jpg",
-  // imageAlt: "Imagined scene of the Battle of Tebas",
   description:
     "This lesser-known clash was part of early confrontations between Muslim forces and the Carolingians in what would become Catalonia. The battle showed the vulnerabilities of early Frankish outposts in Hispania.",
   lightSide: ["Frankish defenders"],
@@ -38,7 +37,6 @@ export const barcelonaBattleDto: BattleDto = {
   period: "ABY",
   imageUrl:
     "https://upload.wikimedia.org/wikipedia/commons/4/4c/Barcelona_801_Siege.jpg",
-  // imageAlt: "Siege of Barcelona by Frankish forces",
   description:
     "Led by Louis the Pious, Frankish forces captured Barcelona from Muslim control in 801. This marked a turning point in establishing the Catalan counties under the Carolingian Empire.",
   lightSide: ["Frankish Empire", "Local Christian allies"],
@@ -54,7 +52,6 @@ export const lleidaBattleDto: BattleDto = {
   period: "ABY",
   imageUrl:
     "https://upload.wikimedia.org/wikipedia/commons/e/e3/Battle_of_Lleida.jpg",
-  // imageAlt: "Depiction of Christian forces in Lleida",
   description:
     "Part of the Christian reconquest, the capture of Lleida in 1149 by the Count of Barcelona and allies marked the integration of western Catalonia into Christian rule.",
   lightSide: ["Catalans", "Aragonese"],
@@ -70,7 +67,6 @@ export const muretBattleDto: BattleDto = {
   period: "ABY",
   imageUrl:
     "https://upload.wikimedia.org/wikipedia/commons/0/0e/Battle_of_Muret_1213.jpg",
-  // imageAlt: "Illustration of the Battle of Muret",
   description:
     "Catalan forces led by King Peter II of Aragon faced a crushing defeat at the hands of Simon de Montfort. The loss curtailed Catalan ambitions in Occitania.",
   lightSide: ["Crown of Aragon"],
@@ -86,7 +82,6 @@ export const mallorcaBattleDto: BattleDto = {
   period: "ABY",
   imageUrl:
     "https://upload.wikimedia.org/wikipedia/commons/f/f6/Conquest_Mallorca_1229.jpg",
-  // imageAlt: "Catalan fleet landing in Mallorca",
   description:
     "Under King James I, Catalan-Aragonese forces conquered Mallorca from the Moors. It marked a major step in the Mediterranean expansion of Catalonia.",
   lightSide: ["Crown of Aragon", "Catalan nobles"],
@@ -102,7 +97,6 @@ export const llucmajorBattleDto: BattleDto = {
   period: "ABY",
   imageUrl:
     "https://upload.wikimedia.org/wikipedia/commons/3/31/Battle_of_Llucmajor.jpg",
-  // imageAlt: "Naval Battle of Llucmajor",
   description:
     "In this decisive battle, King Peter IV of Aragon defeated James III of Mallorca, ending the independence of the Kingdom of Mallorca and integrating it fully into the Crown of Aragon.",
   lightSide: ["Crown of Aragon"],
@@ -118,7 +112,6 @@ export const montjuicBattleDto: BattleDto = {
   period: "ABY",
   imageUrl:
     "https://upload.wikimedia.org/wikipedia/commons/7/75/Battle_Montjuic_1641.jpg",
-  // imageAlt: "Catalan and French troops defending Montjuïc",
   description:
     "Catalan and French forces successfully defended Barcelona against the Spanish Crown. The battle strengthened Catalan resistance during the Reapers' War.",
   lightSide: ["Catalan rebels", "France"],
@@ -134,7 +127,6 @@ export const almansaBattleDto: BattleDto = {
   period: "ABY",
   imageUrl:
     "https://upload.wikimedia.org/wikipedia/commons/5/57/Battle_of_Almansa_1707.jpg",
-  // imageAlt: "Battle of Almansa scene",
   description:
     "This major defeat of the pro-Habsburg forces led to the eventual suppression of Catalan institutions after the Bourbon victory in the War of Spanish Succession.",
   lightSide: ["Austrian Habsburgs", "Catalan allies"],

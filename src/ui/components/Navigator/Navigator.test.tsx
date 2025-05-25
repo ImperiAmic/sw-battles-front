@@ -25,7 +25,7 @@ describe("Given the Navigator component", () => {
     });
 
     test("Then it should show a 'Add Battle' link", () => {
-      const expectedLinkTextç = /add battle/i;
+      const expectedLinkText = /add battle/i;
 
       render(
         <Provider store={store}>
@@ -36,7 +36,7 @@ describe("Given the Navigator component", () => {
       );
 
       const addBattleLink = screen.getByRole("link", {
-        name: expectedLinkTextç,
+        name: expectedLinkText,
       });
 
       expect(addBattleLink).toBeInTheDocument();

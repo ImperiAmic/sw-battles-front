@@ -6,6 +6,8 @@ import BattlesPage from "./BattlesPage";
 import store from "../../../store/store";
 
 describe("Given the BattlesPage component", () => {
+  const user = userEvent.setup();
+
   describe("When it renders", () => {
     test("Then it should show 'Your battles collection!' inside a heading", async () => {
       const expectedPageTitle = /your battles collection!/i;
@@ -50,7 +52,7 @@ describe("Given the BattlesPage component", () => {
         tebasBattleCard,
       ).findByLabelText(expectedBattleToggleButton);
 
-      await userEvent.click(tebasToggleWinnerButton);
+      await user.click(tebasToggleWinnerButton);
 
       const tebasBattleWinner = await within(tebasBattleCard).findByRole(
         "img",
@@ -84,7 +86,7 @@ describe("Given the BattlesPage component", () => {
         expectedDeleteButtonText,
       );
 
-      await userEvent.click(deleteButton);
+      await user.click(deleteButton);
 
       expect(battleHeading).not.toBeInTheDocument();
     });
