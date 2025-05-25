@@ -1,11 +1,12 @@
+import { useNavigate } from "react-router";
 import { useState } from "react";
-import type { BattleFormData } from "../../../types";
+import { mapBattleFormDataToBattleFormDataDto } from "../../dto/mappers";
+import type { BattleFormData, BattleFormDataDto } from "../../../types";
 import Button from "../../../ui/components/Button/Button";
 import "./BattleForm.css";
-import { useNavigate } from "react-router";
 
 interface BattleFormProps {
-  action: (battleFormData: BattleFormData) => Promise<void>;
+  action: (battleFormDataDto: BattleFormDataDto) => Promise<void>;
 }
 
 const BattleForm: React.FC<BattleFormProps> = ({ action }) => {
@@ -14,10 +15,10 @@ const BattleForm: React.FC<BattleFormProps> = ({ action }) => {
   const initialFormData: BattleFormData = {
     battleName: "",
     conflict: "",
-    darkSide: [],
+    darkSide: "",
     description: "",
     doesLightSideWin: false,
-    lightSide: [],
+    lightSide: "",
     period: "",
     year: 0,
     imageUrl: "",
@@ -52,15 +53,6 @@ const BattleForm: React.FC<BattleFormProps> = ({ action }) => {
     }));
   };
 
-  const handleOnSubmitBattleForm = async (
-    event: React.FormEvent<HTMLFormElement>,
-  ) => {
-    event.preventDefault();
-
-    await action(battleFormData);
-    navigate("/");
-  };
-
   const isFormDataValid =
     battleFormData.battleName !== "" &&
     battleFormData.conflict !== "" &&
@@ -68,6 +60,18 @@ const BattleForm: React.FC<BattleFormProps> = ({ action }) => {
     battleFormData.description !== "" &&
     battleFormData.lightSide.length !== 0 &&
     battleFormData.period !== "";
+
+  const battleFormDataDto =
+    mapBattleFormDataToBattleFormDataDto(battleFormData);
+
+  const handleOnSubmitBattleForm = async (
+    event: React.FormEvent<HTMLFormElement>,
+  ) => {
+    event.preventDefault();
+
+    await action(battleFormDataDto);
+    navigate("/");
+  };
 
   return (
     <form className="battle-form" onSubmit={handleOnSubmitBattleForm}>
