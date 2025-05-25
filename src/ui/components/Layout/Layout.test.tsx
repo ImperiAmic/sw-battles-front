@@ -5,7 +5,7 @@ import { render, screen } from "@testing-library/react";
 import Layout from "./Layout";
 import store from "../../../store/store";
 import AppRouterTest from "../../../router/TestAppRouter";
-import { vilafrancaFormBattle } from "../../../fixtures";
+import { vilafrancaBattleDto } from "../../../battle/dto/fixturesDto";
 
 describe("Given the Layout component", () => {
   describe("When it renders", () => {
@@ -109,16 +109,13 @@ describe("Given the Layout component", () => {
       const descriptionInput = screen.getByLabelText(/explain the battle/i);
       const winnerInput = screen.getByLabelText(/does the light side win/i);
 
-      await user.type(nameInput, vilafrancaFormBattle.battleName);
-      await user.type(yearInput, vilafrancaFormBattle.year.toString());
-      await user.selectOptions(periodInput, vilafrancaFormBattle.period);
-      await user.type(conflictInput, vilafrancaFormBattle.conflict);
-      await user.type(
-        lightSideInput,
-        vilafrancaFormBattle.lightSide.toString(),
-      );
-      await user.type(darkSideInput, vilafrancaFormBattle.darkSide.toString());
-      await user.type(descriptionInput, vilafrancaFormBattle.description);
+      await user.type(nameInput, vilafrancaBattleDto.battleName);
+      await user.type(yearInput, vilafrancaBattleDto.year.toString());
+      await user.selectOptions(periodInput, vilafrancaBattleDto.period);
+      await user.type(conflictInput, vilafrancaBattleDto.conflict);
+      await user.type(lightSideInput, vilafrancaBattleDto.lightSide.toString());
+      await user.type(darkSideInput, vilafrancaBattleDto.darkSide.toString());
+      await user.type(descriptionInput, vilafrancaBattleDto.description);
       await user.click(winnerInput);
 
       const createButton = screen.getByText(/create new battle/i);

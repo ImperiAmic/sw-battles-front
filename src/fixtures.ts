@@ -153,10 +153,10 @@ export const catalanBattles = [
 export const vilafrancaFormBattle: BattleFormData = {
   battleName: "Battle of Vilafranca",
   conflict: "Guerra del Penedès",
-  darkSide: ["Los dolents", "Los més dolents"],
+  darkSide: "Los dolents, Los més dolents",
   description: "Coses coses coses coses coses coses",
   doesLightSideWin: true,
-  lightSide: ["Los bons", "Los més bons"],
+  lightSide: "Los bons, Los més bons",
   period: "BBY",
   year: 2025,
   imageUrl: "vilafranca.cat/foto.webp",

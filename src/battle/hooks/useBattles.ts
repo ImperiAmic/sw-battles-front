@@ -11,7 +11,7 @@ import {
 } from "../slice/battlesInfoSlice";
 import useModal from "../../hooks/useModal";
 import useLoading from "../../hooks/useLoading";
-import type { BattleFormData } from "../../types";
+import type { BattleFormDataDto } from "../../types";
 
 const useBattles = (): UseBattlesStructure => {
   const { startLoading, endLoading } = useLoading();
@@ -95,13 +95,15 @@ const useBattles = (): UseBattlesStructure => {
     [battleClient, dispatch, showModal, startLoading, endLoading],
   );
 
-  const addBattle = async (battleFormData: BattleFormData): Promise<void> => {
+  const addBattle = async (
+    battleFormDataDto: BattleFormDataDto,
+  ): Promise<void> => {
     const timeout = setTimeout(() => {
       startLoading();
     }, 200);
 
     try {
-      const apiNewBattle = await battleClient.addBattle(battleFormData);
+      const apiNewBattle = await battleClient.addBattle(battleFormDataDto);
 
       const action = addBattleActionCreator(apiNewBattle);
 

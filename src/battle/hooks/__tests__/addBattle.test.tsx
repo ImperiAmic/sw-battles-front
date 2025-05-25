@@ -5,11 +5,7 @@ import { vilafrancaFormBattleDto } from "../../dto/fixturesDto";
 import type { BattlesInfoState } from "../../slice/types";
 import setupStore from "../../../store/setupStore";
 import useBattles from "../useBattles";
-import {
-  lleidaBattle,
-  tebasBattle,
-  vilafrancaFormBattle,
-} from "../../../fixtures";
+import { lleidaBattle, tebasBattle } from "../../../fixtures";
 
 describe("Given the addBattle method from useBattles hook", () => {
   describe("When it receives Battle of Vilafranca ad form data", () => {
@@ -35,7 +31,7 @@ describe("Given the addBattle method from useBattles hook", () => {
       const { result } = renderHook(() => useBattles(), { wrapper });
 
       await act(() => {
-        result.current.addBattle(vilafrancaFormBattle);
+        result.current.addBattle(vilafrancaFormBattleDto);
       });
 
       const battles = result.current.battlesInfo.battles;

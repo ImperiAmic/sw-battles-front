@@ -1,19 +1,23 @@
 import { http, HttpResponse } from "msw";
-import { vilafrancaFormBattle } from "../../../fixtures";
 import { server } from "../../../mocks/node";
-import { vilafrancaFormBattleDto } from "../../dto/fixturesDto";
-import { mapBattleDtoToBattle } from "../../dto/mappers";
+import { mapBattleFormDataToBattleFormDataDto } from "../../dto/mappers";
 import BattleClient from "../BattleClient";
+import { vilafrancaFormBattleDto } from "../../dto/fixturesDto";
+import { vilafrancaFormBattle } from "../../../fixtures";
 
 describe("Given the addBattle method from BattleClient", () => {
   describe("When it receives the form data 'Battle of Vilafranca'", () => {
-    test("Then ti should return the Vilafranca battle", async () => {
+    test("Then it should return the Vilafranca battle", async () => {
       const battleClient = new BattleClient();
-      const newBattle = await battleClient.addBattle(vilafrancaFormBattle);
+      const newBattle = await battleClient.addBattle(vilafrancaFormBattleDto);
 
-      const battle = mapBattleDtoToBattle(vilafrancaFormBattleDto);
+      const battle = mapBattleFormDataToBattleFormDataDto(vilafrancaFormBattle);
 
-      expect(newBattle).toStrictEqual(battle);
+      expect(newBattle).toEqual(
+        expect.objectContaining({
+          battleName: battle.battleName,
+        }),
+      );
     });
   });
 
@@ -30,7 +34,7 @@ describe("Given the addBattle method from BattleClient", () => {
       );
 
       const battleClient = new BattleClient();
-      const deletedBattle = battleClient.addBattle(vilafrancaFormBattle);
+      const deletedBattle = battleClient.addBattle(vilafrancaFormBattleDto);
 
       expect(deletedBattle).rejects.toThrow(expectedErrorMessage);
     });

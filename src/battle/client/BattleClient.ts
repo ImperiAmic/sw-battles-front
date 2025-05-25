@@ -1,5 +1,5 @@
 import { mapBattleDtoToBattle, mapBattlesDtoToBattles } from "../dto/mappers";
-import type { Battle, BattleFormData, BattlesInfo } from "../../types";
+import type { Battle, BattleFormDataDto, BattlesInfo } from "../../types";
 import type { BattleClientStructure } from "./types";
 import type {
   BattleDto,
@@ -77,12 +77,12 @@ class BattleClient implements BattleClientStructure {
   };
 
   public addBattle = async (
-    battleFormData: BattleFormData,
+    battleFormDataDto: BattleFormDataDto,
   ): Promise<Battle> => {
     const response = await fetch(`${this.apiUrl}/battles`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(battleFormData),
+      body: JSON.stringify(battleFormDataDto),
     });
 
     if (!response.ok) {
