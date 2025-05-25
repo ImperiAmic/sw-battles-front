@@ -21,7 +21,8 @@
 }
 
 .battle-form__label,
-.battle-form__select {
+.battle-form__select,
+.battle-form__input {
   font-size: 1.25rem;
 }
 
