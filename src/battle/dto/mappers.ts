@@ -33,3 +33,18 @@ export const mapBattleFormDataToBattleFormDataDto = (
       .map((darkCombatant) => darkCombatant.trim()),
   };
 };
+
+export const mapBattleToBattleDto = (battle: Battle): BattleDto => {
+  return {
+    _id: battle.id,
+    battleName: battle.battleName,
+    conflict: battle.conflict,
+    darkSide: battle.darkSide,
+    description: battle.description,
+    doesLightSideWin: battle.doesLightSideWin,
+    lightSide: battle.lightSide,
+    period: battle.period,
+    year: battle.year,
+    imageUrl: battle.imageUrl,
+  };
+};

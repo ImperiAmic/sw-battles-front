@@ -6,4 +6,5 @@ export interface BattleClientStructure {
   deleteBattle: (battleId: string) => Promise<Battle>;
   getBattleDetail: (battleId: string) => Promise<Battle>;
   addBattle: (battleFormDataDto: BattleFormDataDto) => Promise<Battle>;
+  updateBattle: (battle: Battle) => Promise<Battle>;
 }
