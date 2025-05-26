@@ -24,6 +24,7 @@ export type BattleFormData = Omit<
   period: string;
   lightSide: string;
   darkSide: string;
+  id?: string;
 };
 
 export type BattleFormDataDto = Omit<

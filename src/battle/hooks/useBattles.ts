@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import {
   addBattleActionCreator,
   deleteBattleActionCreator,
+  editBattleActionCreator,
   getBattlesDetailActionCreator,
   getBattlesInfoActionCreator,
   toggleBattleWinnerActionCreator,
@@ -12,6 +13,7 @@ import {
 import useModal from "../../hooks/useModal";
 import useLoading from "../../hooks/useLoading";
 import type { BattleFormDataDto } from "../../types";
+import type { BattleDto } from "../dto/types";
 
 const useBattles = (): UseBattlesStructure => {
   const { startLoading, endLoading } = useLoading();
@@ -118,6 +120,26 @@ const useBattles = (): UseBattlesStructure => {
     }
   };
 
+  const editBattle = async (editedBattleDto: BattleDto): Promise<void> => {
+    const timeout = setTimeout(() => {
+      startLoading();
+    }, 200);
+
+    try {
+      const apiEditedBatttle = await battleClient.editBattle(editedBattleDto);
+
+      const action = editBattleActionCreator(apiEditedBatttle);
+
+      dispatch(action);
+      showModal(true, "Battle has been successfully updated!");
+    } catch {
+      showModal(false, "Oops! Can't edit your battle!");
+    } finally {
+      endLoading();
+      clearTimeout(timeout);
+    }
+  };
+
   return {
     battlesInfo,
     getBattlesInfo,
@@ -125,6 +147,7 @@ const useBattles = (): UseBattlesStructure => {
     deleteBattle,
     getBattleDetail,
     addBattle,
+    editBattle,
   };
 };
 

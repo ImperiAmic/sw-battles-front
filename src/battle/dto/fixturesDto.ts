@@ -185,3 +185,18 @@ export const updatedAlmansaBattleDto: BattleDto = {
   darkSide: ["Bourbon Spanish troops", "French troops"],
   doesLightSideWin: false,
 };
+
+export const wrongUpdatedAlmansaBattleDto: BattleDto = {
+  _id: "alsosprachzarathustra",
+  battleName: "Killing of Almansa",
+  conflict: "War of Spanish Succession",
+  year: 1707,
+  period: "ABY",
+  imageUrl:
+    "https://upload.wikimedia.org/wikipedia/commons/5/57/Battle_of_Almansa_1707.jpg",
+  description:
+    "This major defeat of the pro-Habsburg forces led to the eventual suppression of Catalan institutions after the Bourbon victory in the War of Spanish Succession.",
+  lightSide: ["Austrian Habsburgs", "Catalan allies"],
+  darkSide: ["Bourbon Spanish troops", "French troops"],
+  doesLightSideWin: false,
+};

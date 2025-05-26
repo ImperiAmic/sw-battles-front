@@ -120,7 +120,7 @@ export const handlers = [
     });
   }),
 
-  http.put(`${apiUrl}/battles/${almansaBattle.id}`, () => {
+  http.put(`${apiUrl}/battles/${almansaBattleDto._id}`, () => {
     return HttpResponse.json<{ battle: BattleDto }>({
       battle: updatedAlmansaBattleDto,
     });
