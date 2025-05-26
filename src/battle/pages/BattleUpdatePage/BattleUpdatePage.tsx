@@ -1,12 +1,12 @@
+import { useParams } from "react-router";
 import { useEffect } from "react";
 import BattleForm from "../../components/BattleForm/BattleForm";
-import useBattles from "../../hooks/useBattles";
-import { useParams } from "react-router";
 import { useAppSelector } from "../../../store/hooks";
 import type { BattleFormData } from "../../../types";
+import useBattles from "../../hooks/useBattles";
 
 const BattleUpdatePage: React.FC = () => {
-  const { getBattleDetail } = useBattles();
+  const { getBattleDetail, editBattle } = useBattles();
 
   const { battleId } = useParams<{ battleId: string }>();
 
@@ -31,12 +31,13 @@ const BattleUpdatePage: React.FC = () => {
       lightSide: battle.lightSide.join(", "),
       period: battle.period,
       year: battle.year,
+      id: battle.id,
     };
 
     return (
       <BattleForm
         isNewBattleForm={false}
-        updateBattle={() => {}}
+        editBattle={editBattle}
         initialFormData={initialFormData}
       />
     );
