@@ -6,23 +6,19 @@ import Button from "../../../ui/components/Button/Button";
 import "./BattleForm.css";
 
 interface BattleFormProps {
-  action: (battleFormDataDto: BattleFormDataDto) => Promise<void>;
+  isNewBattleForm: boolean;
+  addBattle?: (battleFormDataDto: BattleFormDataDto) => Promise<void>;
+  updateBattle?: () => void;
+  initialFormData: BattleFormData;
 }
 
-const BattleForm: React.FC<BattleFormProps> = ({ action }) => {
+const BattleForm: React.FC<BattleFormProps> = ({
+  addBattle,
+  updateBattle,
+  initialFormData,
+  isNewBattleForm,
+}) => {
   const navigate = useNavigate();
-
-  const initialFormData: BattleFormData = {
-    battleName: "",
-    conflict: "",
-    darkSide: "",
-    description: "",
-    doesLightSideWin: false,
-    lightSide: "",
-    period: "",
-    year: 0,
-    imageUrl: "",
-  };
 
   const [battleFormData, setBattleFormData] =
     useState<BattleFormData>(initialFormData);
@@ -56,10 +52,10 @@ const BattleForm: React.FC<BattleFormProps> = ({ action }) => {
   const isFormDataValid =
     battleFormData.battleName !== "" &&
     battleFormData.conflict !== "" &&
-    battleFormData.darkSide.length !== 0 &&
-    battleFormData.description !== "" &&
-    battleFormData.lightSide.length !== 0 &&
-    battleFormData.period !== "";
+    battleFormData.period !== "" &&
+    battleFormData.darkSide !== "" &&
+    battleFormData.lightSide !== "" &&
+    battleFormData.description !== "";
 
   const battleFormDataDto =
     mapBattleFormDataToBattleFormDataDto(battleFormData);
@@ -69,13 +65,21 @@ const BattleForm: React.FC<BattleFormProps> = ({ action }) => {
   ) => {
     event.preventDefault();
 
-    await action(battleFormDataDto);
+    await addBattle!(battleFormDataDto);
     navigate("/");
   };
 
+  const onSubmitAction = isNewBattleForm
+    ? handleOnSubmitBattleForm
+    : updateBattle;
+  const formTitle = isNewBattleForm
+    ? "Add your own battle!"
+    : `Update ${initialFormData.battleName}`;
+  const buttonText = isNewBattleForm ? "Create new battle" : "Edit battle";
+
   return (
-    <form className="battle-form" onSubmit={handleOnSubmitBattleForm}>
-      <h2 className="battle-form__title">Add your own battle!</h2>
+    <form className="battle-form" onSubmit={onSubmitAction}>
+      <h2 className="battle-form__title">{formTitle}</h2>
       <div className="battle-form__group">
         <label className="battle-form__label" htmlFor="battleName">
           Name
@@ -178,7 +182,7 @@ const BattleForm: React.FC<BattleFormProps> = ({ action }) => {
         <textarea
           className="battle-form__textarea"
           id="description"
-          rows={12}
+          rows={15}
           value={battleFormData.description}
           onChange={handleOnChangeBattleFormData}
           required
@@ -202,7 +206,7 @@ const BattleForm: React.FC<BattleFormProps> = ({ action }) => {
         type="submit"
         disabled={!isFormDataValid}
       >
-        Create new battle
+        {buttonText}
       </Button>
     </form>
   );

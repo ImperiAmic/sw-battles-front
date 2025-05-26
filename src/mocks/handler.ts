@@ -112,4 +112,10 @@ export const handlers = [
       battle: vilafrancaBattleDto,
     });
   }),
+
+  http.get(`${apiUrl}/battles/${mallorcaBattle.id}`, () => {
+    return HttpResponse.json<{ battle: BattleDto }>({
+      battle: mallorcaBattleDto,
+    });
+  }),
 ];
