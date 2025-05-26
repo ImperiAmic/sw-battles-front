@@ -161,3 +161,35 @@ export const vilafrancaFormBattle: BattleFormData = {
   year: 2025,
   imageUrl: "vilafranca.cat/foto.webp",
 };
+
+export const updatedAlmansaBattle: Battle = {
+  id: "ccc333ccc333ccc333ccc333",
+  battleName: "Killing of Almansa",
+  conflict: "War of Spanish Succession",
+  year: 1707,
+  period: "ABY",
+  imageUrl:
+    "https://upload.wikimedia.org/wikipedia/commons/5/57/Battle_of_Almansa_1707.jpg",
+  imageAlt: "Battle of Almansa scene",
+  description:
+    "This major defeat of the pro-Habsburg forces led to the eventual suppression of Catalan institutions after the Bourbon victory in the War of Spanish Succession.",
+  lightSide: ["Austrian Habsburgs", "Catalan allies"],
+  darkSide: ["Bourbon Spanish troops", "French troops"],
+  doesLightSideWin: false,
+};
+
+export const wrongUpdatedAlmansaBattle: Battle = {
+  id: "alsosprachzarathustra",
+  battleName: "Killing of Almansa",
+  conflict: "War of Spanish Succession",
+  year: 1707,
+  period: "ABY",
+  imageUrl:
+    "https://upload.wikimedia.org/wikipedia/commons/5/57/Battle_of_Almansa_1707.jpg",
+  imageAlt: "Battle of Almansa scene",
+  description:
+    "This major defeat of the pro-Habsburg forces led to the eventual suppression of Catalan institutions after the Bourbon victory in the War of Spanish Succession.",
+  lightSide: ["Austrian Habsburgs", "Catalan allies"],
+  darkSide: ["Bourbon Spanish troops", "French troops"],
+  doesLightSideWin: false,
+};
