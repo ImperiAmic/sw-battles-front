@@ -1,10 +1,6 @@
 import type { Battle, BattleFormDataDto, BattlesInfo } from "../../types";
 import type { BattleClientStructure } from "./types";
-import {
-  mapBattleDtoToBattle,
-  mapBattlesDtoToBattles,
-  mapBattleToBattleDto,
-} from "../dto/mappers";
+import { mapBattleDtoToBattle, mapBattlesDtoToBattles } from "../dto/mappers";
 import type {
   BattleDto,
   BattlesInfoDto,
@@ -98,11 +94,11 @@ class BattleClient implements BattleClientStructure {
     return mapBattleDtoToBattle(battle);
   };
 
-  public updateBattle = async (updatedBattle: Battle): Promise<Battle> => {
-    const response = await fetch(`${this.apiUrl}/battles/${updatedBattle.id}`, {
+  public editBattle = async (battleDto: BattleDto): Promise<Battle> => {
+    const response = await fetch(`${this.apiUrl}/battles/${battleDto._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(mapBattleToBattleDto(updatedBattle)),
+      body: JSON.stringify(battleDto),
     });
 
     if (!response.ok) {

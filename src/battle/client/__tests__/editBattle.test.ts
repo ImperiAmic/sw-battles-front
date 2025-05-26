@@ -1,19 +1,20 @@
 import { http, HttpResponse } from "msw";
-import {
-  updatedAlmansaBattle,
-  wrongUpdatedAlmansaBattle,
-} from "../../../fixtures";
 import { server } from "../../../mocks/node";
 import BattleClient from "../BattleClient";
+import {
+  updatedAlmansaBattleDto,
+  wrongUpdatedAlmansaBattleDto,
+} from "../../dto/fixturesDto";
 
-describe("Given the updateBattle method from BattleClient", () => {
+describe("Given the editBattle method from BattleClient", () => {
   describe("When it receives the updated Battle of Almansa", () => {
     test("Then it should return 'Killing of Almansa' battle", async () => {
-      const expectedUpdatedBattleName = updatedAlmansaBattle.battleName;
+      const expectedUpdatedBattleName = updatedAlmansaBattleDto.battleName;
 
       const battleClient = new BattleClient();
-      const editedBattle =
-        await battleClient.updateBattle(updatedAlmansaBattle);
+      const editedBattle = await battleClient.editBattle(
+        updatedAlmansaBattleDto,
+      );
 
       expect(editedBattle.battleName).toBe(expectedUpdatedBattleName);
     });
@@ -33,7 +34,9 @@ describe("Given the updateBattle method from BattleClient", () => {
       );
 
       const battleClient = new BattleClient();
-      const editedBattle = battleClient.updateBattle(wrongUpdatedAlmansaBattle);
+      const editedBattle = battleClient.editBattle(
+        wrongUpdatedAlmansaBattleDto,
+      );
 
       expect(editedBattle).rejects.toThrow(expectedErrorMessage);
     });
