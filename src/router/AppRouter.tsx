@@ -4,6 +4,7 @@ import {
   LazyBattleDetailPage,
   LazyBattleFormPage,
   LazyBattlesPage,
+  LazyBattleUpdatePage,
   LazyNotFoundPage,
 } from "./LazyLoadings";
 
@@ -15,6 +16,10 @@ const AppRouter: React.FC = () => {
         <Route path="battles" element={<LazyBattlesPage />} />
         <Route path="battle/:battleId" element={<LazyBattleDetailPage />} />
         <Route path="add-battle" element={<LazyBattleFormPage />} />
+        <Route
+          path="edit-battle/:battleId"
+          element={<LazyBattleUpdatePage />}
+        />
         <Route path="*" element={<LazyNotFoundPage />} />
       </Route>
     </Routes>
