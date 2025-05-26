@@ -22,7 +22,8 @@
 
 .battle-form__label,
 .battle-form__select,
-.battle-form__input {
+.battle-form__input,
+.battle-form__textarea {
   font-size: 1.25rem;
 }
 
@@ -43,6 +44,7 @@
   background-color: var(--dark-secundary);
   border: 1px solid var(--dark-main);
   padding: 6px;
+  resize: vertical;
 }
 
 .battle-form__checkbox {

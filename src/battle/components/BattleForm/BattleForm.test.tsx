@@ -2,18 +2,35 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router";
 import BattleForm from "./BattleForm";
+import type { BattleFormData } from "../../../types";
 
 describe("Given the BattleForm component", () => {
   const action = vitest.fn();
   const user = userEvent.setup();
 
-  describe("When it renders", () => {
+  const initialFormData: BattleFormData = {
+    battleName: "",
+    conflict: "",
+    darkSide: "",
+    description: "",
+    doesLightSideWin: false,
+    imageUrl: "",
+    lightSide: "",
+    period: "",
+    year: 0,
+  };
+
+  describe("When it renders as a form to add a battle", () => {
     test("Then it should show 'Add your own battle' as a heading", () => {
       const expectedTitle = /add your own battle/i;
 
       render(
         <MemoryRouter>
-          <BattleForm action={action} />
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={true}
+            initialFormData={initialFormData}
+          />
         </MemoryRouter>,
       );
 
@@ -29,7 +46,11 @@ describe("Given the BattleForm component", () => {
 
       render(
         <MemoryRouter>
-          <BattleForm action={action} />
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={true}
+            initialFormData={initialFormData}
+          />
         </MemoryRouter>,
       );
 
@@ -43,7 +64,11 @@ describe("Given the BattleForm component", () => {
 
       render(
         <MemoryRouter>
-          <BattleForm action={action} />
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={true}
+            initialFormData={initialFormData}
+          />
         </MemoryRouter>,
       );
 
@@ -57,7 +82,11 @@ describe("Given the BattleForm component", () => {
 
       render(
         <MemoryRouter>
-          <BattleForm action={action} />
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={true}
+            initialFormData={initialFormData}
+          />
         </MemoryRouter>,
       );
 
@@ -71,7 +100,11 @@ describe("Given the BattleForm component", () => {
 
       render(
         <MemoryRouter>
-          <BattleForm action={action} />
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={true}
+            initialFormData={initialFormData}
+          />
         </MemoryRouter>,
       );
 
@@ -85,7 +118,11 @@ describe("Given the BattleForm component", () => {
 
       render(
         <MemoryRouter>
-          <BattleForm action={action} />
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={true}
+            initialFormData={initialFormData}
+          />
         </MemoryRouter>,
       );
 
@@ -99,7 +136,11 @@ describe("Given the BattleForm component", () => {
 
       render(
         <MemoryRouter>
-          <BattleForm action={action} />
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={true}
+            initialFormData={initialFormData}
+          />
         </MemoryRouter>,
       );
 
@@ -113,7 +154,11 @@ describe("Given the BattleForm component", () => {
 
       render(
         <MemoryRouter>
-          <BattleForm action={action} />
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={true}
+            initialFormData={initialFormData}
+          />
         </MemoryRouter>,
       );
 
@@ -127,7 +172,11 @@ describe("Given the BattleForm component", () => {
 
       render(
         <MemoryRouter>
-          <BattleForm action={action} />
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={true}
+            initialFormData={initialFormData}
+          />
         </MemoryRouter>,
       );
 
@@ -141,7 +190,11 @@ describe("Given the BattleForm component", () => {
 
       render(
         <MemoryRouter>
-          <BattleForm action={action} />
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={true}
+            initialFormData={initialFormData}
+          />
         </MemoryRouter>,
       );
 
@@ -155,7 +208,11 @@ describe("Given the BattleForm component", () => {
 
       render(
         <MemoryRouter>
-          <BattleForm action={action} />
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={true}
+            initialFormData={initialFormData}
+          />
         </MemoryRouter>,
       );
 
@@ -163,176 +220,214 @@ describe("Given the BattleForm component", () => {
 
       expect(createButton).toBeInTheDocument();
     });
-  });
 
-  describe("And the user types 'Batalla del Aurresku' inside the 'Name' input", () => {
-    test("Then it should show 'Battalla del Aurresku' inside the 'Name' input", async () => {
-      const expectedNameLabel = /name/i;
-      const expectedValue = "Battalla del Aurresku";
+    describe("And the user types 'Batalla del Aurresku' inside the 'Name' input", () => {
+      test("Then it should show 'Battalla del Aurresku' inside the 'Name' input", async () => {
+        const expectedNameLabel = /name/i;
+        const expectedValue = "Battalla del Aurresku";
 
-      render(
-        <MemoryRouter>
-          <BattleForm action={action} />
-        </MemoryRouter>,
-      );
+        render(
+          <MemoryRouter>
+            <BattleForm
+              addBattle={action}
+              isNewBattleForm={true}
+              initialFormData={initialFormData}
+            />
+          </MemoryRouter>,
+        );
 
-      const nameInput = screen.getByLabelText(expectedNameLabel);
+        const nameInput = screen.getByLabelText(expectedNameLabel);
 
-      await user.type(nameInput, expectedValue);
+        await user.type(nameInput, expectedValue);
 
-      expect(nameInput).toHaveValue(expectedValue);
+        expect(nameInput).toHaveValue(expectedValue);
+      });
     });
-  });
 
-  describe("And the user types 'http://www.ieee.es/saludo.webp' inside the 'Image URL' input", () => {
-    test("Then it should show 'http://www.ieee.es/saludo.webp' inside the 'Image URL' input", async () => {
-      const expectedImageUrlLabel = /image url/i;
-      const expectedValue = "http://www.ieee.es/saludo.webp";
+    describe("And the user types 'http://www.ieee.es/saludo.webp' inside the 'Image URL' input", () => {
+      test("Then it should show 'http://www.ieee.es/saludo.webp' inside the 'Image URL' input", async () => {
+        const expectedImageUrlLabel = /image url/i;
+        const expectedValue = "http://www.ieee.es/saludo.webp";
 
-      render(
-        <MemoryRouter>
-          <BattleForm action={action} />
-        </MemoryRouter>,
-      );
+        render(
+          <MemoryRouter>
+            <BattleForm
+              addBattle={action}
+              isNewBattleForm={true}
+              initialFormData={initialFormData}
+            />
+          </MemoryRouter>,
+        );
 
-      const imageUrlInput = screen.getByLabelText(expectedImageUrlLabel);
+        const imageUrlInput = screen.getByLabelText(expectedImageUrlLabel);
 
-      await user.type(imageUrlInput, expectedValue);
+        await user.type(imageUrlInput, expectedValue);
 
-      expect(imageUrlInput).toHaveValue(expectedValue);
+        expect(imageUrlInput).toHaveValue(expectedValue);
+      });
     });
-  });
 
-  describe("And the user types '1582' inside the 'Year' input", () => {
-    test("Then it should show '1582' inside the 'Year' input", async () => {
-      const expectedYearLabel = /year/i;
-      const expectedValue = "1582";
-      const expectedNumber = parseInt(expectedValue);
+    describe("And the user types '1582' inside the 'Year' input", () => {
+      test("Then it should show '1582' inside the 'Year' input", async () => {
+        const expectedYearLabel = /year/i;
+        const expectedValue = "1582";
+        const expectedNumber = parseInt(expectedValue);
 
-      render(
-        <MemoryRouter>
-          <BattleForm action={action} />
-        </MemoryRouter>,
-      );
+        render(
+          <MemoryRouter>
+            <BattleForm
+              addBattle={action}
+              isNewBattleForm={true}
+              initialFormData={initialFormData}
+            />
+          </MemoryRouter>,
+        );
 
-      const yearInput = screen.getByLabelText(expectedYearLabel);
+        const yearInput = screen.getByLabelText(expectedYearLabel);
 
-      await user.type(yearInput, expectedValue);
+        await user.type(yearInput, expectedValue);
 
-      expect(yearInput).toHaveValue(expectedNumber);
+        expect(yearInput).toHaveValue(expectedNumber);
+      });
     });
-  });
 
-  describe("And the user selects 'BBY' inside the 'Period' input", () => {
-    test("Then it should show 'BBY' inside the 'Period' input", async () => {
-      const expectedImageUrlLabel = /period/i;
-      const expectedSelection = "BBY";
+    describe("And the user selects 'BBY' inside the 'Period' input", () => {
+      test("Then it should show 'BBY' inside the 'Period' input", async () => {
+        const expectedImageUrlLabel = /period/i;
+        const expectedSelection = "BBY";
 
-      render(
-        <MemoryRouter>
-          <BattleForm action={action} />
-        </MemoryRouter>,
-      );
+        render(
+          <MemoryRouter>
+            <BattleForm
+              addBattle={action}
+              isNewBattleForm={true}
+              initialFormData={initialFormData}
+            />
+          </MemoryRouter>,
+        );
 
-      const periodInput = screen.getByLabelText(expectedImageUrlLabel);
+        const periodInput = screen.getByLabelText(expectedImageUrlLabel);
 
-      await user.selectOptions(periodInput, "BBY");
+        await user.selectOptions(periodInput, "BBY");
 
-      expect(periodInput).toHaveValue(expectedSelection);
+        expect(periodInput).toHaveValue(expectedSelection);
+      });
     });
-  });
 
-  describe("And the user types 'La Guerra de l'Aigo' inside the 'Conflict' input", () => {
-    test("Then it should show 'La Guerra de l'Aigo' inside the 'Conflict' input", async () => {
-      const expectedConflictLabel = /conflict/i;
-      const expectedValue = "La Guerra de l'Aigo";
+    describe("And the user types 'La Guerra de l'Aigo' inside the 'Conflict' input", () => {
+      test("Then it should show 'La Guerra de l'Aigo' inside the 'Conflict' input", async () => {
+        const expectedConflictLabel = /conflict/i;
+        const expectedValue = "La Guerra de l'Aigo";
 
-      render(
-        <MemoryRouter>
-          <BattleForm action={action} />
-        </MemoryRouter>,
-      );
+        render(
+          <MemoryRouter>
+            <BattleForm
+              addBattle={action}
+              isNewBattleForm={true}
+              initialFormData={initialFormData}
+            />
+          </MemoryRouter>,
+        );
 
-      const conflictInput = screen.getByLabelText(expectedConflictLabel);
+        const conflictInput = screen.getByLabelText(expectedConflictLabel);
 
-      await user.type(conflictInput, expectedValue);
+        await user.type(conflictInput, expectedValue);
 
-      expect(conflictInput).toHaveValue(expectedValue);
+        expect(conflictInput).toHaveValue(expectedValue);
+      });
     });
-  });
 
-  describe("And the user types 'Los bons, Los més bons' inside the 'Light Side combatants' input", () => {
-    test("Then it should show 'Los bons, Los més bons' inside the 'Light Side combatants' input", async () => {
-      const expectedLightSideLabel = /light side combatants/i;
-      const expectedValue = "Los bons, Los més bons";
+    describe("And the user types 'Los bons, Los més bons' inside the 'Light Side combatants' input", () => {
+      test("Then it should show 'Los bons, Los més bons' inside the 'Light Side combatants' input", async () => {
+        const expectedLightSideLabel = /light side combatants/i;
+        const expectedValue = "Los bons, Los més bons";
 
-      render(
-        <MemoryRouter>
-          <BattleForm action={action} />
-        </MemoryRouter>,
-      );
+        render(
+          <MemoryRouter>
+            <BattleForm
+              addBattle={action}
+              isNewBattleForm={true}
+              initialFormData={initialFormData}
+            />
+          </MemoryRouter>,
+        );
 
-      const lightSideInput = screen.getByLabelText(expectedLightSideLabel);
+        const lightSideInput = screen.getByLabelText(expectedLightSideLabel);
 
-      await user.type(lightSideInput, expectedValue);
+        await user.type(lightSideInput, expectedValue);
 
-      expect(lightSideInput).toHaveValue(expectedValue);
+        expect(lightSideInput).toHaveValue(expectedValue);
+      });
     });
-  });
 
-  describe("And the user types 'Los dolents, Los més dolents' inside the 'Dark Side combatants' input", () => {
-    test("Then it should show 'Los dolents, Los més dolents' inside the 'Dark Side combatants' input", async () => {
-      const expectedDarkSideLabel = /dark side combatants/i;
-      const expectedValue = "Los dolents, Los més dolents";
+    describe("And the user types 'Los dolents, Los més dolents' inside the 'Dark Side combatants' input", () => {
+      test("Then it should show 'Los dolents, Los més dolents' inside the 'Dark Side combatants' input", async () => {
+        const expectedDarkSideLabel = /dark side combatants/i;
+        const expectedValue = "Los dolents, Los més dolents";
 
-      render(
-        <MemoryRouter>
-          <BattleForm action={action} />
-        </MemoryRouter>,
-      );
+        render(
+          <MemoryRouter>
+            <BattleForm
+              addBattle={action}
+              isNewBattleForm={true}
+              initialFormData={initialFormData}
+            />
+          </MemoryRouter>,
+        );
 
-      const darkSideInput = screen.getByLabelText(expectedDarkSideLabel);
+        const darkSideInput = screen.getByLabelText(expectedDarkSideLabel);
 
-      await user.type(darkSideInput, expectedValue);
+        await user.type(darkSideInput, expectedValue);
 
-      expect(darkSideInput).toHaveValue(expectedValue);
+        expect(darkSideInput).toHaveValue(expectedValue);
+      });
     });
-  });
 
-  describe("And the user types 'La guerra pues oye que cosa más mala tu' inside the 'Explain the battle' input", () => {
-    test("Then it should show 'La guerra pues oye que cosa más mala tu' inside the 'Explain the battle' input", async () => {
-      const expectedDescriptionLabel = /explain the battle/i;
-      const expectedValue = "La guerra pues oye que cosa más mala tu";
+    describe("And the user types 'La guerra pues oye que cosa más mala tu' inside the 'Explain the battle' input", () => {
+      test("Then it should show 'La guerra pues oye que cosa más mala tu' inside the 'Explain the battle' input", async () => {
+        const expectedDescriptionLabel = /explain the battle/i;
+        const expectedValue = "La guerra pues oye que cosa más mala tu";
 
-      render(
-        <MemoryRouter>
-          <BattleForm action={action} />
-        </MemoryRouter>,
-      );
+        render(
+          <MemoryRouter>
+            <BattleForm
+              addBattle={action}
+              isNewBattleForm={true}
+              initialFormData={initialFormData}
+            />
+          </MemoryRouter>,
+        );
 
-      const descriptionInput = screen.getByLabelText(expectedDescriptionLabel);
+        const descriptionInput = screen.getByLabelText(
+          expectedDescriptionLabel,
+        );
 
-      await user.type(descriptionInput, expectedValue);
+        await user.type(descriptionInput, expectedValue);
 
-      expect(descriptionInput).toHaveValue(expectedValue);
+        expect(descriptionInput).toHaveValue(expectedValue);
+      });
     });
-  });
 
-  describe("And the user selects Light Side as winner inside the 'Does the Light Side win' input", () => {
-    test("Then it should show the 'Does the Light Side win' input as selected", async () => {
-      const expectedDescriptionLabel = /does the light side win/i;
+    describe("And the user selects Light Side as winner inside the 'Does the Light Side win' input", () => {
+      test("Then it should show the 'Does the Light Side win' input as selected", async () => {
+        const expectedDescriptionLabel = /does the light side win/i;
 
-      render(
-        <MemoryRouter>
-          <BattleForm action={action} />
-        </MemoryRouter>,
-      );
+        render(
+          <MemoryRouter>
+            <BattleForm
+              addBattle={action}
+              isNewBattleForm={true}
+              initialFormData={initialFormData}
+            />
+          </MemoryRouter>,
+        );
 
-      const winnerInput = screen.getByLabelText(expectedDescriptionLabel);
+        const winnerInput = screen.getByLabelText(expectedDescriptionLabel);
 
-      await user.click(winnerInput);
+        await user.click(winnerInput);
 
-      expect(winnerInput).toBeChecked();
+        expect(winnerInput).toBeChecked();
+      });
     });
   });
 });
