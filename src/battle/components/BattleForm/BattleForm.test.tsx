@@ -3,12 +3,13 @@ import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router";
 import BattleForm from "./BattleForm";
 import type { BattleFormData } from "../../../types";
+import { mallorcaBattle } from "../../../fixtures";
 
 describe("Given the BattleForm component", () => {
   const action = vitest.fn();
   const user = userEvent.setup();
 
-  const initialFormData: BattleFormData = {
+  const initialNewBattleFormData: BattleFormData = {
     battleName: "",
     conflict: "",
     darkSide: "",
@@ -20,6 +21,18 @@ describe("Given the BattleForm component", () => {
     year: 0,
   };
 
+  const initialEditBattleFormData: BattleFormData = {
+    battleName: mallorcaBattle.battleName,
+    conflict: mallorcaBattle.conflict,
+    darkSide: mallorcaBattle.darkSide.join(", "),
+    description: mallorcaBattle.description,
+    doesLightSideWin: mallorcaBattle.doesLightSideWin,
+    imageUrl: mallorcaBattle.imageUrl,
+    lightSide: mallorcaBattle.lightSide.join(", "),
+    period: mallorcaBattle.period,
+    year: mallorcaBattle.year,
+  };
+
   describe("When it renders as a form to add a battle", () => {
     test("Then it should show 'Add your own battle' as a heading", () => {
       const expectedTitle = /add your own battle/i;
@@ -29,7 +42,7 @@ describe("Given the BattleForm component", () => {
           <BattleForm
             addBattle={action}
             isNewBattleForm={true}
-            initialFormData={initialFormData}
+            initialFormData={initialNewBattleFormData}
           />
         </MemoryRouter>,
       );
@@ -49,7 +62,7 @@ describe("Given the BattleForm component", () => {
           <BattleForm
             addBattle={action}
             isNewBattleForm={true}
-            initialFormData={initialFormData}
+            initialFormData={initialNewBattleFormData}
           />
         </MemoryRouter>,
       );
@@ -67,7 +80,7 @@ describe("Given the BattleForm component", () => {
           <BattleForm
             addBattle={action}
             isNewBattleForm={true}
-            initialFormData={initialFormData}
+            initialFormData={initialNewBattleFormData}
           />
         </MemoryRouter>,
       );
@@ -85,7 +98,7 @@ describe("Given the BattleForm component", () => {
           <BattleForm
             addBattle={action}
             isNewBattleForm={true}
-            initialFormData={initialFormData}
+            initialFormData={initialNewBattleFormData}
           />
         </MemoryRouter>,
       );
@@ -103,7 +116,7 @@ describe("Given the BattleForm component", () => {
           <BattleForm
             addBattle={action}
             isNewBattleForm={true}
-            initialFormData={initialFormData}
+            initialFormData={initialNewBattleFormData}
           />
         </MemoryRouter>,
       );
@@ -121,7 +134,7 @@ describe("Given the BattleForm component", () => {
           <BattleForm
             addBattle={action}
             isNewBattleForm={true}
-            initialFormData={initialFormData}
+            initialFormData={initialNewBattleFormData}
           />
         </MemoryRouter>,
       );
@@ -139,7 +152,7 @@ describe("Given the BattleForm component", () => {
           <BattleForm
             addBattle={action}
             isNewBattleForm={true}
-            initialFormData={initialFormData}
+            initialFormData={initialNewBattleFormData}
           />
         </MemoryRouter>,
       );
@@ -157,7 +170,7 @@ describe("Given the BattleForm component", () => {
           <BattleForm
             addBattle={action}
             isNewBattleForm={true}
-            initialFormData={initialFormData}
+            initialFormData={initialNewBattleFormData}
           />
         </MemoryRouter>,
       );
@@ -175,7 +188,7 @@ describe("Given the BattleForm component", () => {
           <BattleForm
             addBattle={action}
             isNewBattleForm={true}
-            initialFormData={initialFormData}
+            initialFormData={initialNewBattleFormData}
           />
         </MemoryRouter>,
       );
@@ -193,7 +206,7 @@ describe("Given the BattleForm component", () => {
           <BattleForm
             addBattle={action}
             isNewBattleForm={true}
-            initialFormData={initialFormData}
+            initialFormData={initialNewBattleFormData}
           />
         </MemoryRouter>,
       );
@@ -211,7 +224,7 @@ describe("Given the BattleForm component", () => {
           <BattleForm
             addBattle={action}
             isNewBattleForm={true}
-            initialFormData={initialFormData}
+            initialFormData={initialNewBattleFormData}
           />
         </MemoryRouter>,
       );
@@ -231,7 +244,7 @@ describe("Given the BattleForm component", () => {
             <BattleForm
               addBattle={action}
               isNewBattleForm={true}
-              initialFormData={initialFormData}
+              initialFormData={initialNewBattleFormData}
             />
           </MemoryRouter>,
         );
@@ -254,7 +267,7 @@ describe("Given the BattleForm component", () => {
             <BattleForm
               addBattle={action}
               isNewBattleForm={true}
-              initialFormData={initialFormData}
+              initialFormData={initialNewBattleFormData}
             />
           </MemoryRouter>,
         );
@@ -278,7 +291,7 @@ describe("Given the BattleForm component", () => {
             <BattleForm
               addBattle={action}
               isNewBattleForm={true}
-              initialFormData={initialFormData}
+              initialFormData={initialNewBattleFormData}
             />
           </MemoryRouter>,
         );
@@ -301,7 +314,7 @@ describe("Given the BattleForm component", () => {
             <BattleForm
               addBattle={action}
               isNewBattleForm={true}
-              initialFormData={initialFormData}
+              initialFormData={initialNewBattleFormData}
             />
           </MemoryRouter>,
         );
@@ -324,7 +337,7 @@ describe("Given the BattleForm component", () => {
             <BattleForm
               addBattle={action}
               isNewBattleForm={true}
-              initialFormData={initialFormData}
+              initialFormData={initialNewBattleFormData}
             />
           </MemoryRouter>,
         );
@@ -347,7 +360,7 @@ describe("Given the BattleForm component", () => {
             <BattleForm
               addBattle={action}
               isNewBattleForm={true}
-              initialFormData={initialFormData}
+              initialFormData={initialNewBattleFormData}
             />
           </MemoryRouter>,
         );
@@ -370,7 +383,7 @@ describe("Given the BattleForm component", () => {
             <BattleForm
               addBattle={action}
               isNewBattleForm={true}
-              initialFormData={initialFormData}
+              initialFormData={initialNewBattleFormData}
             />
           </MemoryRouter>,
         );
@@ -393,7 +406,7 @@ describe("Given the BattleForm component", () => {
             <BattleForm
               addBattle={action}
               isNewBattleForm={true}
-              initialFormData={initialFormData}
+              initialFormData={initialNewBattleFormData}
             />
           </MemoryRouter>,
         );
@@ -417,7 +430,7 @@ describe("Given the BattleForm component", () => {
             <BattleForm
               addBattle={action}
               isNewBattleForm={true}
-              initialFormData={initialFormData}
+              initialFormData={initialNewBattleFormData}
             />
           </MemoryRouter>,
         );
@@ -428,6 +441,192 @@ describe("Given the BattleForm component", () => {
 
         expect(winnerInput).toBeChecked();
       });
+    });
+  });
+
+  describe("When it renders as a form to edit Conquest of Mallorca", () => {
+    test("Then it should show 'Update Conquest of Mallorca' as a heading", () => {
+      const expectedTitle = /update conquest of mallorca/i;
+
+      render(
+        <MemoryRouter>
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={false}
+            initialFormData={initialEditBattleFormData}
+          />
+        </MemoryRouter>,
+      );
+
+      const pageTitle = screen.getByRole("heading", {
+        name: expectedTitle,
+      });
+
+      expect(pageTitle).toBeInTheDocument();
+    });
+
+    test("Then it should show 'Conquest of Mallorca' as an input value", () => {
+      const expectedInputValue = /conquest of mallorca/i;
+
+      render(
+        <MemoryRouter>
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={false}
+            initialFormData={initialEditBattleFormData}
+          />
+        </MemoryRouter>,
+      );
+
+      const inputValue = screen.getByDisplayValue(expectedInputValue);
+
+      expect(inputValue).toBeInTheDocument();
+    });
+
+    test("Then it should show 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Conquest_Mallorca_1229.jpg' as an input", () => {
+      const expectedInputValue =
+        /https:\/\/upload.wikimedia.org\/wikipedia\/commons\/f\/f6\/Conquest_Mallorca_1229.jpg/i;
+
+      render(
+        <MemoryRouter>
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={false}
+            initialFormData={initialEditBattleFormData}
+          />
+        </MemoryRouter>,
+      );
+
+      const inputValue = screen.getByDisplayValue(expectedInputValue);
+
+      expect(inputValue).toBeInTheDocument();
+    });
+
+    test("Then it should show '1229' as an input", () => {
+      const expectedInputValue = 1229;
+
+      render(
+        <MemoryRouter>
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={false}
+            initialFormData={initialEditBattleFormData}
+          />
+        </MemoryRouter>,
+      );
+
+      const inputValue = screen.getByDisplayValue(expectedInputValue);
+
+      expect(inputValue).toBeInTheDocument();
+    });
+
+    test("Then it should show 'ABY' as an input", () => {
+      const expectedInputValue = "ABY";
+
+      render(
+        <MemoryRouter>
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={false}
+            initialFormData={initialEditBattleFormData}
+          />
+        </MemoryRouter>,
+      );
+
+      const inputValue = screen.getByDisplayValue(expectedInputValue);
+
+      expect(inputValue).toBeInTheDocument();
+    });
+
+    test("Then it should show 'Catalan Expansion' as an input", () => {
+      const expectedInputValue = /catalan expansion/i;
+
+      render(
+        <MemoryRouter>
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={false}
+            initialFormData={initialEditBattleFormData}
+          />
+        </MemoryRouter>,
+      );
+
+      const inputValue = screen.getByDisplayValue(expectedInputValue);
+
+      expect(inputValue).toBeInTheDocument();
+    });
+
+    test("Then it should show 'Crown of Aragon, Catalan nobles' as an input", () => {
+      const expectedInputValue = /crown of aragon, catalan nobles/i;
+
+      render(
+        <MemoryRouter>
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={false}
+            initialFormData={initialEditBattleFormData}
+          />
+        </MemoryRouter>,
+      );
+
+      const inputValue = screen.getByDisplayValue(expectedInputValue);
+
+      expect(inputValue).toBeInTheDocument();
+    });
+
+    test("Then it should show 'Moorish Taifa of Mallorca' as an input", () => {
+      const expectedInputValue = /moorish taifa of mallorca/i;
+
+      render(
+        <MemoryRouter>
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={false}
+            initialFormData={initialEditBattleFormData}
+          />
+        </MemoryRouter>,
+      );
+
+      const inputValue = screen.getByDisplayValue(expectedInputValue);
+
+      expect(inputValue).toBeInTheDocument();
+    });
+
+    test("Then it should show 'Under King James I, Catalan-Aragonese forces conquered Mallorca from the Moors. It marked a major step in the Mediterranean expansion of Catalonia.' as an input", () => {
+      const expectedInputValue =
+        /under king james i, catalan-aragonese forces conquered mallorca from the moors. it marked a major step in the mediterranean expansion of catalonia./i;
+
+      render(
+        <MemoryRouter>
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={false}
+            initialFormData={initialEditBattleFormData}
+          />
+        </MemoryRouter>,
+      );
+
+      const inputValue = screen.getByDisplayValue(expectedInputValue);
+
+      expect(inputValue).toBeInTheDocument();
+    });
+
+    test("Then it should show a 'Edit battle' button", () => {
+      const expectedButton = /edit battle/i;
+
+      render(
+        <MemoryRouter>
+          <BattleForm
+            addBattle={action}
+            isNewBattleForm={false}
+            initialFormData={initialEditBattleFormData}
+          />
+        </MemoryRouter>,
+      );
+
+      const createButton = screen.getByText(expectedButton);
+      screen.debug();
+      expect(createButton).toBeInTheDocument();
     });
   });
 });

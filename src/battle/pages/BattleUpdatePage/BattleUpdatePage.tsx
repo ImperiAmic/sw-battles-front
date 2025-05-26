@@ -11,8 +11,6 @@ const BattleUpdatePage: React.FC = () => {
   const { battleId } = useParams<{ battleId: string }>();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-
     getBattleDetail(battleId!);
   }, [getBattleDetail, battleId]);
 

@@ -72,11 +72,14 @@ const BattleForm: React.FC<BattleFormProps> = ({
   const onSubmitAction = isNewBattleForm
     ? handleOnSubmitBattleForm
     : updateBattle;
+  const formTitle = isNewBattleForm
+    ? "Add your own battle!"
+    : `Update ${initialFormData.battleName}`;
   const buttonText = isNewBattleForm ? "Create new battle" : "Edit battle";
 
   return (
     <form className="battle-form" onSubmit={onSubmitAction}>
-      <h2 className="battle-form__title">Add your own battle!</h2>
+      <h2 className="battle-form__title">{formTitle}</h2>
       <div className="battle-form__group">
         <label className="battle-form__label" htmlFor="battleName">
           Name
