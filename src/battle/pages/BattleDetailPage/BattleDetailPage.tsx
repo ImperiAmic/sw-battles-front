@@ -91,11 +91,11 @@ const BattleDetailPage: React.FC = () => {
           </Button>
         </div>
         <Link
-          aria-label="Update information"
-          className="battle-detail-update"
+          aria-label="Edit battle"
+          className="battle-detail-edit"
           to={`/edit-battle/${battle.id}`}
         >
-          Update this battle
+          Edit this battle
         </Link>
       </div>
     </article>

@@ -12,8 +12,8 @@ export const LazyBattleFormPage = lazy(
   () => import("../battle/pages/BattleFormPage/BattleFormPage"),
 );
 
-export const LazyBattleUpdatePage = lazy(
-  () => import("../battle/pages/BattleUpdatePage/BattleUpdatePage"),
+export const LazyBattleEditPage = lazy(
+  () => import("../battle/pages/BattleEditPage/BattleEditPage"),
 );
 
 export const LazyNotFoundPage = lazy(

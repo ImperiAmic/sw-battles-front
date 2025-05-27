@@ -10,8 +10,8 @@ import {
   muretBattleDto,
   roncesvallesBattleDto,
   tebasBattleDto,
-  updatedAlmansaBattleDto,
-  updatedRoncesvallesBattleDto,
+  editedAlmansaBattleDto,
+  editedRoncesvallesBattleDto,
   vilafrancaBattleDto,
 } from "../battle/dto/fixturesDto";
 import {
@@ -123,7 +123,7 @@ export const handlers = [
 
   http.put(`${apiUrl}/battles/${almansaBattleDto._id}`, () => {
     return HttpResponse.json<{ battle: BattleDto }>({
-      battle: updatedAlmansaBattleDto,
+      battle: editedAlmansaBattleDto,
     });
   }),
 
@@ -135,7 +135,7 @@ export const handlers = [
 
   http.put(`${apiUrl}/battles/${roncesvallesBattleDto._id}`, () => {
     return HttpResponse.json<{ battle: BattleDto }>({
-      battle: updatedRoncesvallesBattleDto,
+      battle: editedRoncesvallesBattleDto,
     });
   }),
 ];

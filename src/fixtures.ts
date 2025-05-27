@@ -162,7 +162,7 @@ export const vilafrancaFormBattle: BattleFormData = {
   imageUrl: "vilafranca.cat/foto.webp",
 };
 
-export const updatedAlmansaBattle: Battle = {
+export const editedAlmansaBattle: Battle = {
   id: "ccc333ccc333ccc333ccc333",
   battleName: "Killing of Almansa",
   conflict: "War of Spanish Succession",
@@ -178,7 +178,7 @@ export const updatedAlmansaBattle: Battle = {
   doesLightSideWin: false,
 };
 
-export const wrongUpdatedAlmansaBattle: Battle = {
+export const wrongEditedAlmansaBattle: Battle = {
   id: "alsosprachzarathustra",
   battleName: "Killing of Almansa",
   conflict: "War of Spanish Succession",

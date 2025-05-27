@@ -172,7 +172,7 @@ export const vilafrancaBattleDto: BattleDto = {
   _id: "ff66ffff66ffff66ffff66ff",
 };
 
-export const updatedAlmansaBattleDto: BattleDto = {
+export const editedAlmansaBattleDto: BattleDto = {
   _id: "ccc333ccc333ccc333ccc333",
   battleName: "Killing of Almansa",
   conflict: "War of Spanish Succession",
@@ -187,7 +187,7 @@ export const updatedAlmansaBattleDto: BattleDto = {
   doesLightSideWin: false,
 };
 
-export const wrongUpdatedAlmansaBattleDto: BattleDto = {
+export const wrongEditedAlmansaBattleDto: BattleDto = {
   _id: "alsosprachzarathustra",
   battleName: "Killing of Almansa",
   conflict: "War of Spanish Succession",
@@ -202,7 +202,7 @@ export const wrongUpdatedAlmansaBattleDto: BattleDto = {
   doesLightSideWin: false,
 };
 
-export const updatedRoncesvallesBattleDto: BattleDto = {
+export const editedRoncesvallesBattleDto: BattleDto = {
   _id: "111aaa111aaa111aaa111aaa",
   battleName: "Killing of Roncesvalles",
   conflict: "Muslim-Christian Conflicts in the Iberian Peninsula",

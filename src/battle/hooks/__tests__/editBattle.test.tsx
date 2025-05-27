@@ -3,14 +3,14 @@ import {
   almansaBattle,
   llucmajorBattle,
   montjuicBattle,
-  updatedAlmansaBattle,
+  editedAlmansaBattle,
 } from "../../../fixtures";
 import setupStore from "../../../store/setupStore";
 import type { BattlesInfoState } from "../../slice/types";
 import { renderHook } from "@testing-library/react";
 import useBattles from "../useBattles";
 import { act } from "react";
-import { updatedAlmansaBattleDto } from "../../dto/fixturesDto";
+import { editedAlmansaBattleDto } from "../../dto/fixturesDto";
 
 describe("Given the editBattle mthod from useBattle hook", () => {
   describe("When it receives the edited Battle of Almansa", () => {
@@ -37,14 +37,14 @@ describe("Given the editBattle mthod from useBattle hook", () => {
       const { result } = renderHook(() => useBattles(), { wrapper });
 
       await act(() => {
-        result.current.editBattle(updatedAlmansaBattleDto);
+        result.current.editBattle(editedAlmansaBattleDto);
       });
 
       const battles = result.current.battlesInfo.battles;
 
       expect(battles).toContainEqual(
         expect.objectContaining({
-          battleName: updatedAlmansaBattle.battleName,
+          battleName: editedAlmansaBattle.battleName,
         }),
       );
     });

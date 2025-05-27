@@ -71,12 +71,12 @@ const battlesInfoSlice = createSlice({
     },
     editBattle: (
       { battlesInfo: { battles, battlesTotal } },
-      { payload: updatedBattle }: PayloadAction<Battle>,
+      { payload: editedBattle }: PayloadAction<Battle>,
     ): BattlesInfoState => {
       return {
         battlesInfo: {
           battles: battles.map((battle) =>
-            battle.id === updatedBattle.id ? updatedBattle : battle,
+            battle.id === editedBattle.id ? editedBattle : battle,
           ),
           battlesTotal,
         },

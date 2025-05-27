@@ -155,11 +155,11 @@ describe("Given the Layout component", () => {
     });
   });
 
-  describe("When it renders in path /battles and the user goes to edit 'BATTLE OF WHAT' to 'BATTLE OF WTF'", () => {
-    test("Then it should show 'BATTLE OF WTF' as a heading", async () => {
+  describe("When it renders in path /battles and the user goes to edit 'Battle of Roncesvalles' to 'Killing of Roncesvalles'", () => {
+    test("Then it should show 'Killing of Roncesvalles' as a heading", async () => {
       const expectedBattleName = "Battle of Roncesvalles";
-      const expectedEditButtonText = "Update information";
-      const expectedModalText = "Battle has been successfully updated!";
+      const expectedEditButtonText = "Edit battle";
+      const expectedModalText = "Battle has been successfully edited!";
 
       render(
         <Provider store={store}>
@@ -175,19 +175,19 @@ describe("Given the Layout component", () => {
       });
 
       const battleCard = battleName.closest("article")!;
-      const updateButton = within(battleCard).getByLabelText(
+      const cardEditButton = within(battleCard).getByLabelText(
         expectedEditButtonText,
       );
 
-      await user.click(updateButton);
+      await user.click(cardEditButton);
 
       const nameInput = screen.getByLabelText(/name/i);
       await user.clear(nameInput);
       await user.type(nameInput, "Killing of Roncesvalles");
 
-      const editButton = screen.getByText("Edit battle");
+      const detailEditButton = screen.getByText("Edit battle");
 
-      await user.click(editButton);
+      await user.click(detailEditButton);
 
       screen.debug();
 
