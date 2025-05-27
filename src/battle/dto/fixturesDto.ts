@@ -12,6 +12,7 @@ export const roncesvallesBattleDto: BattleDto = {
   lightSide: ["Basques", "Local mountain tribes"],
   darkSide: ["Frankish Empire"],
   doesLightSideWin: true,
+  imageUrl: "https://www.a.a",
 };
 
 export const tebasBattleDto: BattleDto = {
@@ -199,4 +200,17 @@ export const wrongUpdatedAlmansaBattleDto: BattleDto = {
   lightSide: ["Austrian Habsburgs", "Catalan allies"],
   darkSide: ["Bourbon Spanish troops", "French troops"],
   doesLightSideWin: false,
+};
+
+export const updatedRoncesvallesBattleDto: BattleDto = {
+  _id: "111aaa111aaa111aaa111aaa",
+  battleName: "Killing of Roncesvalles",
+  conflict: "Muslim-Christian Conflicts in the Iberian Peninsula",
+  year: 778,
+  period: "BBY",
+  description:
+    "Fought in 778, this ambush in the Pyrenees involved Basque forces attacking the rearguard of Charlemagne’s army. Though not a 'Catalan' army, the event impacted early Frankish efforts in the region that would eventually shape Catalonia.",
+  lightSide: ["Basques", "Local mountain tribes"],
+  darkSide: ["Frankish Empire"],
+  doesLightSideWin: true,
 };

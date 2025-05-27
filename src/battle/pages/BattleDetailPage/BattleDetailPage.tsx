@@ -93,7 +93,7 @@ const BattleDetailPage: React.FC = () => {
         <Link
           aria-label="Update information"
           className="battle-detail-update"
-          to={""}
+          to={`/edit-battle/${battle.id}`}
         >
           Update this battle
         </Link>

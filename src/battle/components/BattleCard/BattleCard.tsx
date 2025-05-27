@@ -77,7 +77,7 @@ const BattleCard: React.FC<BattleCardProps> = ({
             <Link
               aria-label="Update information"
               className="battle-link"
-              to={""}
+              to={`/edit-battle/${id}`}
             >
               update
             </Link>
