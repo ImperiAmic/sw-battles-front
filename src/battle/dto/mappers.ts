@@ -2,7 +2,8 @@ import type { BattleDto } from "./types";
 import type { Battle, BattleFormData, BattleFormDataDto } from "../../types";
 
 export const mapBattleDtoToBattle = (battleDto: BattleDto): Battle => {
-  const isImageMissing = battleDto.imageUrl ?? "/images/placeholder.webp";
+  const isImageMissing =
+    battleDto.imageUrl ?? "https://i.ibb.co/k2nx0bWv/placeholder.webp";
 
   const doesImageNeedAlt = battleDto.imageUrl
     ? `General view of ${battleDto.battleName}`
@@ -42,7 +43,7 @@ export const mapBattleFormDataToBattleDto = (
   }
 
   if (battleFormData.imageUrl === "") {
-    battleFormData.imageUrl = "/images/placeholder.webp";
+    battleFormData.imageUrl = "https://i.ibb.co/k2nx0bWv/placeholder.webp";
   }
 
   if (battleFormData.period !== "BBY" && battleFormData.period !== "ABY") {

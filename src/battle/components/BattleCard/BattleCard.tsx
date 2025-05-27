@@ -86,7 +86,7 @@ const BattleCard: React.FC<BattleCardProps> = ({
             <img
               className="battle__delete"
               src="images/delete.svg"
-              alt="Delete icon"
+              alt=""
               height={30}
               width={30}
             />
