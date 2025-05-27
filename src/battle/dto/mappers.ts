@@ -33,3 +33,32 @@ export const mapBattleFormDataToBattleFormDataDto = (
       .map((darkCombatant) => darkCombatant.trim()),
   };
 };
+
+export const mapBattleFormDataToBattleDto = (
+  battleFormData: BattleFormData,
+): BattleDto => {
+  if (!battleFormData.id) {
+    throw new Error("Error while updating the battle");
+  }
+
+  if (battleFormData.imageUrl === "") {
+    battleFormData.imageUrl = "/images/placeholder.webp";
+  }
+
+  if (battleFormData.period !== "BBY" && battleFormData.period !== "ABY") {
+    throw new Error("Error while updating the battle, invalid period");
+  }
+
+  return {
+    battleName: battleFormData.battleName,
+    conflict: battleFormData.conflict,
+    darkSide: battleFormData.darkSide.split(", "),
+    description: battleFormData.description,
+    doesLightSideWin: battleFormData.doesLightSideWin,
+    _id: battleFormData.id,
+    imageUrl: battleFormData.imageUrl,
+    lightSide: battleFormData.lightSide.split(", "),
+    period: battleFormData.period,
+    year: battleFormData.year,
+  };
+};

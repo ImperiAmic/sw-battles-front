@@ -1,4 +1,5 @@
 import type { Battle, BattleFormDataDto, BattlesInfo } from "../../types";
+import type { BattleDto } from "../dto/types";
 
 export interface BattleClientStructure {
   getBattlesInfo: (page: number) => Promise<BattlesInfo>;
@@ -6,4 +7,5 @@ export interface BattleClientStructure {
   deleteBattle: (battleId: string) => Promise<Battle>;
   getBattleDetail: (battleId: string) => Promise<Battle>;
   addBattle: (battleFormDataDto: BattleFormDataDto) => Promise<Battle>;
+  editBattle: (battleDto: BattleDto) => Promise<Battle>;
 }

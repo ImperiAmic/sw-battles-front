@@ -69,6 +69,19 @@ const battlesInfoSlice = createSlice({
         },
       };
     },
+    editBattle: (
+      { battlesInfo: { battles, battlesTotal } },
+      { payload: updatedBattle }: PayloadAction<Battle>,
+    ): BattlesInfoState => {
+      return {
+        battlesInfo: {
+          battles: battles.map((battle) =>
+            battle.id === updatedBattle.id ? updatedBattle : battle,
+          ),
+          battlesTotal,
+        },
+      };
+    },
   },
 });
 
@@ -80,4 +93,5 @@ export const {
   deleteBattle: deleteBattleActionCreator,
   getBattlesDetail: getBattlesDetailActionCreator,
   addBattle: addBattleActionCreator,
+  editBattle: editBattleActionCreator,
 } = battlesInfoSlice.actions;

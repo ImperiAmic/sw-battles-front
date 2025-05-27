@@ -1,20 +1,24 @@
 import { useNavigate } from "react-router";
 import { useState } from "react";
-import { mapBattleFormDataToBattleFormDataDto } from "../../dto/mappers";
+import {
+  mapBattleFormDataToBattleDto,
+  mapBattleFormDataToBattleFormDataDto,
+} from "../../dto/mappers";
 import type { BattleFormData, BattleFormDataDto } from "../../../types";
 import Button from "../../../ui/components/Button/Button";
 import "./BattleForm.css";
+import type { BattleDto } from "../../dto/types";
 
 interface BattleFormProps {
   isNewBattleForm: boolean;
   addBattle?: (battleFormDataDto: BattleFormDataDto) => Promise<void>;
-  updateBattle?: () => void;
+  editBattle?: (editedBattleDto: BattleDto) => Promise<void>;
   initialFormData: BattleFormData;
 }
 
 const BattleForm: React.FC<BattleFormProps> = ({
   addBattle,
-  updateBattle,
+  editBattle,
   initialFormData,
   isNewBattleForm,
 }) => {
@@ -60,7 +64,7 @@ const BattleForm: React.FC<BattleFormProps> = ({
   const battleFormDataDto =
     mapBattleFormDataToBattleFormDataDto(battleFormData);
 
-  const handleOnSubmitBattleForm = async (
+  const handleCreateOnSubmitBattleForm = async (
     event: React.FormEvent<HTMLFormElement>,
   ) => {
     event.preventDefault();
@@ -69,9 +73,18 @@ const BattleForm: React.FC<BattleFormProps> = ({
     navigate("/");
   };
 
+  const handleEditOnSubmitBattleForm = async (
+    event: React.FormEvent<HTMLFormElement>,
+  ) => {
+    event.preventDefault();
+
+    await editBattle!(mapBattleFormDataToBattleDto(battleFormData));
+    navigate("/");
+  };
+
   const onSubmitAction = isNewBattleForm
-    ? handleOnSubmitBattleForm
-    : updateBattle;
+    ? handleCreateOnSubmitBattleForm
+    : handleEditOnSubmitBattleForm;
   const formTitle = isNewBattleForm
     ? "Add your own battle!"
     : `Update ${initialFormData.battleName}`;
