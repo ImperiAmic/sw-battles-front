@@ -4,9 +4,14 @@ import BattleForm from "../../components/BattleForm/BattleForm";
 import { useAppSelector } from "../../../store/hooks";
 import type { BattleFormData } from "../../../types";
 import useBattles from "../../hooks/useBattles";
+import useLoading from "../../../hooks/useLoading";
+import Loader from "../../../ui/components/Loader/Loader";
 
 const BattleEditPage: React.FC = () => {
   const { getBattleDetail, editBattle } = useBattles();
+  const {
+    loadingState: { isLoading },
+  } = useLoading();
 
   const { battleId } = useParams<{ battleId: string }>();
 
@@ -19,6 +24,10 @@ const BattleEditPage: React.FC = () => {
       (battle) => battle.id === battleId,
     ),
   );
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   if (battle) {
     const initialFormData: BattleFormData = {
@@ -33,6 +42,10 @@ const BattleEditPage: React.FC = () => {
       year: battle.year,
       id: battle.id,
     };
+
+    if (battle.imageUrl === "https://i.ibb.co/k2nx0bWv/placeholder.webp") {
+      initialFormData.imageUrl = "";
+    }
 
     return (
       <BattleForm
