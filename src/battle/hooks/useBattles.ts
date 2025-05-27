@@ -131,7 +131,7 @@ const useBattles = (): UseBattlesStructure => {
       const action = editBattleActionCreator(apiEditedBatttle);
 
       dispatch(action);
-      showModal(true, "Battle has been successfully updated!");
+      showModal(true, "Battle has been successfully edited!");
     } catch {
       showModal(false, "Oops! Can't edit your battle!");
     } finally {

@@ -102,7 +102,7 @@ class BattleClient implements BattleClientStructure {
     });
 
     if (!response.ok) {
-      throw new Error("Error while updating the battle");
+      throw new Error("Error while editing the battle");
     }
 
     const { battle } = (await response.json()) as { battle: BattleDto };

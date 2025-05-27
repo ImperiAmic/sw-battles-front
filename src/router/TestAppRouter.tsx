@@ -3,7 +3,7 @@ import NotFoundPage from "../ui/pages/NotFoundPage.tsx/NotFoundPage";
 import BattlesPage from "../battle/pages/BattlesPage/BattlesPage";
 import BattleDetailPage from "../battle/pages/BattleDetailPage/BattleDetailPage";
 import BattleFormPage from "../battle/pages/BattleFormPage/BattleFormPage";
-import BattleUpdatePage from "../battle/pages/BattleUpdatePage/BattleUpdatePage";
+import BattleEditPage from "../battle/pages/BattleEditPage/BattleEditPage";
 
 const AppRouterTest: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const AppRouterTest: React.FC = () => {
       <Route path="battles" element={<BattlesPage />} />
       <Route path="battle/:battleId" element={<BattleDetailPage />} />
       <Route path="add-battle" element={<BattleFormPage />} />
-      <Route path="edit-battle/:battleId" element={<BattleUpdatePage />} />
+      <Route path="edit-battle/:battleId" element={<BattleEditPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

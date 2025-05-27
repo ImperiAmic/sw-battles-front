@@ -75,11 +75,11 @@ const BattleCard: React.FC<BattleCardProps> = ({
               +info
             </Link>
             <Link
-              aria-label="Update information"
+              aria-label="Edit battle"
               className="battle-link"
               to={`/edit-battle/${id}`}
             >
-              update
+              edit
             </Link>
           </div>
           <Button aria-label="Delete battle" onClick={() => deleteBattle(id)}>

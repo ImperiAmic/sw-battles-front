@@ -5,7 +5,7 @@ import { useAppSelector } from "../../../store/hooks";
 import type { BattleFormData } from "../../../types";
 import useBattles from "../../hooks/useBattles";
 
-const BattleUpdatePage: React.FC = () => {
+const BattleEditPage: React.FC = () => {
   const { getBattleDetail, editBattle } = useBattles();
 
   const { battleId } = useParams<{ battleId: string }>();
@@ -44,4 +44,4 @@ const BattleUpdatePage: React.FC = () => {
   }
 };
 
-export default BattleUpdatePage;
+export default BattleEditPage;

@@ -2,28 +2,28 @@ import { http, HttpResponse } from "msw";
 import { server } from "../../../mocks/node";
 import BattleClient from "../BattleClient";
 import {
-  updatedAlmansaBattleDto,
-  wrongUpdatedAlmansaBattleDto,
+  editedAlmansaBattleDto,
+  wrongEditedAlmansaBattleDto,
 } from "../../dto/fixturesDto";
 
 describe("Given the editBattle method from BattleClient", () => {
-  describe("When it receives the updated Battle of Almansa", () => {
+  describe("When it receives the edited Battle of Almansa", () => {
     test("Then it should return 'Killing of Almansa' battle", async () => {
-      const expectedUpdatedBattleName = updatedAlmansaBattleDto.battleName;
+      const expectedEditedBattleName = editedAlmansaBattleDto.battleName;
 
       const battleClient = new BattleClient();
       const editedBattle = await battleClient.editBattle(
-        updatedAlmansaBattleDto,
+        editedAlmansaBattleDto,
       );
 
-      expect(editedBattle.battleName).toBe(expectedUpdatedBattleName);
+      expect(editedBattle.battleName).toBe(expectedEditedBattleName);
     });
   });
 
   describe("When it is called with an ID which is not correct", () => {
-    test("Then it should throw an 'Error while updating the battle' message", () => {
+    test("Then it should throw an 'Error while editing the battle' message", () => {
       const notCorrectID = "alsosprachzarathustra";
-      const expectedErrorMessage = "Error while updating the battle";
+      const expectedErrorMessage = "Error while editing the battle";
 
       const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -34,9 +34,7 @@ describe("Given the editBattle method from BattleClient", () => {
       );
 
       const battleClient = new BattleClient();
-      const editedBattle = battleClient.editBattle(
-        wrongUpdatedAlmansaBattleDto,
-      );
+      const editedBattle = battleClient.editBattle(wrongEditedAlmansaBattleDto);
 
       expect(editedBattle).rejects.toThrow(expectedErrorMessage);
     });

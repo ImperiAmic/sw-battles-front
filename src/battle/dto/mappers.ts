@@ -38,7 +38,7 @@ export const mapBattleFormDataToBattleDto = (
   battleFormData: BattleFormData,
 ): BattleDto => {
   if (!battleFormData.id) {
-    throw new Error("Error while updating the battle");
+    throw new Error("Error while editing the battle");
   }
 
   if (battleFormData.imageUrl === "") {
@@ -46,7 +46,7 @@ export const mapBattleFormDataToBattleDto = (
   }
 
   if (battleFormData.period !== "BBY" && battleFormData.period !== "ABY") {
-    throw new Error("Error while updating the battle, invalid period");
+    throw new Error("Error while editing the battle, invalid period");
   }
 
   return {

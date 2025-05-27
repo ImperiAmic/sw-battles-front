@@ -445,8 +445,8 @@ describe("Given the BattleForm component", () => {
   });
 
   describe("When it renders as a form to edit Conquest of Mallorca", () => {
-    test("Then it should show 'Update Conquest of Mallorca' as a heading", () => {
-      const expectedTitle = /update conquest of mallorca/i;
+    test("Then it should show 'Edit Conquest of Mallorca' as a heading", () => {
+      const expectedTitle = /edit conquest of mallorca/i;
 
       render(
         <MemoryRouter>

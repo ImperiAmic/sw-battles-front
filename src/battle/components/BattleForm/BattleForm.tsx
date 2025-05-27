@@ -87,7 +87,7 @@ const BattleForm: React.FC<BattleFormProps> = ({
     : handleEditOnSubmitBattleForm;
   const formTitle = isNewBattleForm
     ? "Add your own battle!"
-    : `Update ${initialFormData.battleName}`;
+    : `Edit ${initialFormData.battleName}`;
   const buttonText = isNewBattleForm ? "Create new battle" : "Edit battle";
 
   return (
