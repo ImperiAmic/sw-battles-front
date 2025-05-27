@@ -1,7 +1,7 @@
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router";
 import userEvent from "@testing-library/user-event";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import Layout from "./Layout";
 import store from "../../../store/store";
 import AppRouterTest from "../../../router/TestAppRouter";
@@ -149,9 +149,51 @@ describe("Given the Layout component", () => {
 
       await user.click(createButton);
 
-      const battleName = await screen.findByText(expectedModalText);
+      const modal = await screen.findByText(expectedModalText);
 
-      expect(battleName).toBeInTheDocument();
+      expect(modal).toBeInTheDocument();
+    });
+  });
+
+  describe("When it renders in path /battles and the user goes to edit 'BATTLE OF WHAT' to 'BATTLE OF WTF'", () => {
+    test("Then it should show 'BATTLE OF WTF' as a heading", async () => {
+      const expectedBattleName = "Battle of Roncesvalles";
+      const expectedEditButtonText = "Update information";
+      const expectedModalText = "Battle has been successfully updated!";
+
+      render(
+        <Provider store={store}>
+          <MemoryRouter initialEntries={["/battles"]}>
+            <Layout />
+            <AppRouterTest />
+          </MemoryRouter>
+        </Provider>,
+      );
+
+      const battleName = await screen.findByRole("heading", {
+        name: expectedBattleName,
+      });
+
+      const battleCard = battleName.closest("article")!;
+      const updateButton = within(battleCard).getByLabelText(
+        expectedEditButtonText,
+      );
+
+      await user.click(updateButton);
+
+      const nameInput = screen.getByLabelText(/name/i);
+      await user.clear(nameInput);
+      await user.type(nameInput, "Killing of Roncesvalles");
+
+      const editButton = screen.getByText("Edit battle");
+
+      await user.click(editButton);
+
+      screen.debug();
+
+      const modal = await screen.findByText(expectedModalText);
+
+      expect(modal).toBeInTheDocument();
     });
   });
 });

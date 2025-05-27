@@ -11,6 +11,7 @@ import {
   roncesvallesBattleDto,
   tebasBattleDto,
   updatedAlmansaBattleDto,
+  updatedRoncesvallesBattleDto,
   vilafrancaBattleDto,
 } from "../battle/dto/fixturesDto";
 import {
@@ -123,6 +124,18 @@ export const handlers = [
   http.put(`${apiUrl}/battles/${almansaBattleDto._id}`, () => {
     return HttpResponse.json<{ battle: BattleDto }>({
       battle: updatedAlmansaBattleDto,
+    });
+  }),
+
+  http.get(`${apiUrl}/battles/${roncesvallesBattle.id}`, () => {
+    return HttpResponse.json<{ battle: BattleDto }>({
+      battle: roncesvallesBattleDto,
+    });
+  }),
+
+  http.put(`${apiUrl}/battles/${roncesvallesBattleDto._id}`, () => {
+    return HttpResponse.json<{ battle: BattleDto }>({
+      battle: updatedRoncesvallesBattleDto,
     });
   }),
 ];
