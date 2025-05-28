@@ -1,4 +1,4 @@
-import type { Battle, BattleFormDataDto, BattlesInfo } from "../../types";
+import type { Battle, BattleFormDataDto, BattlesInfo } from "../types";
 import type { BattleDto } from "../dto/types";
 
 export interface BattleClientStructure {

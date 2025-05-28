@@ -1,4 +1,4 @@
-import type { BattleFormData } from "../../../types";
+import type { BattleFormData } from "../../types";
 import BattleForm from "../../components/BattleForm/BattleForm";
 import useBattles from "../../hooks/useBattles";
 

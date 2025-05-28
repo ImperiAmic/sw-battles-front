@@ -1,4 +1,4 @@
-import type { Battle } from "../../../types";
+import type { Battle } from "../../types";
 import BattleCard from "../BattleCard/BattleCard";
 import "./BattlesList.css";
 

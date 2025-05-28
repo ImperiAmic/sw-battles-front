@@ -1,4 +1,4 @@
-import type { Battle, BattlesInfo } from "../../types";
+import type { Battle, BattlesInfo } from "../types";
 
 export interface BattleDto
   extends Omit<Battle, "id" | "imageUrl" | "imageAlt"> {

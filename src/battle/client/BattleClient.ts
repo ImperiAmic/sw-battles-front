@@ -1,4 +1,4 @@
-import type { Battle, BattleFormDataDto, BattlesInfo } from "../../types";
+import type { Battle, BattleFormDataDto, BattlesInfo } from "../types";
 import type { BattleClientStructure } from "./types";
 import { mapBattleDtoToBattle, mapBattlesDtoToBattles } from "../dto/mappers";
 import type {

@@ -28,7 +28,7 @@ const Modal: React.FC<ModalProps> = ({ isSuccess, text, action }) => {
           <img
             className={`img${isImgClassSuccess}`}
             src={isImgSrcSuccess}
-            alt="Delete icon"
+            alt=""
           />
         </Button>
         <span className="modal-text">{text}</span>

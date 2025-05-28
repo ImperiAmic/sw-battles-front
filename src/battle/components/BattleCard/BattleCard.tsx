@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import Button from "../../../ui/components/Button/Button";
 import useBattles from "../../hooks/useBattles";
-import type { Battle } from "../../../types";
+import type { Battle } from "../../types";
 import "./BattleCard.css";
 
 interface BattleCardProps {

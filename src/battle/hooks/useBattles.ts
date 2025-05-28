@@ -12,7 +12,7 @@ import {
 } from "../slice/battlesInfoSlice";
 import useModal from "../../ui/hooks/useModal";
 import useLoading from "../../ui/hooks/useLoading";
-import type { BattleFormDataDto } from "../../types";
+import type { BattleFormDataDto } from "../types";
 import type { BattleDto } from "../dto/types";
 
 const useBattles = (): UseBattlesStructure => {
