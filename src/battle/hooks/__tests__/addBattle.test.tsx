@@ -5,7 +5,7 @@ import { vilafrancaFormBattleDto } from "../../dto/fixturesDto";
 import type { BattlesInfoState } from "../../slice/types";
 import setupStore from "../../../store/setupStore";
 import useBattles from "../useBattles";
-import { lleidaBattle, tebasBattle } from "../../../fixtures";
+import { lleidaBattle, tebasBattle } from "../../fixtures";
 
 describe("Given the addBattle method from useBattles hook", () => {
   describe("When it receives Battle of Vilafranca ad form data", () => {

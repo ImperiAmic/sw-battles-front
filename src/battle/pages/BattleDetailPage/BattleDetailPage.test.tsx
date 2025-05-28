@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router";
 import { Provider } from "react-redux";
 import AppRouterTest from "../../../router/TestAppRouter";
-import { muretBattle } from "../../../fixtures";
+import { muretBattle } from "../../fixtures";
 import store from "../../../store/store";
 
 describe("Given the BattleDetailPage component", () => {

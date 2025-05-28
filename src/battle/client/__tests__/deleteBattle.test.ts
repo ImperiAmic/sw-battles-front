@@ -1,7 +1,7 @@
 import { http, HttpResponse } from "msw";
 import BattleClient from "../BattleClient";
-import { server } from "../../../mocks/node";
-import { mallorcaBattle } from "../../../fixtures";
+import { server } from "../../mocks/node";
+import { mallorcaBattle } from "../../fixtures";
 import { mallorcaBattleDto } from "../../dto/fixturesDto";
 import { mapBattleDtoToBattle } from "../../dto/mappers";
 

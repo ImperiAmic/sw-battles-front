@@ -1,9 +1,9 @@
+import { server } from "../../mocks/node";
 import { http, HttpResponse } from "msw";
-import { server } from "../../../mocks/node";
 import { mapBattleFormDataToBattleFormDataDto } from "../../dto/mappers";
-import BattleClient from "../BattleClient";
 import { vilafrancaFormBattleDto } from "../../dto/fixturesDto";
-import { vilafrancaFormBattle } from "../../../fixtures";
+import { vilafrancaFormBattle } from "../../fixtures";
+import BattleClient from "../BattleClient";
 
 describe("Given the addBattle method from BattleClient", () => {
   describe("When it receives the form data 'Battle of Vilafranca'", () => {
