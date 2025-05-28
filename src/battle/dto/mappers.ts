@@ -3,7 +3,7 @@ import type { Battle, BattleFormData, BattleFormDataDto } from "../../types";
 
 export const mapBattleDtoToBattle = (battleDto: BattleDto): Battle => {
   const isImageMissing =
-    battleDto.imageUrl ?? "https://i.ibb.co/k2nx0bWv/placeholder.webp";
+    battleDto.imageUrl || "https://i.ibb.co/k2nx0bWv/placeholder.webp";
 
   const doesImageNeedAlt = battleDto.imageUrl
     ? `General view of ${battleDto.battleName}`
