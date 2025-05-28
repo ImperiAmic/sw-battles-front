@@ -1,4 +1,4 @@
-import type { BattleFormDataDto } from "../../types";
+import type { BattleFormDataDto } from "../types";
 import type { BattleDto } from "./types";
 
 export const roncesvallesBattleDto: BattleDto = {

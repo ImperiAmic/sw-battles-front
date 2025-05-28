@@ -4,7 +4,7 @@ import {
   mapBattleFormDataToBattleDto,
   mapBattleFormDataToBattleFormDataDto,
 } from "../../dto/mappers";
-import type { BattleFormData, BattleFormDataDto } from "../../../types";
+import type { BattleFormData, BattleFormDataDto } from "../../types";
 import Button from "../../../ui/components/Button/Button";
 import "./BattleForm.css";
 import type { BattleDto } from "../../dto/types";

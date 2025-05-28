@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import { useEffect } from "react";
 import BattleForm from "../../components/BattleForm/BattleForm";
 import { useAppSelector } from "../../../store/hooks";
-import type { BattleFormData } from "../../../types";
+import type { BattleFormData } from "../../types";
 import useBattles from "../../hooks/useBattles";
 import useLoading from "../../../ui/hooks/useLoading";
 import Loader from "../../../ui/components/Loader/Loader";

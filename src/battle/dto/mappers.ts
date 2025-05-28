@@ -1,5 +1,5 @@
 import type { BattleDto } from "./types";
-import type { Battle, BattleFormData, BattleFormDataDto } from "../../types";
+import type { Battle, BattleFormData, BattleFormDataDto } from "../types";
 
 export const mapBattleDtoToBattle = (battleDto: BattleDto): Battle => {
   const isImageMissing =
