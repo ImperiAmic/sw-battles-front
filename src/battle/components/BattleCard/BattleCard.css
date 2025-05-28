@@ -17,7 +17,6 @@
   width: 100%;
   object-fit: cover;
   box-shadow: 0 4px 4px 0 var(--dark-alpha-main);
-  z-index: -1;
 }
 
 .battle__title {
