@@ -1,19 +1,23 @@
 import type { BattleDto } from "./types";
 import type { Battle, BattleFormData, BattleFormDataDto } from "../types";
 
-export const mapBattleDtoToBattle = (battleDto: BattleDto): Battle => {
-  const isImageMissing =
-    battleDto.imageUrl || "https://i.ibb.co/k2nx0bWv/placeholder.webp";
+export const mapBattleDtoToBattle = ({
+  _id,
+  imageUrl,
+  ...battleDto
+}: BattleDto): Battle => {
+  const definitiveImageUrl =
+    imageUrl || "https://i.ibb.co/k2nx0bWv/placeholder.webp";
 
-  const doesImageNeedAlt = battleDto.imageUrl
+  const definitiveImageAlt = imageUrl
     ? `General view of ${battleDto.battleName}`
     : "";
 
   return {
     ...battleDto,
-    id: battleDto._id,
-    imageUrl: isImageMissing,
-    imageAlt: doesImageNeedAlt,
+    id: _id,
+    imageUrl: definitiveImageUrl,
+    imageAlt: definitiveImageAlt,
   };
 };
 
