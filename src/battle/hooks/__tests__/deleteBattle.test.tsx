@@ -3,7 +3,7 @@ import {
   barcelonaBattle,
   llucmajorBattle,
   montjuicBattle,
-} from "../../../fixtures";
+} from "../../fixtures";
 import setupStore from "../../../store/setupStore";
 import type { BattlesInfoState } from "../../slice/types";
 import { renderHook } from "@testing-library/react";

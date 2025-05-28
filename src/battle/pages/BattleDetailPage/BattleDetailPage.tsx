@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, Navigate, useParams } from "react-router";
 import useBattles from "../../hooks/useBattles";
-import useLoading from "../../../hooks/useLoading";
+import useLoading from "../../../ui/hooks/useLoading";
 import { useAppSelector } from "../../../store/hooks";
 import Loader from "../../../ui/components/Loader/Loader";
 import Button from "../../../ui/components/Button/Button";

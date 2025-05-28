@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import store from "../../store/store";
+import store from "../../../store/store";
 import { renderHook } from "@testing-library/react";
 import useModal from "../useModal";
 import { act } from "react";

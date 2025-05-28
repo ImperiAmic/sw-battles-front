@@ -1,5 +1,5 @@
 import { http, HttpResponse } from "msw";
-import { server } from "../../../mocks/node";
+import { server } from "../../mocks/node";
 import BattleClient from "../BattleClient";
 import { catalanBattlesDtos } from "../../dto/fixturesDto";
 import { mapBattlesDtoToBattles } from "../../dto/mappers";

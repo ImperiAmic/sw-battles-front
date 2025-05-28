@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router";
 import BattleForm from "./BattleForm";
 import type { BattleFormData } from "../../../types";
-import { mallorcaBattle } from "../../../fixtures";
+import { mallorcaBattle } from "../../fixtures";
 
 describe("Given the BattleForm component", () => {
   const action = vitest.fn();

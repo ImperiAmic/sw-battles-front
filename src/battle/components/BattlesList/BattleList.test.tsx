@@ -3,7 +3,7 @@ import { MemoryRouter } from "react-router";
 import { render, screen } from "@testing-library/react";
 import BattlesList from "./BattlesList";
 import store from "../../../store/store";
-import { catalanBattles } from "../../../fixtures";
+import { catalanBattles } from "../../fixtures";
 
 describe("Given the BattlesList component", () => {
   describe("When it receives Roncesvalles, Tebas and Barcelona battles", () => {

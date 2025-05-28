@@ -3,7 +3,7 @@ import { MemoryRouter } from "react-router";
 import { render, screen } from "@testing-library/react";
 import BattleCard from "./BattleCard";
 import store from "../../../store/store";
-import { muretBattle } from "../../../fixtures";
+import { muretBattle } from "../../fixtures";
 
 describe("Given the BattleCard component", () => {
   describe("When it receives Muret battle and renders", () => {

@@ -1,7 +1,7 @@
 import { http, HttpResponse } from "msw";
-import { server } from "../../../mocks/node";
+import { server } from "../../mocks/node";
 import BattleClient from "../BattleClient";
-import { lleidaBattle } from "../../../fixtures";
+import { lleidaBattle } from "../../fixtures";
 
 describe("Given the toggleBattleWinner method from BattleClient", () => {
   describe("When it is called with the Battle of the Lleida ID", () => {

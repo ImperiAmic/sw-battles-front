@@ -4,11 +4,7 @@ import { act } from "react";
 import type { BattlesInfoState } from "../../slice/types";
 import setupStore from "../../../store/setupStore";
 import useBattles from "../useBattles";
-import {
-  roncesvallesBattle,
-  muretBattle,
-  almansaBattle,
-} from "../../../fixtures";
+import { roncesvallesBattle, muretBattle, almansaBattle } from "../../fixtures";
 
 describe("Given the getBattleDetail method from useBattle hook", () => {
   describe("When it receives the Battle of Almansa ID", () => {

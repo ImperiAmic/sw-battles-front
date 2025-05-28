@@ -2,7 +2,7 @@ import { act } from "react";
 import { Provider } from "react-redux";
 import { renderHook } from "@testing-library/react";
 import useModal from "../useModal";
-import store from "../../store/store";
+import store from "../../../store/store";
 
 describe("Given the showModal method from useModal hook", () => {
   describe("When it receives a true (meaning modal is a success) and 'La pata de Perico' text", () => {

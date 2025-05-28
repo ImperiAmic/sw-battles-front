@@ -1,4 +1,4 @@
-import type { Battle, BattleFormData } from "./types";
+import type { Battle, BattleFormData } from "../types";
 
 export const roncesvallesBattle: Battle = {
   id: "111aaa111aaa111aaa111aaa",

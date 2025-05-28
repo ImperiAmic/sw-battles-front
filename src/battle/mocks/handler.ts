@@ -1,5 +1,5 @@
 import { http, HttpResponse } from "msw";
-import { type BattleDto, type BattlesInfoDto } from "../battle/dto/types";
+import { type BattleDto, type BattlesInfoDto } from "../../battle/dto/types";
 import {
   almansaBattleDto,
   catalanBattlesDtos,
@@ -13,7 +13,7 @@ import {
   editedAlmansaBattleDto,
   editedRoncesvallesBattleDto,
   vilafrancaBattleDto,
-} from "../battle/dto/fixturesDto";
+} from "../../battle/dto/fixturesDto";
 import {
   almansaBattle,
   lleidaBattle,

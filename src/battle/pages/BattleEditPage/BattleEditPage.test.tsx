@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import { Provider } from "react-redux";
 import store from "../../../store/store";
-import { mallorcaBattle } from "../../../fixtures";
+import { mallorcaBattle } from "../../fixtures";
 import AppRouterTest from "../../../router/TestAppRouter";
 
 describe("Given the BattleEditPage component", () => {

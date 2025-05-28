@@ -1,8 +1,8 @@
-import { server } from "../../../mocks/node";
+import { server } from "../../mocks/node";
 import { http, HttpResponse } from "msw";
 import { mapBattleDtoToBattle } from "../../dto/mappers";
 import { montjuicBattleDto } from "../../dto/fixturesDto";
-import { montjuicBattle } from "../../../fixtures";
+import { montjuicBattle } from "../../fixtures";
 import BattleClient from "../BattleClient";
 
 describe("Given the getBattleDetail method from BattleClient", () => {

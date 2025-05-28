@@ -4,7 +4,7 @@ import BattleForm from "../../components/BattleForm/BattleForm";
 import { useAppSelector } from "../../../store/hooks";
 import type { BattleFormData } from "../../../types";
 import useBattles from "../../hooks/useBattles";
-import useLoading from "../../../hooks/useLoading";
+import useLoading from "../../../ui/hooks/useLoading";
 import Loader from "../../../ui/components/Loader/Loader";
 
 const BattleEditPage: React.FC = () => {
