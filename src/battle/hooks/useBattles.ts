@@ -10,8 +10,8 @@ import {
   getBattlesInfoActionCreator,
   toggleBattleWinnerActionCreator,
 } from "../slice/battlesInfoSlice";
-import useModal from "../../hooks/useModal";
-import useLoading from "../../hooks/useLoading";
+import useModal from "../../ui/hooks/useModal";
+import useLoading from "../../ui/hooks/useLoading";
 import type { BattleFormDataDto } from "../../types";
 import type { BattleDto } from "../dto/types";
 

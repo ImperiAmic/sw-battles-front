@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { battlesReducer } from "../battle/slice/battlesInfoSlice";
 import type { BattlesPreloadedState } from "../battle/slice/types";
-import { modalReducer } from "../slices/modalSlice";
-import { loadingReducer } from "../slices/loadingSlice";
+import { modalReducer } from "../ui/slices/modalSlice";
+import { loadingReducer } from "../ui/slices/loadingSlice";
 
 const setupStore = (preloadedState?: BattlesPreloadedState) => {
   const store = configureStore({
