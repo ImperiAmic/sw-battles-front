@@ -625,7 +625,7 @@ describe("Given the BattleForm component", () => {
       );
 
       const createButton = screen.getByText(expectedButton);
-      screen.debug();
+
       expect(createButton).toBeInTheDocument();
     });
   });
