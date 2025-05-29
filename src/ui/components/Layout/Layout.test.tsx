@@ -189,8 +189,6 @@ describe("Given the Layout component", () => {
 
       await user.click(detailEditButton);
 
-      screen.debug();
-
       const modal = await screen.findByText(expectedModalText);
 
       expect(modal).toBeInTheDocument();
