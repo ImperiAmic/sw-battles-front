@@ -1,10 +1,10 @@
-import { useEffect } from "react";
 import { useSearchParams } from "react-router";
-import useBattles from "../../hooks/useBattles";
-import Loader from "../../../ui/components/Loader/Loader";
+import { useEffect } from "react";
 import Paginator from "../../../ui/components/Paginator/Paginator";
 import BattlesList from "../../components/BattlesList/BattlesList";
+import Loader from "../../../ui/components/Loader/Loader";
 import useLoading from "../../../ui/hooks/useLoading";
+import useBattles from "../../hooks/useBattles";
 import "./BattlesPage.css";
 
 const BattlesPage: React.FC = () => {
