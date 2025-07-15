@@ -42,7 +42,7 @@ const battlesInfoSlice = createSlice({
       return {
         battlesInfo: {
           battles: battles.filter((battle) => battle.id !== payload.id),
-          battlesTotal,
+          battlesTotal: battlesTotal - 1,
         },
       };
     },
