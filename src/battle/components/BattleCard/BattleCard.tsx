@@ -31,7 +31,7 @@ const BattleCard: React.FC<BattleCardProps> = ({
   const imageLoading = index <= 1 ? "eager" : "lazy";
 
   return (
-    <article className="battle">
+    <article className="battle" data-testid="battleCard">
       <header className="battle-header">
         <img
           className="battle__image"
